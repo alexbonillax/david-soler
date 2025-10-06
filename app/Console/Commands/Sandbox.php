@@ -11,14 +11,28 @@ class Sandbox extends Command
 
     public function handle()
     {
-        // Programa
+        // Programa 1
 
-        $this->calculateFinalPrice(100, 0.10, 0.21); // 108.90
-        $this->calculateFinalPrice(50, 0.00, 0.21); // 60.50
-        $this->calculateFinalPrice(200, 0.25, 0.10); // 165.00
-        $this->calculateFinalPrice(200, -1, 0.10); // error, el descuento no es correcto
-        $this->calculateFinalPrice(200, 0.5, -0.10); // error, el impuesto no es correcto
+        //$this->calculateFinalPrice(100, 0.10, 0.21); // 108.90
+        //$this->calculateFinalPrice(50, 0.00, 0.21); // 60.50
+        // $this->calculateFinalPrice(200, 0.25, 0.10); // 165.00
+        // $this->calculateFinalPrice(200, -1, 0.10); // error, el descuento no es correcto
+        // $this->calculateFinalPrice(200, 0.5, -0.10); // error, el impuesto no es correcto
+        // die;
+
+        // Programa 2
+
+        $this->minNumberOfBills(87); // {50:1, 20:1, 10:1, 5:1, 2:1, 1:0} (total 5 piezas)
+        $this->minNumberOfBills(3); // {2:1, 1:1} (total 2 piezas)
+        $this->minNumberOfBills(0); // tot a 0 (total 0 piezas)
         die;
+
+        // Programa 3
+        //$this->contactNormalizer("Anna López" ; "ANNA.LOPEZ@example.com" ; "Es" );
+        //$this->contactNormalizer(jose M. ; jose.m@example.com ; es);
+        //$this->contactNormalizer(Marta; marta@example ; es); // email inválido
+        //$this->contactNormalizer(Anna López; anna.lopez@example.com ; ES ); // duplicado
+        //die;
 
         // Variable
         $var = 1;
@@ -31,10 +45,10 @@ class Sandbox extends Command
         // Números: int|float
         // Textos: string
         // Booleanos: bool -> 1/0
-        $int    = 1;
-        $float  = 1.0;
+        $int = 1;
+        $float = 1.0;
         $string = "Hello world";
-        $bool   = false;
+        $bool = false;
 
         // Tipus avançats: arrays
         $array1 = [1, 2, 3, 4];
@@ -74,8 +88,8 @@ class Sandbox extends Command
 
         // Control de fluxe de decisió: if/elseif/else
         $currentAmount = 900;
-        $goodAmount    = 1000;
-        $minAmount     = 0;
+        $goodAmount = 1000;
+        $minAmount = 0;
 
         if ($currentAmount > $minAmount && $currentAmount < $goodAmount) {
 //            print_r("Ok" . PHP_EOL);
@@ -137,7 +151,7 @@ class Sandbox extends Command
             $finalPrice = $finalPrice * (1 + $tax);
 
             // Redondear a 2 decimales
-            $finalPrice = round($finalPrice, 2);
+            //$finalPrice = round($finalPrice, 2);
 
             print_r($finalPrice . PHP_EOL);
         }
@@ -155,15 +169,46 @@ class Sandbox extends Command
      * Casos de prueba (resultado esperado):
      * • 87 € → {50:1, 20:1, 10:1, 5:1, 2:1, 1:0} (total 5 piezas)
      * • 3 € → {2:1, 1:1} (total 2 piezas)
-     * • 0 € → todo a 0 (total 0 piezas)
+     * • 0 € → tot a 0 (total 0 piezas)
      * Extensión: añadir moneda de 0,50 € y cantidades con céntimos (usa importes en céntimos como enteros).
      */
-    public function minNumberOfBills()
+
+
+    public function minNumberOfBills($amount)
     {
+        $billTypes = [50, 20, 10, 5, 2, 1];
+        //sort($billTypes);
+        $billCount = [0, 0, 0, 0, 0, 0];
+
+
+        foreach ($billTypes as $index => $billType) {
+            //print_r($index . " " . $billType . PHP_EOL);
+            $billCount[$index] = intdiv($amount, $billType);
+            $amount = $amount % $billType;
+            print_r("BILLCOUNT:" . $billCount[$index] . PHP_EOL);
+            print_r("AMOUNT:" . $amount . PHP_EOL . PHP_EOL);
+        }
+
+        /*
+         *  if ($amount >= $billType) {
+                $billCount + 1;;
+                $amount = ($amount - $billTypes[$itemBillTypes]);
+            } else ($itemBillTypes = $itemBillTypes + 1);
+
+*/
+        print_r("Els teus diners son: $amount" . PHP_EOL);
+        print_r($billCount[0] . " " . "Bitllets de 50" . PHP_EOL);
+        print_r($billCount[1] . " " . "Bitllets de 20" . PHP_EOL);
+        print_r($billCount[2] . " " . "Bitllets de 10" . PHP_EOL);
+        print_r($billCount[3] . " " . "Bitllets de 5" . PHP_EOL);
+        print_r($billCount[4] . " " . "Monedes de 2" . PHP_EOL);
+        print_r($billCount[5] . " " . "Monedes de 1" . PHP_EOL . PHP_EOL);
+        die;
 
     }
 
-    public function exercise3()
+    public function contactNormalizer($name, $email, $country)
     {
     }
+
 }
