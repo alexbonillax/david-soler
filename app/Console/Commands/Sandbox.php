@@ -28,11 +28,11 @@ class Sandbox extends Command
         die;
 
         // Programa 3
-        //$this->contactNormalizer("Anna López" ; "ANNA.LOPEZ@example.com" ; "Es" );
-        //$this->contactNormalizer(jose M. ; jose.m@example.com ; es);
-        //$this->contactNormalizer(Marta; marta@example ; es); // email inválido
-        //$this->contactNormalizer(Anna López; anna.lopez@example.com ; ES ); // duplicado
-        //die;
+        //$this->contactNormalizer("Anna López" , "ANNA.LOPEZ@example.com" ; "Es" );
+        //$this->contactNormalizer(jose M . jose.m@example.com , es);
+        //$this->contactNormalizer(Marta, marta@example , es); // email inválido
+        //$this->contactNormalizer(Anna López, anna.lopez@example.com , ES ); // duplicado
+        die;
 
         // Variable
         $var = 1;
@@ -179,14 +179,15 @@ class Sandbox extends Command
         $billTypes = [50, 20, 10, 5, 2, 1];
         //sort($billTypes);
         $billCount = [0, 0, 0, 0, 0, 0];
+        $originalAmount = $amount;
 
 
         foreach ($billTypes as $index => $billType) {
             //print_r($index . " " . $billType . PHP_EOL);
             $billCount[$index] = intdiv($amount, $billType);
             $amount = $amount % $billType;
-            print_r("BILLCOUNT:" . $billCount[$index] . PHP_EOL);
-            print_r("AMOUNT:" . $amount . PHP_EOL . PHP_EOL);
+            //print_r("BILLCOUNT:" . $billCount[$index] . PHP_EOL);
+            //print_r("AMOUNT:" . $amount . PHP_EOL . PHP_EOL);
         }
 
         /*
@@ -196,18 +197,19 @@ class Sandbox extends Command
             } else ($itemBillTypes = $itemBillTypes + 1);
 
 */
-        print_r("Els teus diners son: $amount" . PHP_EOL);
+        print_r("Els teus diners son: $originalAmount" . PHP_EOL);
         print_r($billCount[0] . " " . "Bitllets de 50" . PHP_EOL);
         print_r($billCount[1] . " " . "Bitllets de 20" . PHP_EOL);
         print_r($billCount[2] . " " . "Bitllets de 10" . PHP_EOL);
         print_r($billCount[3] . " " . "Bitllets de 5" . PHP_EOL);
         print_r($billCount[4] . " " . "Monedes de 2" . PHP_EOL);
         print_r($billCount[5] . " " . "Monedes de 1" . PHP_EOL . PHP_EOL);
-        die;
+
+// PREGUNTAR DUBTE SOBRE COMANDO DIE, RECORDATORI
 
     }
 
-    public function contactNormalizer($name, $email, $country)
+    public function contactNormalizer($ctName, $ctEmail, $ctCountry)
     {
     }
 
