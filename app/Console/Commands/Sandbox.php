@@ -5,6 +5,26 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use PhpParser\Node\Stmt\Else_;
 
+class coche {
+    public $marca;
+    public $modelo;
+    public $color;
+
+    public function __construct($marca, $modelo, $color) {
+        $this->marca = $marca;
+        $this->modelo = $modelo;
+        $this->color = $color;
+    }
+
+    public function cocheFabricado() {
+        print_r("El vehículo de marca " . $this->marca . " modelo " . $this->modelo . " color " . $this->color . " " . "está fabricado" . PHP_EOL);
+    }
+}
+$miCoche = new coche("Volkswagen", "Jetta", "Plata");
+$miCoche = new coche("Alfa Romeo", "147", "Rojo");
+$miCoche->cocheFabricado();
+die;
+
 class Sandbox extends Command
 {
 
@@ -49,8 +69,9 @@ class Sandbox extends Command
         //die;
 
         // Programa 6
-        $this->vendingMachine(1.0,2);
-        die;
+        //$this->vendingMachine(1.0,2);
+        //die;
+
 
         // Variable1
         $var = 1;
@@ -500,12 +521,12 @@ Dinero insuficiente. Por favor, introduce más dinero.
         if ($selectedProduct <= $count && $money >= $product["price"]) {
             print_r("GRACIAS POR TU COMPRA" . PHP_EOL);
                 }else if ($selectedProduct >= $count){
-                print_r("ERROR, EL PRODUCTO NO EXISTE". PHP_EOL);
+                print_r("ERROR: El producto no existe". PHP_EOL);
         }
                     else{
                     print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
                     print_r("Ha seleccionado:" . $product["name"] ." ". $product["price"] . "€" . PHP_EOL);
-                    print_r("ERROR, NO HAY SUFICIENTE DINERO". PHP_EOL);
+                    print_r("ERROR: Dinero insuficiente. Por favor, introduce más dinero ". PHP_EOL);
 
     }
 
