@@ -37,11 +37,22 @@ class Sandbox extends Command
         //die;
 
         // Programa 4
-        $this->gradeStatistics([7.5, 9.0, 4.8, 6.2, 5.0, 3.9]);
+        //$this->gradeStatistics([7.5, 9.0, 4.8, 6.2, 5.0, 3.9]);
+        //die;
+
+        // Programa 5
+        //$this->salesSummary("2025 - 01 - 01", "Teclado", 2, 25.50);
+        //$this->salesSummary("2025 - 01 - 01", "Ratón", 1, 15.00);
+        //$this->salesSummary("2025 - 01 - 02", "Monitor", 1, 199.99);
+        //$this->salesSummary("2025 - 01 - 03", "Alfombrilla", -1, 10.00);
+        //$this->salesSummary("2025 - 01 - 03", "Cables", 3, 5.00);
+        //die;
+
+        // Programa 6
+        $this->vendingMachine(1.0,2);
         die;
 
-
-        // Variable
+        // Variable1
         $var = 1;
 
         // Nomenclatura de variables: anglès, camelCase
@@ -391,4 +402,112 @@ Extensión: exportar la lista válida a JSON.
 
         }
     }
+
+    /*
+     *
+     * 5) Resumen de ventas (mini-CSV en memoria)
+     *
+Conceptos: parsing simple, tipos numéricos, validación, acumuladores, agrupación por clave.
+Objetivo: a partir de registros fecha, producto, unidades, precio_unitario, calcular ingresos totales, ticket medio y ingreso por día.
+Requisitos:
+• Ignorar filas inválidas (p. ej. unidades ≤ 0 o precio ≤ 0) y contarlas aparte.
+• Ingresos = unidades * precio_unitario, redondeo a 2 decimales al final.
+• Agrupar por fecha para encontrar el mejor día por ingresos.
+Datos de ejemplo (5 registros):
+
+1. 2025-01-01, Teclado, 2, 25.50  → 51.00
+2. 2025-01-01, Ratón,   1, 15.00  → 15.00
+3. 2025-01-02, Monitor, 1, 199.99 → 199.99
+4. 2025-01-03, Alfombrilla, -1, 10.00 (inválida)
+5. 2025-01-03, Cables, 3, 5.00    → 15.00
+Resultados esperados:
+
+• Ingresos totales (válidos): 280.99
+• Nº ventas válidas: 4 → Ticket medio: 70.25
+• Ingresos por día: 2025-01-01 → 66.00, 2025-01-02 → 199.99, 2025-01-03 → 15.00
+• Mejor día: 2025-01-02
+• Filas inválidas: 1
+Extensión: producir un top-N de productos por ingresos.
+
+     */
+
+    public function salesSummary($salesDate, $salesProduct, $salesUnits, float $salesPrice)
+    {
+        print_r($salesDate . " " . $salesProduct . " " . $salesUnits . " " . $salesPrice . " " . PHP_EOL);
+
+
+    }
+
+    /* EJERCICIO 6
+     * 🧃 Ejercicio: Simulación de una máquina expendedora en PHP
+Objetivo: Crear un script que simule una máquina expendedora de productos. El usuario podrá seleccionar un producto y pagar con una cantidad de dinero.
+El sistema debe verificar si el dinero es suficiente y devolver el cambio si corresponde.
+
+Crea un array asociativo con productos. Cada producto debe tener:
+
+Nombre
+Precio
+
+Muestra el listado de productos con sus precios.
+Simula que el usuario elige un producto (puedes usar una variable como $seleccion = 2;).
+Simula que el usuario introduce dinero (por ejemplo, $dinero = 2.00;).
+
+Usa if para:
+
+Verificar si el producto existe.
+Verificar si el dinero es suficiente.
+Calcular y mostrar el cambio si hay.
+Mostrar un mensaje de error si no hay suficiente dinero o si el producto no existe.
+
+💻 Ejemplo de salida esperada
+Has seleccionado: Café - Precio: 1.50 €
+Has introducido: 2.00 €
+Cambio: 0.50 €
+¡Gracias por tu compra!
+
+O si no alcanza:
+Has seleccionado: Snack - Precio: 2.50 €
+Has introducido: 1.00 €
+Dinero insuficiente. Por favor, introduce más dinero.
+     */
+
+    public function vendingMachine($money,$selectedProduct)
+    {
+
+        $products = [
+            1 => ["name" => "Agua", "price" => 0.60],
+            2 => ["name" => "Cocacola", "price" => 1.00],
+            3 => ["name" => "RedBull", "price" => 2.35],
+            4 => ["name" => "PatatasLays","price" => 1.80],
+        ];
+
+        print_r(PHP_EOL . "Bienvenido a la maquina Expendedora de Grupodesa". PHP_EOL . PHP_EOL);
+        print_r("Listado de productos disponibles:". PHP_EOL);
+
+        foreach ($products as $product) {
+            print_r($product["name"] . " " .$product["price"] . "€"  . PHP_EOL);
+
+        }
+
+        print_r("................................" .  PHP_EOL);
+        print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
+        print_r("Ha seleccionado:" . $product["name"] ." ". $product["price"] . "€" . PHP_EOL);
+        print_r("................................" .  PHP_EOL);
+
+        $count = count($products);
+
+
+        if ($selectedProduct <= $count && $money >= $product["price"]) {
+            print_r("GRACIAS POR TU COMPRA" . PHP_EOL);
+                }else if ($selectedProduct >= $count){
+                print_r("ERROR, EL PRODUCTO NO EXISTE". PHP_EOL);
+        }
+                    else{
+                    print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
+                    print_r("Ha seleccionado:" . $product["name"] ." ". $product["price"] . "€" . PHP_EOL);
+                    print_r("ERROR, NO HAY SUFICIENTE DINERO". PHP_EOL);
+
+    }
+
+}
 }
