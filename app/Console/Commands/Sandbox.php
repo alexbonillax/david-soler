@@ -3,10 +3,46 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use mysql_xdevapi\Exception;
 use PhpParser\Node\Stmt\Else_;
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+
+class ErrorChecker
+{
+    public function error($year)
+    {
+
+        try {
+            $year = 2021;
+            if ($year > 2025) {
+                throw new \Exception(PHP_EOL . "No puedes viajar al futuro" . PHP_EOL);
+            }
+        } catch (\Exception $error) {
+            print_r("ERROR:" . $error->getMessage() . PHP_EOL);
+        }
+
+        print_r("El programa continua normalmente" . PHP_EOL);
+    }
+        }
+        $checker = new ErrorChecker();
+        $checker->error(2028);
+die;
+
+
+
+try {
+    throw new \Exception (PHP_EOL . "ERROR 0x123871" . PHP_EOL);
+    print_r("No hay errores, todo va perfecto" . PHP_EOL);
+} catch  (\Exception $error){
+print_r("Se ha detectado un error en el programa. Codigo de error:" . $error->getMessage() . PHP_EOL);
+}
+print_r("El resto de programa continuará normalmente" . PHP_EOL);
+
+
+
+
 
 class Brand
 {
