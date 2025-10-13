@@ -11,7 +11,7 @@ use PhpParser\Node\Stmt\Else_;
 
 class ErrorChecker
 {
-    public function error($year)
+    public function YearCheck($year)
     {
 
         try {
@@ -19,15 +19,15 @@ class ErrorChecker
             if ($year > 2025) {
                 throw new \Exception(PHP_EOL . "No puedes viajar al futuro" . PHP_EOL);
             }
-        } catch (\Exception $error) {
-            print_r("ERROR:" . $error->getMessage() . PHP_EOL);
+        } catch (\Exception $YearError) {
+            print_r("ERROR:" . $YearError->getMessage() . PHP_EOL);
         }
         print_r("El programa continua normalmente" . PHP_EOL);
     }
         }
 
     $checker = new ErrorChecker();
-    $checker->error(2028);
+    $checker->YearCheck(2029);
 die;
 
 
