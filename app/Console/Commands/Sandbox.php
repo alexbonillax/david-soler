@@ -9,37 +9,36 @@ use PhpParser\Node\Stmt\Else_;
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
-class ErrorChecker
-{
-    public function YearCheck($year)
-    {
+//class ErrorChecker
+//{
+//    public function YearCheck($year)
+//    {
+//
+//        try {
+//
+//            if ($year > 2025) {
+//                throw new \Exception(PHP_EOL . "No puedes viajar al futuro" . PHP_EOL);
+//            }
+//        } catch (\Exception $YearError) {
+//            print_r("ERROR:" . $YearError->getMessage() . PHP_EOL);
+//        }
+//        print_r("El resto del programa continuará normalmente" . PHP_EOL);
+//    }
+//        }
+//
+//    $checker = new ErrorChecker();
+//    $checker->YearCheck(2029);
+//die;
 
-        try {
 
-            if ($year > 2025) {
-                throw new \Exception(PHP_EOL . "No puedes viajar al futuro" . PHP_EOL);
-            }
-        } catch (\Exception $YearError) {
-            print_r("ERROR:" . $YearError->getMessage() . PHP_EOL);
-        }
-        print_r("El programa continua normalmente" . PHP_EOL);
-    }
-        }
-
-    $checker = new ErrorChecker();
-    $checker->YearCheck(2029);
-die;
-
-
-
-try {
-    throw new \Exception (PHP_EOL . "ERROR 0x123871" . PHP_EOL);
-    print_r("No hay errores, todo va perfecto" . PHP_EOL);
-} catch  (\Exception $error){
-print_r("Se ha detectado un error en el programa. Codigo de error:" . $error->getMessage() . PHP_EOL);
-}
-print_r("El resto de programa continuará normalmente" . PHP_EOL);
-
+//try {
+//    throw new \Exception (PHP_EOL . "ERROR 0x123871" . PHP_EOL);
+//    print_r("No hay errores, todo va perfecto" . PHP_EOL);
+//} catch  (\Exception $error){
+//print_r("Se ha detectado un error en el programa. Codigo de error:" . $error->getMessage() . PHP_EOL);
+//}
+//print_r("El resto de programa continuará normalmente" . PHP_EOL);
+//
 
 
 
