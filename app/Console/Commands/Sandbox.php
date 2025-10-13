@@ -5,25 +5,144 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use PhpParser\Node\Stmt\Else_;
 
-class coche {
-    public $marca;
-    public $modelo;
-    public $color;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    public function __construct($marca, $modelo, $color) {
+class Brand
+{
+    public string $name;
+    public ?string $color;
+
+    public function __construct(string $name, ?string $color = null)
+    {
+        $this->name = $name;
+        $this->color = $color;
+    }
+}
+
+class Vehiculo {
+    public Brand $marca;
+    public string $modelo;
+    public string $color;
+
+    public function __construct(Brand $marca, string $modelo, string $color)
+    {
         $this->marca = $marca;
         $this->modelo = $modelo;
         $this->color = $color;
     }
 
-    public function cocheFabricado() {
-        print_r("El vehículo de marca " . $this->marca . " modelo " . $this->modelo . " color " . $this->color . " " . "está fabricado" . PHP_EOL);
+    public function vehiculoFabricado()
+    {
+        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " " . "está fabricado" . PHP_EOL);
     }
 }
-$miCoche = new coche("Volkswagen", "Jetta", "Plata");
-$miCoche = new coche("Alfa Romeo", "147", "Rojo");
-$miCoche->cocheFabricado();
+
+class Moto extends Vehiculo {
+
+}
+
+class Patinete extends Vehiculo {
+
+}
+
+class Camion extends Vehiculo {
+
+    public string $tipoRemolque;
+
+    public function __construct(Brand $marca, string $modelo, string $color, string $tipoRemolque) {
+        parent::__construct($marca, $modelo, $color);
+        $this->tipoRemolque = $tipoRemolque;
+    }
+    public function vehiculoFabricado()
+    {
+        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " Tipo de Remolque " . $this->tipoRemolque  . " está fabricado" . PHP_EOL);
+    }
+}
+
+class Autocar extends Vehiculo {
+
+    public string $numeroPasajeros;
+
+    public function __construct(Brand $marca, string $modelo, string $color, int $numeroPasajeros) {
+        parent::__construct($marca, $modelo, $color);
+        $this->numeroPasajeros = $numeroPasajeros;
+    }
+    public function vehiculoFabricado()
+    {
+        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " con número de pasajeros total " . $this->numeroPasajeros  . " está fabricado" . PHP_EOL);
+    }
+}
+
+class Coche extends Vehiculo
+{
+
+    public int $numeroCinturones;
+
+    public function __construct(Brand $marca, string $modelo, string $color, int $numeroCinturones) {
+        parent::__construct($marca, $modelo, $color);
+        $this->numeroCinturones = $numeroCinturones;
+    }
+
+    public function vehiculoFabricado()
+    {
+        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " número cinturones " . $this->numeroCinturones  . " está fabricado" . PHP_EOL);
+    }
+}
+
+class Tren extends Vehiculo
+{
+
+    public string $tipoMotor;
+    //public int $potenciaMotor;
+
+    public function __construct(Brand $marca, string $modelo, string $color, string $tipoMotor) {
+        parent::__construct($marca, $modelo, $color);
+        $this->tipoMotor = $tipoMotor;
+        //$this->potenciaMotor = $potenciaMotor;
+    }
+
+    public function vehiculoFabricado()
+    {
+        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " tipo motor " . $this->tipoMotor  . " está fabricado" . PHP_EOL);
+    }
+}
+
+$miCoche = new Coche(new Brand("Volkswagen"), "Jetta", "Plata", 10);
+$miCoche->vehiculoFabricado();
+$miCoche = new Coche(new Brand("Alfa Romeo"), "147", "Rojo", 8);
+$miCoche->vehiculoFabricado();
+$miMoto = new Moto(new Brand("Ducati"), "147", "Rojo");
+$miMoto->vehiculoFabricado();
+$miPatinete = new Patinete(new Brand("Xiaomi"), "Fly500", "Negro");
+$miPatinete->vehiculoFabricado();
+$miCamion = new Camion(new Brand("Scania"), "R520 V8", "Amarillo", "Cisterna");
+$miCamion->vehiculoFabricado();
+$miCamion = new Camion(new Brand("Pegaso"), "Troner TX 400", "Dorado", "Refrigerado");
+$miCamion->vehiculoFabricado();
+$miCamion = new Camion(new Brand("Iveco"), "TurboStar", "Azul Cielo", "Plataforma Container");
+$miCamion->vehiculoFabricado();
+$miCamion = new Camion(new brand("Volvo"), "FH Aero", "Blanco", "Tauliner");
+$miCamion->vehiculoFabricado();
+$miAutocar = new Autocar(new Brand("Mercedes"), "Citaro", "Rojo", 60);
+$miAutocar->vehiculoFabricado();
+$miAutocar = new Autocar(new Brand("MAN"), "S150 Cityman", "Amarillo", 75);
+$miAutocar->vehiculoFabricado();
+$miTren = new Tren(new Brand("Renfe"), "S-130", "Rojo y Blanco", "Electrico");
+$miTren->vehiculoFabricado();
+$miTren = new Tren(new Brand("Talgo"), "Euromed 720", "Blanco y Violeta", "Diesel");
+$miTren->vehiculoFabricado();
+
 die;
+//$vehiculos = [new Coche(),new Moto(),new Patinete(),new Camion(),new Autocar()];
+//
+//$contadorCoches = 0;
+//foreach ($vehiculos as $vehiculo) {
+//    if ($vehiculo instanceof Coche) {
+//        $contadorCoches++;
+//    }}
+
+
 
 class Sandbox extends Command
 {
@@ -460,7 +579,7 @@ Extensión: producir un top-N de productos por ingresos.
     }
 
     /* EJERCICIO 6
-     * 🧃 Ejercicio: Simulación de una máquina expendedora en PHP
+     *  Ejercicio: Simulación de una máquina expendedora en PHP
 Objetivo: Crear un script que simule una máquina expendedora de productos. El usuario podrá seleccionar un producto y pagar con una cantidad de dinero.
 El sistema debe verificar si el dinero es suficiente y devolver el cambio si corresponde.
 
@@ -492,43 +611,42 @@ Has introducido: 1.00 €
 Dinero insuficiente. Por favor, introduce más dinero.
      */
 
-    public function vendingMachine($money,$selectedProduct)
+    public function vendingMachine($money, $selectedProduct)
     {
 
         $products = [
             1 => ["name" => "Agua", "price" => 0.60],
             2 => ["name" => "Cocacola", "price" => 1.00],
             3 => ["name" => "RedBull", "price" => 2.35],
-            4 => ["name" => "PatatasLays","price" => 1.80],
+            4 => ["name" => "PatatasLays", "price" => 1.80],
         ];
 
-        print_r(PHP_EOL . "Bienvenido a la maquina Expendedora de Grupodesa". PHP_EOL . PHP_EOL);
-        print_r("Listado de productos disponibles:". PHP_EOL);
+        print_r(PHP_EOL . "Bienvenido a la maquina Expendedora de Grupodesa" . PHP_EOL . PHP_EOL);
+        print_r("Listado de productos disponibles:" . PHP_EOL);
 
         foreach ($products as $product) {
-            print_r($product["name"] . " " .$product["price"] . "€"  . PHP_EOL);
+            print_r($product["name"] . " " . $product["price"] . "€" . PHP_EOL);
 
         }
 
-        print_r("................................" .  PHP_EOL);
+        print_r("................................" . PHP_EOL);
         print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
-        print_r("Ha seleccionado:" . $product["name"] ." ". $product["price"] . "€" . PHP_EOL);
-        print_r("................................" .  PHP_EOL);
+        print_r("Ha seleccionado:" . $product["name"] . " " . $product["price"] . "€" . PHP_EOL);
+        print_r("................................" . PHP_EOL);
 
         $count = count($products);
 
 
         if ($selectedProduct <= $count && $money >= $product["price"]) {
             print_r("GRACIAS POR TU COMPRA" . PHP_EOL);
-                }else if ($selectedProduct >= $count){
-                print_r("ERROR: El producto no existe". PHP_EOL);
+        } else if ($selectedProduct >= $count) {
+            print_r("ERROR: El producto no existe" . PHP_EOL);
+        } else {
+            print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
+            print_r("Ha seleccionado:" . $product["name"] . " " . $product["price"] . "€" . PHP_EOL);
+            print_r("ERROR: Dinero insuficiente. Por favor, introduce más dinero " . PHP_EOL);
+
         }
-                    else{
-                    print_r("Ha introducido:" . " " . $money . " " . "EUROS" . PHP_EOL);
-                    print_r("Ha seleccionado:" . $product["name"] ." ". $product["price"] . "€" . PHP_EOL);
-                    print_r("ERROR: Dinero insuficiente. Por favor, introduce más dinero ". PHP_EOL);
 
     }
-
-}
 }
