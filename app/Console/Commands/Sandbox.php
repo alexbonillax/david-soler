@@ -15,19 +15,19 @@ class ErrorChecker
     {
 
         try {
-            $year = 2021;
+
             if ($year > 2025) {
                 throw new \Exception(PHP_EOL . "No puedes viajar al futuro" . PHP_EOL);
             }
         } catch (\Exception $error) {
             print_r("ERROR:" . $error->getMessage() . PHP_EOL);
         }
-
         print_r("El programa continua normalmente" . PHP_EOL);
     }
         }
-        $checker = new ErrorChecker();
-        $checker->error(2028);
+
+    $checker = new ErrorChecker();
+    $checker->error(2028);
 die;
 
 
