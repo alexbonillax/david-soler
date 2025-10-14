@@ -3,9 +3,12 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use mysql_xdevapi\Exception;
+use Exception;
 use PhpParser\Node\Stmt\Else_;
+use function PHPUnit\Framework\assertArrayIsEqualToArrayOnlyConsideringListOfKeys;
 use function Symfony\Component\Translation\t;
+
+
 
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
@@ -125,26 +128,26 @@ use function Symfony\Component\Translation\t;
 /**
  * 🧩 Ejercicio 5: Excepciones personalizadas — “Edad inválida”
  */
-
-class EdadInvalidaException extends Exception {}
-
-class Persona {
-    private $edad;
-
-    public function setEdad($edad){
-        try {
-            if ($edad < 0 || $edad > 120) {
-                throw new EdadInvalidaException("Edad no válida: $edad");
-            }
-        $this->edad = $edad;}
-
-        catch (EdadInvalidaException $e) {
-            print_r($e->getMessage());
-        }
-    print_r("Edad: " . $this->edad . PHP_EOL);
-    }
-}
-die;
+//
+//class EdadInvalidaException extends Exception {}
+//
+//class Persona {
+//    private $edad;
+//
+//    public function setEdad($edad){
+//        try {
+//            if ($edad < 0 || $edad > 120) {
+//                throw new EdadInvalidaException("Edad no válida: $edad");
+//            }
+//        $this->edad = $edad;}
+//
+//        catch (EdadInvalidaException $e) {
+//            print_r($e->getMessage());
+//        }
+//    print_r("Edad: " . $this->edad . PHP_EOL);
+//    }
+//}
+//die;
 
 //class Brand
 //{
@@ -287,11 +290,23 @@ die;
 
 class Sandbox extends Command
 {
-
     protected $signature = 'sandbox';
-
     public function handle()
     {
+        /**
+         * PRUEBAS CON IFS TERNARIOS
+         */
+        $usuario = "admin";
+        $estatus = ($usuario == "admin") ? "Acceso correcto" : "El usuario no existe";
+        print_r(" " . $estatus . PHP_EOL);
+
+        print_r("............................." . PHP_EOL);
+
+        $edad = 12;
+        $checkEdad = ($edad >= 18) ? "Mayor de edad, puedes entrar" : "Menor de edad, no puedes entrar";
+        print_r(" " . $checkEdad . PHP_EOL);
+
+die;
         // Programa 1
 
         //$this->calculateFinalPrice(100, 0.10, 0.21); // 108.90
