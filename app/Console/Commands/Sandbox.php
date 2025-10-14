@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use mysql_xdevapi\Exception;
 use PhpParser\Node\Stmt\Else_;
+use function Symfony\Component\Translation\t;
 
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
@@ -102,25 +103,48 @@ use PhpParser\Node\Stmt\Else_;
  * 🧩 Ejercicio 4: Gestión de errores — “División segura”
  */
 
-class Calculadora {
-    public function dividir($a, $b)
-    {
+//class Calculadora {
+//    public function dividir($a, $b)
+//    {
+//        try {
+//            if ($b == 0) {
+//                throw new \Exception("No se puede dividir por cero");
+//            }
+//            return $a / $b;
+//        } catch (Exception $e) {
+//               print_r($e->getMessage());
+//            }
+//        }
+//}
+//
+//$calculo = new Calculadora();
+//$calculo->dividir(10, 2);
+//print_r("El resultado es " . $calculo->dividir(10, 0) . PHP_EOL); //PREGUNTAR A ALEX, COM MOSTRAR BÉ
+//die;
+
+/**
+ * 🧩 Ejercicio 5: Excepciones personalizadas — “Edad inválida”
+ */
+
+class EdadInvalidaException extends Exception {}
+
+class Persona {
+    private $edad;
+
+    public function setEdad($edad){
         try {
-            if ($b == 0) {
-                throw new \Exception("No se puede dividir por cero");
+            if ($edad < 0 || $edad > 120) {
+                throw new EdadInvalidaException("Edad no válida: $edad");
             }
-            return $a / $b;
-        } catch (Exception $e) {
-               print_r($e->getMessage());
-            }
+        $this->edad = $edad;}
+
+        catch (EdadInvalidaException $e) {
+            print_r($e->getMessage());
         }
+    print_r("Edad: " . $this->edad . PHP_EOL);
+    }
 }
-
-$calculo = new Calculadora();
-$calculo->dividir(10, 2);
-print_r("El resultado es " . $calculo->dividir(10, 0) . PHP_EOL); //PREGUNTAR A ALEX, COM MOSTRAR BÉ
 die;
-
 
 //class Brand
 //{
