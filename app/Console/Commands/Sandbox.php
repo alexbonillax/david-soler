@@ -33,142 +33,224 @@ use PhpParser\Node\Stmt\Else_;
 
 //try {
 //    throw new \Exception (PHP_EOL . "ERROR 0x123871" . PHP_EOL);
-//    print_r("No hay errores, todo va perfecto" . PHP_EOL);
+//    print_r("No hay errores, funciona perfecto" . PHP_EOL);
 //} catch  (\Exception $error){
 //print_r("Se ha detectado un error en el programa. Codigo de error:" . $error->getMessage() . PHP_EOL);
 //}
 //print_r("El resto de programa continuará normalmente" . PHP_EOL);
 //
 
+/**
+ * 🧩 Ejercicio 1: Clase básica — “Coche”
+ */
 
+//class Coche {
+//    public string $marca;
+//    public string $modelo;
+//    public string $year;
+//
+//    public function __construct(string $marca, string $modelo, int $year)
+//    {
+//        $this->marca = $marca;
+//        $this->modelo = $modelo;
+//        $this->year = $year;
+//    }
+//
+//    public function mostrarInfo()
+//    {
+//        print_r("El vehículo es un " . $this->marca . " modelo " . $this->modelo . " del año " . $this->year . " " . "" . PHP_EOL);
+//    }
+//}
+//$newCoche = new Coche("Seat", "Ibiza", 2022);
+//$newCoche->mostrarInfo();
+//$newCoche = new Coche("Renault", "Clio", 2025);
+//$newCoche->mostrarInfo();
+//die;
 
+/**
+ * 🧩 Ejercicio 2: Constructores y métodos — “Rectángulo”
+ */
 
-class Brand
-{
-    public string $name;
-    public ?string $color;
+//class Rectangulo {
+//    public $ancho;
+//    public $alto;
+//
+//    public function __construct($ancho,$alto)
+//    {
+//        $this->ancho = $ancho;
+//        $this->alto = $alto;
+//    }
+//    public function calcularArea()
+//    {
+//        return $this->ancho * $this->alto;
+//
+//    }
+//    public function calcularPerimetro()
+//    {
+//        return 2 * ($this->ancho + $this->alto);
+//
+//    }
+//}
+//
+//$miRectangulo = new Rectangulo( 50, 95);
+//print_r("El area del rectangulo es " . $miRectangulo->calcularArea() . PHP_EOL);
+//print_r("El perimetro del rectangulo es " . $miRectangulo->calcularPerimetro() . PHP_EOL);
+//
+//die;
 
-    public function __construct(string $name, ?string $color = null)
+/**
+ * 🧩 Ejercicio 4: Gestión de errores — “División segura”
+ */
+
+class Calculadora {
+    public function dividir($a, $b)
     {
-        $this->name = $name;
-        $this->color = $color;
-    }
+        try {
+            if ($b == 0) {
+                throw new \Exception("No se puede dividir por cero");
+            }
+            return $a / $b;
+        } catch (Exception $e) {
+               print_r($e->getMessage());
+            }
+        }
 }
 
-class Vehiculo {
-    public Brand $marca;
-    public string $modelo;
-    public string $color;
-
-    public function __construct(Brand $marca, string $modelo, string $color)
-    {
-        $this->marca = $marca;
-        $this->modelo = $modelo;
-        $this->color = $color;
-    }
-
-    public function vehiculoFabricado()
-    {
-        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " " . "está fabricado" . PHP_EOL);
-    }
-}
-
-class Moto extends Vehiculo {
-
-}
-
-class Patinete extends Vehiculo {
-
-}
-
-class Camion extends Vehiculo {
-
-    public string $tipoRemolque;
-
-    public function __construct(Brand $marca, string $modelo, string $color, string $tipoRemolque) {
-        parent::__construct($marca, $modelo, $color);
-        $this->tipoRemolque = $tipoRemolque;
-    }
-    public function vehiculoFabricado()
-    {
-        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " Tipo de Remolque " . $this->tipoRemolque  . " está fabricado" . PHP_EOL);
-    }
-}
-
-class Autocar extends Vehiculo {
-
-    public string $numeroPasajeros;
-
-    public function __construct(Brand $marca, string $modelo, string $color, int $numeroPasajeros) {
-        parent::__construct($marca, $modelo, $color);
-        $this->numeroPasajeros = $numeroPasajeros;
-    }
-    public function vehiculoFabricado()
-    {
-        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " con número de pasajeros total " . $this->numeroPasajeros  . " está fabricado" . PHP_EOL);
-    }
-}
-
-class Coche extends Vehiculo
-{
-
-    public int $numeroCinturones;
-
-    public function __construct(Brand $marca, string $modelo, string $color, int $numeroCinturones) {
-        parent::__construct($marca, $modelo, $color);
-        $this->numeroCinturones = $numeroCinturones;
-    }
-
-    public function vehiculoFabricado()
-    {
-        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " número cinturones " . $this->numeroCinturones  . " está fabricado" . PHP_EOL);
-    }
-}
-
-class Tren extends Vehiculo
-{
-
-    public string $tipoMotor;
-    //public int $potenciaMotor;
-
-    public function __construct(Brand $marca, string $modelo, string $color, string $tipoMotor) {
-        parent::__construct($marca, $modelo, $color);
-        $this->tipoMotor = $tipoMotor;
-        //$this->potenciaMotor = $potenciaMotor;
-    }
-
-    public function vehiculoFabricado()
-    {
-        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " tipo motor " . $this->tipoMotor  . " está fabricado" . PHP_EOL);
-    }
-}
-
-$miCoche = new Coche(new Brand("Volkswagen"), "Jetta", "Plata", 10);
-$miCoche->vehiculoFabricado();
-$miCoche = new Coche(new Brand("Alfa Romeo"), "147", "Rojo", 8);
-$miCoche->vehiculoFabricado();
-$miMoto = new Moto(new Brand("Ducati"), "147", "Rojo");
-$miMoto->vehiculoFabricado();
-$miPatinete = new Patinete(new Brand("Xiaomi"), "Fly500", "Negro");
-$miPatinete->vehiculoFabricado();
-$miCamion = new Camion(new Brand("Scania"), "R520 V8", "Amarillo", "Cisterna");
-$miCamion->vehiculoFabricado();
-$miCamion = new Camion(new Brand("Pegaso"), "Troner TX 400", "Dorado", "Refrigerado");
-$miCamion->vehiculoFabricado();
-$miCamion = new Camion(new Brand("Iveco"), "TurboStar", "Azul Cielo", "Plataforma Container");
-$miCamion->vehiculoFabricado();
-$miCamion = new Camion(new brand("Volvo"), "FH Aero", "Blanco", "Tauliner");
-$miCamion->vehiculoFabricado();
-$miAutocar = new Autocar(new Brand("Mercedes"), "Citaro", "Rojo", 60);
-$miAutocar->vehiculoFabricado();
-$miAutocar = new Autocar(new Brand("MAN"), "S150 Cityman", "Amarillo", 75);
-$miAutocar->vehiculoFabricado();
-$miTren = new Tren(new Brand("Renfe"), "S-130", "Rojo y Blanco", "Electrico");
-$miTren->vehiculoFabricado();
-$miTren = new Tren(new Brand("Talgo"), "Euromed 720", "Blanco y Violeta", "Diesel");
-$miTren->vehiculoFabricado();
-
+$calculo = new Calculadora();
+$calculo->dividir(10, 2);
+print_r("El resultado es " . $calculo->dividir(10, 0) . PHP_EOL); //PREGUNTAR A ALEX, COM MOSTRAR BÉ
 die;
+
+
+//class Brand
+//{
+//    public string $name;
+//    public ?string $color;
+//
+//    public function __construct(string $name, ?string $color = null)
+//    {
+//        $this->name = $name;
+//        $this->color = $color;
+//    }
+//}
+//
+//class Vehiculo {
+//    public Brand $marca;
+//    public string $modelo;
+//    public string $color;
+//
+//    public function __construct(Brand $marca, string $modelo, string $color)
+//    {
+//        $this->marca = $marca;
+//        $this->modelo = $modelo;
+//        $this->color = $color;
+//    }
+//
+//    public function vehiculoFabricado()
+//    {
+//        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " " . "está fabricado" . PHP_EOL);
+//    }
+//}
+//
+//class Moto extends Vehiculo {
+//
+//}
+//
+//class Patinete extends Vehiculo {
+//
+//}
+//
+//class Camion extends Vehiculo {
+//
+//    public string $tipoRemolque;
+//
+//    public function __construct(Brand $marca, string $modelo, string $color, string $tipoRemolque) {
+//        parent::__construct($marca, $modelo, $color);
+//        $this->tipoRemolque = $tipoRemolque;
+//    }
+//    public function vehiculoFabricado()
+//    {
+//        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " Tipo de Remolque " . $this->tipoRemolque  . " está fabricado" . PHP_EOL);
+//    }
+//}
+//
+//class Autocar extends Vehiculo {
+//
+//    public string $numeroPasajeros;
+//
+//    public function __construct(Brand $marca, string $modelo, string $color, int $numeroPasajeros) {
+//        parent::__construct($marca, $modelo, $color);
+//        $this->numeroPasajeros = $numeroPasajeros;
+//    }
+//    public function vehiculoFabricado()
+//    {
+//        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " con número de pasajeros total " . $this->numeroPasajeros  . " está fabricado" . PHP_EOL);
+//    }
+//}
+//
+//class Coche extends Vehiculo
+//{
+//
+//    public int $numeroCinturones;
+//
+//    public function __construct(Brand $marca, string $modelo, string $color, int $numeroCinturones) {
+//        parent::__construct($marca, $modelo, $color);
+//        $this->numeroCinturones = $numeroCinturones;
+//    }
+//
+//    public function vehiculoFabricado()
+//    {
+//        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " número cinturones " . $this->numeroCinturones  . " está fabricado" . PHP_EOL);
+//    }
+//}
+//
+//class Tren extends Vehiculo
+//{
+//
+//    public string $tipoMotor;
+//    //public int $potenciaMotor;
+//
+//    public function __construct(Brand $marca, string $modelo, string $color, string $tipoMotor) {
+//        parent::__construct($marca, $modelo, $color);
+//        $this->tipoMotor = $tipoMotor;
+//        //$this->potenciaMotor = $potenciaMotor;
+//    }
+//
+//    public function vehiculoFabricado()
+//    {
+//        print_r("El vehículo de marca " . $this->marca->name . " modelo " . $this->modelo . " color " . $this->color . " tipo motor " . $this->tipoMotor  . " está fabricado" . PHP_EOL);
+//    }
+//}
+//
+//$miCoche = new Coche(new Brand("Volkswagen"), "Jetta", "Plata", 10);
+//$miCoche->vehiculoFabricado();
+//$miCoche = new Coche(new Brand("Alfa Romeo"), "147", "Rojo", 8);
+//$miCoche->vehiculoFabricado();
+//$miMoto = new Moto(new Brand("Ducati"), "147", "Rojo");
+//$miMoto->vehiculoFabricado();
+//$miPatinete = new Patinete(new Brand("Xiaomi"), "Fly500", "Negro");
+//$miPatinete->vehiculoFabricado();
+//$miCamion = new Camion(new Brand("Scania"), "R520 V8", "Amarillo", "Cisterna");
+//$miCamion->vehiculoFabricado();
+//$miCamion = new Camion(new Brand("Pegaso"), "Troner TX 400", "Dorado", "Refrigerado");
+//$miCamion->vehiculoFabricado();
+//$miCamion = new Camion(new Brand("Iveco"), "TurboStar", "Azul Cielo", "Plataforma Container");
+//$miCamion->vehiculoFabricado();
+//$miCamion = new Camion(new brand("Volvo"), "FH Aero", "Blanco", "Tauliner");
+//$miCamion->vehiculoFabricado();
+//$miAutocar = new Autocar(new Brand("Mercedes"), "Citaro", "Rojo", 60);
+//$miAutocar->vehiculoFabricado();
+//$miAutocar = new Autocar(new Brand("MAN"), "S150 Cityman", "Amarillo", 75);
+//$miAutocar->vehiculoFabricado();
+//$miTren = new Tren(new Brand("Renfe"), "S-130", "Rojo y Blanco", "Electrico");
+//$miTren->vehiculoFabricado();
+//$miTren = new Tren(new Brand("Talgo"), "Euromed 720", "Blanco y Violeta", "Diesel");
+//$miTren->vehiculoFabricado();
+//$miTren = new Tren(new Brand("Vectron"), "BR247", "Negro", "Diesel");
+//$miTren -> vehiculoFabricado();
+//
+//die;
+
 //$vehiculos = [new Coche(),new Moto(),new Patinete(),new Camion(),new Autocar()];
 //
 //$contadorCoches = 0;
