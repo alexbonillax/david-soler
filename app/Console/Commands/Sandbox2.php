@@ -202,6 +202,8 @@ class Sandbox2 extends Command
     protected $signature = 'sandbox2';
 
 /*PRUEBAS CON CONEXIONES A BASE DE DATOS*/
+    // BD LOCAL DAVID: davidbd
+    // BD LOCAL DEMO mysql: northwind
 
     public function handle()
     {
