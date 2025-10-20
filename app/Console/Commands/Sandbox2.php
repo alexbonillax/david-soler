@@ -207,24 +207,32 @@ class Sandbox2 extends Command
 
     public function handle()
     {
-        $empleados = //DB::table('empleados')->where('ID', 1)->first();
-        $empleados = DB::table('customers')->get();
-        print_r($empleados);
+        //$empleados = DB::table('empleados')->where('ID', 1)->first();
+        //$empleados = DB::table('empleados')->get();
+        //print_r($empleados);
 
+        //$empresas = DB::table('empresa')->select('nombre')->get();
+        //print_r($empresas);
 
-
-        $clientes = DB::table('customers')
-            ->leftJoin('orders', 'customers.CustomerID', '=', 'orders.CustomerID')
-            ->select(
-                'customers.ContactName as clienteNombre',
-                'customers.City as ciudadCliente',
-                'orders.OrderID as pedidoId',
-                'orders.OrderDate as fechaPedido'
-            )
+        $empleados = DB::table('empleados')
+            ->join('empresa', 'empleados.empresa_id', '=', 'empresa.ID')
             ->get();
 
-        print_r($clientes);
+        print_r($empleados);
         print_r(PHP_EOL);
+
+//        $clientes = DB::table('customers')
+//            ->leftJoin('orders', 'customers.CustomerID', '=', 'orders.CustomerID')
+//            ->select(
+//                'customers.ContactName as clienteNombre',
+//                'customers.City as ciudadCliente',
+//                'orders.OrderID as pedidoId',
+//                'orders.OrderDate as fechaPedido'
+//            )
+//            ->get();
+//
+//        print_r($clientes);
+//        print_r(PHP_EOL);
 
 
     }
