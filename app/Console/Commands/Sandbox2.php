@@ -215,11 +215,12 @@ class Sandbox2 extends Command
         //print_r($empresas);
 
         $empleados = DB::table('empleados')
-            ->join('empresa', 'empleados.empresa_id', '=', 'empresa.ID')
+            ->join('empresa', 'empleados.empresa_id', '=', 'empresa.id')
             ->get();
 
         print_r($empleados);
         print_r(PHP_EOL);
+
 
 //        $clientes = DB::table('customers')
 //            ->leftJoin('orders', 'customers.CustomerID', '=', 'orders.CustomerID')

@@ -302,7 +302,7 @@ class Sandbox extends Command
 
         print_r("............................." . PHP_EOL);
 
-        $edad = 12;
+        $edad = 19;
         $checkEdad = ($edad >= 18) ? "Mayor de edad, puedes entrar" : "Menor de edad, no puedes entrar";
         print_r(" " . $checkEdad . PHP_EOL);
 
