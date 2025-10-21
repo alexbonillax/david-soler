@@ -214,12 +214,20 @@ class Sandbox2 extends Command
         //$empresas = DB::table('empresa')->select('nombre')->get();
         //print_r($empresas);
 
-        $empleados = DB::table('empleados')
-            ->join('empresa', 'empleados.empresa_id', '=', 'empresa.id')
-            ->get();
-        print_r($empleados);
-        print_r(PHP_EOL);
+//        $empleados = DB::table('empleados')
+//            ->join('empresa', 'empleados.empresa_id', '=', 'empresa.id')
+//            ->get();
+//        print_r($empleados);
+//        print_r(PHP_EOL);
 
+        $orders = DB::table('orders')
+            ->join('customers', 'orders.customer_id', '=', 'customers.id')
+            ->select('orders.id as orderId', 'customers.name as customerName')
+            ->limit(1000)
+            ->orderBy('orders.id', 'desc')
+            ->get();
+        print_r($orders);
+        print_r(PHP_EOL);
 
 //        $clientes = DB::table('customers')
 //            ->leftJoin('orders', 'customers.CustomerID', '=', 'orders.CustomerID')
