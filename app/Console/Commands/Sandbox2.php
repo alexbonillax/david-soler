@@ -201,7 +201,7 @@ class Sandbox2 extends Command
 {
     protected $signature = 'sandbox2';
 
-/*PRUEBAS CON CONEXIONES A BASE DE DATOS*/
+    /*PRUEBAS CON CONEXIONES A BASE DE DATOS*/
     // BD LOCAL DAVID: davidbd
     // BD LOCAL DEMO mysql: northwind
 
@@ -217,7 +217,6 @@ class Sandbox2 extends Command
         $empleados = DB::table('empleados')
             ->join('empresa', 'empleados.empresa_id', '=', 'empresa.id')
             ->get();
-
         print_r($empleados);
         print_r(PHP_EOL);
 

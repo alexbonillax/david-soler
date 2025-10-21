@@ -6,10 +6,6 @@ use Illuminate\Console\Command;
 use Exception;
 
 
-
-
-
-
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
@@ -287,10 +283,10 @@ use Exception;
 //    }}
 
 
-
 class Sandbox extends Command
 {
     protected $signature = 'sandbox';
+
     public function handle()
     {
         /**
@@ -306,7 +302,7 @@ class Sandbox extends Command
         $checkEdad = ($edad >= 18) ? "Mayor de edad, puedes entrar" : "Menor de edad, no puedes entrar";
         print_r(" " . $checkEdad . PHP_EOL);
 
-die;
+        die;
         // Programa 1
 
         //$this->calculateFinalPrice(100, 0.10, 0.21); // 108.90
