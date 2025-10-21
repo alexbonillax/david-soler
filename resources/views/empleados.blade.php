@@ -4,7 +4,7 @@
     <title>Lista de Empleados</title>
 
 </head>
-<body style="background-color: #bceeff;">
+<body style="background-color: #e6e6e6;">
 
 <h1 style="font-family: 'Arial Black'">Listado de empleados y sus empresas</h1>
 <ul style="font-family: Arial">
