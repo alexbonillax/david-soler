@@ -17,7 +17,7 @@
 
 <ul style="font-family: Arial">
     @foreach($orders as $order)
-        <li> Pedido: {{$order->orderId }} ----- Cliente: {{$order->customerName }}</li>
+        <li> Fecha: {{$order->orderDate}} <br> Pedido: {{$order->orderCode }} <br> Cliente: {{$order->customerName }} <br> Importe: {{$order->orderAmount }}</li><br>
     @endforeach
 
 </ul>

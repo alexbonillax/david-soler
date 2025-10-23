@@ -13,7 +13,7 @@ class DesaOrdersController extends Controller
 
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')
-            ->select('orders.id as orderId', 'customers.name as customerName')
+            ->select('orders.code as orderCode', 'customers.name as customerName','orders.created_at as orderDate','orders.net_amount as orderAmount')
             ->limit($limit)
             //->limit(1000)
             ->orderBy('orders.id', 'desc')
