@@ -6,7 +6,7 @@
 </head>
 <body style="background-color: #e6e6e6;">
 
-<h1 style="font-family: 'Arial Black'">Últimos Pedidos en Desaverse</h1>
+<h1 style="font-family:'Arial Black'">Últimos Pedidos en Desaverse</h1>
 
 
 <form method  <label for="numOrderLimit">Pedidos a mostrar: </label>
@@ -15,9 +15,10 @@
 </form>
 
 
-<ul style="font-family: Arial">
+<ul style="font-family:'arial'">
     @foreach($orders as $order)
-        <li> Fecha: {{$order->orderDate}} <br> Pedido: {{$order->orderCode }} <br> Cliente: {{$order->customerName }} <br> Importe: {{$order->orderAmount }}</li><br>
+        {{-- <li> Fecha: {{$orders->created_at}} <br> Pedido: {{$orders->code }} <br> Importe: {{$orders->net_amount }}</li>--}}
+        <li style="font-family:'arial'"> Fecha: {{$order->orderDate}} <br> Pedido: {{$order->orderCode }} <br> Cliente: {{$order->customerName }} <br> Importe: {{$order->orderAmount }}</li><br>
     @endforeach
 
 </ul>

@@ -222,8 +222,9 @@ class Sandbox2 extends Command
 
         $orders = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')
-            ->select('orders.id as orderId', 'customers.name as customerName')
+            ->select('orders.code as orderCode', 'customers.name as customerName','orders.created_at as orderDate','orders.net_amount as orderAmount')
             ->limit(1000)
+            //->limit(1000)
             ->orderBy('orders.id', 'desc')
             ->get();
         print_r($orders);
