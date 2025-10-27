@@ -10,6 +10,14 @@
         background: #e8e6e6;
 
     }
+    .btn-actualizar {
+        background-color: #4085cc;
+        color: #ffffff;
+        border: none;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+
 </style>
 <body>
 <div class="container">
@@ -19,7 +27,7 @@
         @csrf
 
         <div>
-            <label for="code">Código:</label>
+            <label for="code">Código:  </label>
             <input type="text" name="code" id="code" value="{{ $coupon->code }}" required>
         </div>
 
@@ -27,12 +35,12 @@
             <label for="name">Nombre:</label>
             <input type="text" name="name" id="name" value="{{ $coupon->name }}" required>
         </div>
-
-        <button type="submit">Actualizar</button>
+        <br>
+        <button type="submit" class="btn-actualizar" onclick="return confirm('¿Estás seguro editar este cupón?')">Actualizar</button>
     </form>
 
     <br>
-    <a href="{{ route('coupons.index') }}">Volver al listado</a>
+    <a href="{{ route('coupons.index') }}">Volver a cupones</a>
 </div>
 </body>
 </html>

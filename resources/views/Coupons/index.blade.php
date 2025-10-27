@@ -51,6 +51,9 @@
         .btn-danger:hover {
             background-color: #e74c3c;
         }
+        .btn-edit:hover {
+            background-color: #50a8ff;
+        }
     </style>
 </head>
 <body>
