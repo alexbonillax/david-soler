@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de cupones en Desaverse, a fecha de</title>
+    <title>Listado de cupones en Desaverse </title>
+
     <style>
 
         *{
@@ -58,7 +59,9 @@
 </head>
 <body>
 <div class="container">
+
     <h2>Listado de cupones en Desaverse</h2>
+
 
     <a href="{{ route('coupons.create') }}" class="btn btn-edit">Crear nuevo cupón</a>
 
