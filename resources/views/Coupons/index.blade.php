@@ -2,11 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de cupones en Desaverse</title>
+    <title>Listado de cupones en Desaverse, a fecha de</title>
     <style>
+
+        *{
+            background: #e8e6e6;
+            font-family: Arial;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
+            font-family: Arial;
         }
 
         th, td {
@@ -32,13 +39,6 @@
             cursor: pointer;
         }
 
-        .btn-create {
-            background-color: #3766ff;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            cursor: pointer;
-        }
 
         .btn-edit {
             background-color: #4085cc;
@@ -57,7 +57,8 @@
 <div class="container">
     <h2>Listado de cupones en Desaverse</h2>
 
-    <a href="{{ route('coupons.create') }}">Crear nuevo cupón</a>
+    <a href="{{ route('coupons.create') }}" class="btn btn-edit">Crear nuevo cupón</a>
+
 
     <table border="1" cellspacing="0" cellpadding="8">
         <thead>
@@ -65,7 +66,8 @@
             <th>ID</th>
             <th>Código</th>
             <th>Nombre</th>
-            <th>Acciones</th>
+            <th>Eliminar</th>
+            <th>Editar</th>
         </tr>
         </thead>
         <tbody>

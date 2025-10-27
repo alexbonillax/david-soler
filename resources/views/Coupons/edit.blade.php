@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <title>Editar cupón</title>
 </head>
+<style>
+    *{
+        font-family: Arial;
+        background: #e8e6e6;
+
+    }
+</style>
 <body>
 <div class="container">
     <h2>Editar cupón</h2>
 
     <form action="{{ route('coupons.update', $coupon->id) }}" method="POST">
         @csrf
-        @method('PUT')
 
         <div>
             <label for="code">Código:</label>
-            <input type="text" name="code" id="code" value="{{ $coupon->code }}" maxlength="5" required>
+            <input type="text" name="code" id="code" value="{{ $coupon->code }}" required>
         </div>
 
         <div>

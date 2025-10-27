@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Crear cupón</title>
 </head>
+<style>
+    *{
+    font-family: Arial;
+        background: #e8e6e6;
+
+    }
+</style>
 <body>
 <div class="container">
     <h2>Crear cupón</h2>

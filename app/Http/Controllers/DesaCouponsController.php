@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Coupon;
+use Illuminate\Support\Facades\App;
 
 class DesaCouponsController extends Controller
 {
@@ -19,34 +20,31 @@ class DesaCouponsController extends Controller
         return view('coupons.create');
     }
 
-    public function store(Request $request)
+    public function edit(Coupon $coupon)
     {
-        $request->validate([
-            'code' => 'required|string|max:5',
-            'name' => 'required|string|max:255',
-            'is_assigned_to_customer' => 0,
-        ]);
-
-        $coupon = Coupon::create($request->all());
-        return redirect()->route('coupons.index');
-    }
-
-    public function edit($id)
-    {
-        $coupon = Coupon::findOrFail($id);
         return view('coupons.edit', compact('coupon'));
     }
 
-    public function update(Request $request, $id)
+    public function save(Coupon $coupon, Request $request)
     {
         $request->validate([
             'code' => 'required|string|max:5',
             'name' => 'required|string|max:255',
         ]);
 
-        $coupon = Coupon::findOrFail($id);
-        $coupon->update($request->all());
-        return redirect()->route('coupons.index');
+        $coupon->code = $request->input('code');
+        $coupon->setTranslation('name', App::getLocale(), $request->input('name'));
+
+        if ($coupon->exists) {
+            $coupon->updated_at = now();
+        } else {
+            $coupon->is_assigned_to_customer = false;
+            $coupon->created_at = now();
+        }
+
+        $coupon->save();
+
+        return redirect()->route('coupons.index')->with('success', $coupon->wasRecentlyCreated ? 'Cupón creado correctamente.' : null);
     }
 
     public function destroy($id)
