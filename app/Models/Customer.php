@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -9,11 +10,11 @@ class Customer extends Model
     protected $table = 'customers';
 
     protected $fillable = [
-        'order_id',
+        'name',
     ];
 
-    public function order()
+    public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Order::class, 'customer_id');
     }
 }
