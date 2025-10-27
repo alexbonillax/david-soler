@@ -26,11 +26,8 @@ class DesaOrdersController extends Controller
 //            ->get();
 
         //dd($orders);
-
         $customers = Customer::query()->withCount('orders')->take(3)->get();
-
-
-
         return view('desaorders', compact('orders','customers'));
     }
 }
+

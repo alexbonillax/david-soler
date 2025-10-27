@@ -20,8 +20,7 @@
 
 <form method  <label for="numOrderLimit">Pedidos a mostrar: </label>
 <input type="number" name="numOrderLimit" id="numOrderLimit" value="{{ request('numOrderLimit', 1000)}}">
-<button type="submit">Actualizar</button>
-</form>
+<button type="submit">Actualizar</button></form>
 
 <ul style="font-family:'arial'">
     @foreach($orders as $order)
