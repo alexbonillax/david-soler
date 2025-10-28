@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de cupones en Desaverse </title>
+    <title>Listado de cupones en Desaverse</title>
 
     <style>
 
@@ -38,6 +38,7 @@
             border: none;
             padding: 6px 12px;
             cursor: pointer;
+            border-radius: 10px;
         }
 
 
@@ -47,13 +48,16 @@
             border: none;
             padding: 6px 12px;
             cursor: pointer;
+            border-radius: 10px;
         }
 
         .btn-danger:hover {
             background-color: #e74c3c;
+            border-radius: 10px;
         }
         .btn-edit:hover {
             background-color: #50a8ff;
+            border-radius: 10px;
         }
     </style>
 </head>

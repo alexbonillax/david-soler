@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\OrderProduct;
 use Illuminate\Support\Facades\DB;
 
 class DesaOrdersController extends Controller
@@ -23,13 +24,13 @@ class DesaOrdersController extends Controller
 //            ->select('orders.code as orderCode', 'customers.name as customerName', 'orders.created_at as orderDate', 'orders.net_amount as orderAmount')
 //            ->orderLimit($orderLimit)
 //            ->orderBy('orders.id', 'desc')
-//            ->get();
-
-        //dd($orders);
+//            ->get()
+//          dd($orders);
 
         $customerLimit= request()->input('customerLimit', 3);
         $customers = Customer::query()->withCount('orders')->take($customerLimit)->get();
         return view('desaorders', compact('orders','customers'));
+
     }
 }
 
