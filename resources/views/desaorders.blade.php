@@ -54,15 +54,8 @@
         {{-- <li> Fecha: {{$orders->created_at}} <br> Pedido: {{$orders->code }} <br> Importe: {{$orders->net_amount }}</li>--}}
         <li> Fecha: {{$order->created_at}} <br> Pedido: {{$order->code}} <br> Cliente: {{$order->customer?->name }} <br> Importe: {{$order->net_amount }}</li><br>
     @endforeach
-
 </ul>
 
-<ul>
-@foreach($orders as $order)
-
-    @endforeach
-
-</ul>
 </body>
 </html>
 
