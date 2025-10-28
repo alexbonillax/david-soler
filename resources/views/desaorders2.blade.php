@@ -51,21 +51,22 @@
 
     @foreach ($orders as $order)
         <div style="margin-bottom: 2rem;">
-            <h3>Pedido ID: {{ $order->id }}</h3>
+            <h3>ID Pedido: {{ $order->id }}</h3>
             <p><strong>Cliente:</strong> {{ $order->customer->name }}</p>
 
-            <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; margin-top: 1rem;">
+            <table style="width: 100%;">
                 <thead>
-                <tr>
+                <tr style="background: #4085cc">
                     <th>Producto</th>
                     <th>Código</th>
+                    <th>Colección</th>
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>
                     <th>Subtotal</th>
                 </tr>
                 </thead>
                 <tbody>
-                @php $total = 0; @endphp
+                    @php $total = 0; @endphp
 
                 @foreach ($order->orderProducts as $orderProduct)
                     @php
@@ -73,13 +74,15 @@
                         $total += $subtotal;
                     @endphp
                     <tr>
-                        <td>{{ $orderProduct->product->name }}</td>
                         <td>{{ $orderProduct->product->code }}</td>
-                        <td>{{ $orderProduct->quantity }}</td>
+                        <td>{{ $orderProduct->product->full_name }}</td>
+                        <td>{{ $orderProduct->product->collection_name }}</td>
+                        <td>{{ number_format($orderProduct->quantity) }}</td>
                         <td>{{ number_format($orderProduct->price, 2) }} €</td>
                         <td>{{ number_format($subtotal, 2) }} €</td>
                     </tr>
                 @endforeach
+
                 </tbody>
             </table>
             <p><strong>Total del pedido:</strong> {{ number_format($total, 2) }} €</p>

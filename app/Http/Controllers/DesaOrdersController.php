@@ -35,11 +35,7 @@ class DesaOrdersController extends Controller
     public function index2()
     {
         $orderLimit = request()->input('numOrderLimit', 3);
-        $orders = Order::with([
-            'customer',
-            'orderProducts.product',
-            'orderProducts.unit'
-        ])->take($orderLimit)->get();
+        $orders = Order::with(['customer', 'orderProducts.product', 'orderProducts.unit'])->take($orderLimit)->get();
         return view('desaorders2', compact('orders'));
     }
 
