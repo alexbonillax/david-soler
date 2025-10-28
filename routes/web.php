@@ -12,10 +12,10 @@ Route::get('/', function () {
 
 Route::get('/empleados', [EmpleadoController::class, 'index']);
 Route::get('/desaOrders', [DesaOrdersController::class, 'index'])->name('desaOrders.index');
-Route::get('/desaorders2', [DesaOrdersController::class, 'index2'])->name('desaorders2');
 Route::get('/coupons', [DesaCouponsController::class, 'index'])->name('coupons.index');
 Route::get('/coupons/create', [DesaCouponsController::class, 'create'])->name('coupons.create');
 Route::post('/coupons', [DesaCouponsController::class, 'save'])->name('coupons.store');
 Route::get('/coupons/{coupon}', [DesaCouponsController::class, 'edit'])->name('coupons.edit');
 Route::post('/coupons/{coupon}', [DesaCouponsController::class, 'save'])->name('coupons.update');
 Route::delete('/coupons/{coupon}', [DesaCouponsController::class, 'destroy'])->name('coupons.destroy');
+Route::get('/desaorders2', [DesaOrdersController::class, 'index2'])->name('desaorders2');

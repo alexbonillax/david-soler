@@ -33,6 +33,9 @@
             border-radius: 10px;
 
         }
+        p{
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +60,6 @@
                     <th>Producto</th>
                     <th>Código</th>
                     <th>Cantidad</th>
-                    <th>Unidad</th>
                     <th>Precio Unitario</th>
                     <th>Subtotal</th>
                 </tr>
@@ -74,15 +76,13 @@
                         <td>{{ $orderProduct->product->name }}</td>
                         <td>{{ $orderProduct->product->code }}</td>
                         <td>{{ $orderProduct->quantity }}</td>
-                        <td>{{ $orderProduct->unit->name }}</td>
                         <td>{{ number_format($orderProduct->price, 2) }} €</td>
                         <td>{{ number_format($subtotal, 2) }} €</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
-
-            <p style="margin-top: 1rem;"><strong>Total del pedido:</strong> {{ number_format($total, 2) }} €</p>
+            <p><strong>Total del pedido:</strong> {{ number_format($total, 2) }} €</p>
             <hr>
         </div>
     @endforeach
