@@ -49,10 +49,10 @@ class User extends Authenticatable
     }
 
 
-class Empleado {
-    public function obtenerTodos() {
-        return DB::table('empleados')->get();
-    }
+//class Empleado {
+//    public function obtenerTodos() {
+//        return DB::table('empleados')->get();
+//    }
 }
 
-}
+

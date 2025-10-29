@@ -3,22 +3,19 @@
 <head>
     <title>Pedidos y productos</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
         * {
-            font-family: Verdana;
+            font-family: ibm plex sans;
         }
-
         body {
-            background-color: #e6e6e6;
+            background-color: white;
         }
-
         li {
-            font-family: Verdana;
+            font-family: ibm plex sans;
         }
-
         h1 {
-            font-family: "Arial Black";
+            font-family: ibm plex sans;
         }
-
         .btn-update {
             background-color: #4085cc;
             color: white;
@@ -27,7 +24,6 @@
             cursor: pointer;
             border-radius: 10px;
         }
-
         .btn-update:hover {
             background-color: #50a8ff;
             border-radius: 10px;
@@ -36,29 +32,32 @@
         p{
             margin-top: 1rem;
         }
+        strong{
+            color: #323F48;
+        }
     </style>
 </head>
+
 <body>
 <h1>Pedidos y productos</h1>
-
 <ul>
-
     <form method
     <label for="numOrderLimit">Pedidos a mostrar: </label>
-    <input type="number" name="numOrderLimit" id="numOrderLimit" value="{{ request('numOrderLimit', 3)}}">
+    <input type="number" name="numOrderLimit" id="numOrderLimit" value="{{ request('numOrderLimit', 10)}}">
     <button type="submit" class="btn btn-update">Actualizar</button>
     </form>
 
     @foreach ($orders as $order)
-        <div style="margin-bottom: 2rem;">
+        <div>
             <h3>ID Pedido: {{ $order->id }}</h3>
-            <p><strong>Cliente:</strong> {{ $order->customer->name }}</p>
+            <h4>{{$order->created_at}}</h4>
+            <p><strong>Cliente:</strong> {{ $order->customer->name}}</p>
 
             <table style="width: 100%;">
                 <thead>
-                <tr style="background: #4085cc">
-                    <th>Producto</th>
+                <tr style="background: #323F48; color: white">
                     <th>Código</th>
+                    <th>Producto</th>
                     <th>Colección</th>
                     <th>Cantidad</th>
                     <th>Precio Unitario</th>
@@ -85,7 +84,7 @@
 
                 </tbody>
             </table>
-            <p><strong>Total del pedido:</strong> {{ number_format($total, 2) }} €</p>
+            <p><strong>Total del pedido: {{ number_format($total, 2) }} €</strong></p>
             <hr>
         </div>
     @endforeach

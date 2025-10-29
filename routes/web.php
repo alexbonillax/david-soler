@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\DesaOrdersController;
 use App\Http\Controllers\DesaCouponsController;
+use App\Http\Controllers\DesaProductsController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,3 +21,11 @@ Route::get('/coupons/{coupon}', [DesaCouponsController::class, 'edit'])->name('c
 Route::post('/coupons/{coupon}', [DesaCouponsController::class, 'save'])->name('coupons.update');
 Route::delete('/coupons/{coupon}', [DesaCouponsController::class, 'destroy'])->name('coupons.destroy');
 Route::get('/desaorders2', [DesaOrdersController::class, 'index2'])->name('desaorders2');
+Route::get('/products', [DesaProductsController::class, 'index'])->name('products.index');
+Route::get('/products/create', [DesaProductsController::class, 'create'])->name('products.create');
+Route::post('/products', [DesaProductsController::class, 'save'])->name('products.store');
+Route::get('/products/{product}', [DesaProductsController::class, 'edit'])->name('products.edit');
+Route::post('/products/{product}', [DesaProductsController::class, 'save'])->name('products.update');
+Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])->name('products.destroy');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);

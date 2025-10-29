@@ -3,17 +3,18 @@
 <head>
     <title>Pedidos Desaverse</title>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
     *{
-        font-family: Verdana;
+        font-family: ibm plex sans;
     }
     body{
-        background-color: #e6e6e6;
+        background-color: white;
     }
     li{
-        font-family: Verdana;
+        ffont-family: ibm plex sans;
     }
     h1{
-        font-family: "Arial Black";
+        font-family: ibm plex sans;
     }
     .btn-update {
         background-color: #4085cc;
@@ -38,8 +39,8 @@
 <ul>
     @foreach($customers as $customer)
         {{-- <li> Fecha: {{$orders->created_at}} <br> Pedido: {{$orders->code }} <br> Importe: {{$orders->net_amount }}</li>--}}
-        <li> Cliente: {{$customer->name}} <br> Pedidos realizados: {{$customer->orders_count}}
-            <br> Rango: {{$customer->rank_tag}} <br> Fecha último pedido: {{$customer->last_order_at}}</li><br>
+        <li> <strong>Cliente:</strong> {{$customer->name}} <br> <strong>Pedidos realizados:</strong> {{$customer->orders_count}}
+            <br> <strong>Rango:</strong> {{$customer->rank_tag}} <br> <strong>Fecha último pedido:</strong> {{$customer->last_order_at}}</li><br><hr>
     @endforeach
 </ul>
 
@@ -53,6 +54,7 @@
     @foreach($orders as $order)
         {{-- <li> Fecha: {{$orders->created_at}} <br> Pedido: {{$orders->code }} <br> Importe: {{$orders->net_amount }}</li>--}}
         <li> Fecha: {{$order->created_at}} <br> Pedido: {{$order->code}} <br> Cliente: {{$order->customer?->name }} <br> Importe: {{$order->net_amount }}</li><br>
+        <hr>
     @endforeach
 </ul>
 

@@ -2,27 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de cupones en Desaverse</title>
+    <title>Listado de Productos en Desaverse</title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
         *{
-            background: white;
-            font-family: ibm plex sans;
+            background: #white;
+            font-family: IBM Plex Sans;
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
-            font-family: ibm plex sans;
-            background-color: #323F48;
+            font-family: IBM Plex Sans;
         }
 
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-
         }
 
         th {
@@ -68,10 +67,10 @@
 <body>
 <div class="container">
 
-    <h2>Listado de cupones en Desaverse</h2>
+    <h2>Listado de Productos en Desaverse</h2>
 
 
-    <a href="{{ route('coupons.create') }}" class="btn btn-edit">Crear nuevo cupón</a>
+    <a href="{{ route('products.create') }}" class="btn btn-edit">Crear nuevo producto</a>
 
 
     <table border="1" cellspacing="0" cellpadding="8">
@@ -79,27 +78,33 @@
         <tr>
             <th>ID</th>
             <th>Código</th>
-            <th>Nombre</th>
+            <th>Nombre Corto</th>
+            <th>Nombre Completo</th>
+            <th>Descripción</th>
+            <th>Precio/Ud</th>
             <th>Eliminar</th>
             <th>Editar</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($coupons as $coupon)
+        @foreach ($products as $product)
             <tr>
-                <td>{{ $coupon->id }}</td>
-                <td>{{ $coupon->code }}</td>
-                <td>{{ $coupon->name }}</td>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->code }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->fullname }}</td>
+                <td>{{ $product->description }}</td>
+                <td>{{ $product->price_unit_id }}</td>
                 <td>
-                    <form action="{{ route('coupons.destroy', $coupon->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cupón?')">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">
                             Eliminar
                         </button>
                         <td>
 
-                            <a href="{{ route('coupons.edit', $coupon->id) }}" class="btn btn-edit">
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-edit">
                                 Editar
                             </a>
 
