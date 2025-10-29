@@ -16,6 +16,10 @@
         h1 {
             font-family: ibm plex sans;
         }
+        h3,h4{
+            font-family: ibm plex sans;
+            color: #323F48;
+        }
         .btn-update {
             background-color: #4085cc;
             color: white;
@@ -31,6 +35,8 @@
         }
         p{
             margin-top: 1rem;
+
+
         }
         strong{
             color: #323F48;
@@ -84,7 +90,7 @@
 
                 </tbody>
             </table>
-            <p><strong>Total del pedido: {{ number_format($total, 2) }} €</strong></p>
+            <p><strong>Total del pedido:</strong> {{ number_format($total, 2) }} €</p>
             <hr>
         </div>
     @endforeach

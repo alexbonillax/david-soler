@@ -53,7 +53,7 @@
 <ul>
     @foreach($orders as $order)
         {{-- <li> Fecha: {{$orders->created_at}} <br> Pedido: {{$orders->code }} <br> Importe: {{$orders->net_amount }}</li>--}}
-        <li> Fecha: {{$order->created_at}} <br> Pedido: {{$order->code}} <br> Cliente: {{$order->customer?->name }} <br> Importe: {{$order->net_amount }}</li><br>
+        <li> <strong>Fecha:</strong> {{$order->created_at}} <br> <strong>Pedido:</strong> {{$order->code}} <br> <strong>Cliente:</strong> {{$order->customer?->name }} <br> <strong>Importe:</strong> {{$order->net_amount }}</li><br>
         <hr>
     @endforeach
 </ul>
