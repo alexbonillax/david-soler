@@ -6,7 +6,7 @@
 </head>
 <body style="background-color: #e6e6e6;">
 
-<h1 style="font-family:'Arial Black'">Productos Disponibles en Desaverse</h1>
+<h1 style="font-family:''">Productos Disponibles en Desaverse</h1>
 
 <ul style="font-family:'arial'">
     @foreach($products as $product)

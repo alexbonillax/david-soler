@@ -5,10 +5,10 @@
     <title>Crear Producto</title>
 </head>
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
     *{
-    font-family: Arial;
-        background: #e8e6e6;
-
+    font-family: IBM Plex Sans;
+        background: white;
     }
 </style>
 <body>

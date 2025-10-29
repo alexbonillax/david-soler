@@ -8,6 +8,7 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
                 *{
                     font-family: ibm plex sans;
                     background: #white;
@@ -26,6 +27,7 @@
                     margin:0px;
                     background-color:gray;
                     width:100vw;
+
 
                 }
                 body * {
@@ -73,14 +75,14 @@
 
                 nav a {
                     background:#323F48;
-                    color:#FFF;
-                    min-width:190px;
-                    transition: background 0.5s, color 0.5s, transform 0.5s;
+                    color:white;
+                    min-width:300px;
+                    transition: background 1s, color 0.5s, transform 0.5s;
                     margin:0px 6px 6px 0px;
-                    padding:20px 40px;
+                    padding:20px 70px;
                     box-sizing:border-box;
                     border-radius:3px;
-                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+                    box-shadow: 10px 10px 20px rgba(0, 0, 10, 0.5);
                     position:relative;
                     font-family: ibm plex sans;
                 }
@@ -148,7 +150,7 @@
     <body>
     <form>
     <div align="center">
-        <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 380px" height=200px"></div><form>
+        <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px" height=150px"></div><form>
             <h1 style="text-align: center">Bienvenido a Desaverse 0.1</h1>
             <br>
             <center>
@@ -163,7 +165,7 @@
             <menuitem id="menudesa">
                 <a>Menú Principal DESA</a>
                 <menu>
-                    <menuitem><a href="/david-soler/public/desaOrders">Pedidos</a></menuitem>
+                    <menuitem><a href="/david-soler/public/desaOrders">Últimos pedidos</a></menuitem>
                     <menuitem><a href="/david-soler/public/desaorders2">Pedidos y productos</a></menuitem>
                     <menuitem><a href="/david-soler/public/coupons">Cupones</a></menuitem>
                     <menuitem><a href="/david-soler/public/products">Productos</a></menuitem>

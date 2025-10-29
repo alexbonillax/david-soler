@@ -33,8 +33,8 @@ class DesaProductsController extends Controller
         $request->validate([
             'code' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'full_name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'full_name' => 'required',
+            'description' => 'required',
             'price_unit_id' => 'required|integer',
         ]);
 
