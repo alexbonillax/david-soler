@@ -27,8 +27,6 @@
                     margin:0px;
                     background-color:gray;
                     width:100vw;
-
-
                 }
                 body * {
                     margin:0;
@@ -41,7 +39,6 @@
                     opacity:0;
                     cursor:pointer;
                 }
-
                 nav menuitem > menu {
                     position: absolute;
                     pointer-events:none;
@@ -52,10 +49,14 @@
                     padding: 0;
                     margin: 0 auto;
                 }
-
-                nav > menu > menuitem { pointer-events: all; opacity:1; }
-                menu menuitem a { white-space:nowrap; display:block; }
-
+                nav > menu > menuitem {
+                    pointer-events: all;
+                    opacity:1;
+                }
+                menu menuitem a {
+                    white-space:nowrap;
+                    display:block;
+                }
                 menuitem:hover > menu {
                     pointer-events:initial;
                 }
@@ -67,12 +68,10 @@
                     transform:translateX(100%);
                     top:0; right:0;
                 }
-
                 nav {
                     margin-top: 40px;
                     margin-left: 40px;
                 }
-
                 nav a {
                     background:#323F48;
                     color:white;
@@ -86,7 +85,6 @@
                     position:relative;
                     font-family: ibm plex sans;
                 }
-
                 nav a:hover:before {
                     content: '';
                     top:0;left:0;
@@ -96,7 +94,6 @@
                     height:100%;
                     font-family: ibm plex sans;
                 }
-
                 nav > menu > menuitem > a + menu:after{
                     content: '';
                     position:absolute;
@@ -114,7 +111,6 @@
                     left:-180px;
                     transition: opacity 0.6, transform 0s;
                 }
-
                 nav > menu > menuitem > menu > menuitem{
                     transition: transform 0.6s, opacity 0.6s;
                     transform:translateY(150%);
@@ -125,7 +121,6 @@
                     transform:translateY(0%);
                     opacity: 1;
                 }
-
                 menuitem > menu > menuitem > menu > menuitem{
                     transition: transform 0.6s, opacity 0.6s;
                     transform:translateX(195px) translateY(0%);
@@ -144,7 +139,7 @@
                 background: #ffffff;
                 border-radius: 10px;
                 }
-                .card {
+                .card{
                     background: white;
                     border-radius: 12px;
                     padding: 20px;
@@ -153,7 +148,6 @@
                     margin: 0 auto;
                 }
             </style>
-
     </head>
     <body>
     <form>
@@ -167,7 +161,6 @@
                                     <IMG SRC="desia.jpg" width="200px" border="0"  align="absmiddle"></A>
 
                 </FORM>
-
     <nav>
         <menu>
             <menuitem id="menudesa">
@@ -177,30 +170,36 @@
                     <menuitem><a href="/david-soler/public/desaorders2">Pedidos y productos</a></menuitem>
                     <menuitem><a href="/david-soler/public/coupons">Cupones</a></menuitem>
                     <menuitem><a href="/david-soler/public/products">Productos</a></menuitem>
-
                 </menu></menu>
-
     </nav><br><br><br>
 
                 <h1>Evolución de ventas 2025</h1>
 
                 <canvas id="ordersChart" width="400" height="200"></canvas>
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
                 <script>
                     const ctx = document.getElementById('ordersChart').getContext('2d');
                     const ordersChart = new Chart(ctx, {
                         type: 'line',
                         data: {
-                            labels: @json($labelsMeses),
+                            labels: @json($labelsMonth),
                             datasets: [{
                                 label: 'Pedidos por mes',
-                                data: @json($totalesMeses),
+                                data: @json($totalMonth),
                                 backgroundColor: '#4682B4',
                                 borderColor: '#4682B4',
                             }]
                         },
                         options: {
+                            animations: {
+                                tension: {
+                                    duration: 2000,
+                                    easing: 'linear',
+                                    from: 1,
+                                    to: 0,
+                                    loop: true
+                                }
+                            },
                             scales: {
                                 y: {
                                     beginAtZero: true
@@ -209,8 +208,5 @@
                         }
                     });
                 </script>
-
-
-
     </body>
 </html>

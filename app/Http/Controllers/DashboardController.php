@@ -10,19 +10,19 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $ordersPorMes = Order::selectRaw('MONTH(created_at) as mes, COUNT(*) as total')
+        $ordersByMonth = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
             ->whereYear('created_at', 2025)
-            ->groupBy('mes')
-            ->orderBy('mes')
-            ->pluck('total', 'mes')
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('total', 'month')
             ->toArray();
 
 
-        $nombresMeses = [];
-        $totalesMeses = [];
+        $monthName = [];
+        $totalMonth = [];
 
-        foreach ($ordersPorMes as $mes => $total) {
-            $nombresMeses[] = match ((int) $mes) {
+        foreach ($ordersByMonth as $month => $total) {
+            $monthName[] = match ((int) $month) {
                 1 => 'Enero',
                 2 => 'Febrero',
                 3 => 'Marzo',
@@ -36,12 +36,12 @@ class DashboardController extends Controller
                 11 => 'Noviembre',
                 12 => 'Diciembre',
             };
-            $totalesMeses[] = $total;
+            $totalMonth[] = $total;
         }
 
         return view('welcome', [
-            'labelsMeses' => $nombresMeses,
-            'totalesMeses' => $totalesMeses
+            'labelsMonth' => $monthName,
+            'totalMonth' => $totalMonth
         ]);
     }
 }
