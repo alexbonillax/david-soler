@@ -39,9 +39,14 @@ class DashboardController extends Controller
             $totalMonth[] = $total;
         }
 
+        $totalYear = Order::whereYear('created_at', 2025)
+            ->sum('net_amount');
+
         return view('welcome', [
             'labelsMonth' => $monthName,
-            'totalMonth' => $totalMonth
+            'totalMonth' => $totalMonth,
+            'totalYear' => $totalYear
         ]);
+
     }
 }

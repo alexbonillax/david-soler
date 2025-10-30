@@ -209,5 +209,7 @@
                         }
                     });
                 </script>
+                <h3>Total neto del año 2025: €{{ number_format($totalYear, 2, ',', '.') }}</h3>
+
     </body>
 </html>
