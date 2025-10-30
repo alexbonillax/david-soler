@@ -9,14 +9,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Obtener número de pedidos por mes usando Eloquent
+
         $ordersPorMes = Order::selectRaw('MONTH(created_at) as mes, COUNT(*) as total')
             ->groupBy('mes')
             ->orderBy('mes')
             ->pluck('total', 'mes')
             ->toArray();
 
-        // Convertir números de mes (1-12) a nombres de mes (Enero, Febrero, etc.)
+
         $nombresMeses = [];
         $totalesMeses = [];
 
