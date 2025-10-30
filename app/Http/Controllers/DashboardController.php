@@ -11,6 +11,7 @@ class DashboardController extends Controller
     {
 
         $ordersPorMes = Order::selectRaw('MONTH(created_at) as mes, COUNT(*) as total')
+            ->whereYear('created_at', 2025)
             ->groupBy('mes')
             ->orderBy('mes')
             ->pluck('total', 'mes')

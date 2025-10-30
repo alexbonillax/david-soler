@@ -181,41 +181,36 @@
                 </menu></menu>
 
     </nav><br><br><br>
-                <div class="card">
-                    <h2>Pedidos creados por mes</h2>
-                    <canvas id="graficoOrders"></canvas>
-                </div>
+
+                <h1>Evolución de ventas 2025</h1>
+
+                <canvas id="ordersChart" width="400" height="200"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
                 <script>
-                    const ctx = document.getElementById('graficoOrders').getContext('2d');
-                    new Chart(ctx, {
-                        type: 'bar',
+                    const ctx = document.getElementById('ordersChart').getContext('2d');
+                    const ordersChart = new Chart(ctx, {
+                        type: 'line',
                         data: {
-                            labels: {!! json_encode($labelsMeses) !!},
+                            labels: @json($labelsMeses),
                             datasets: [{
-                                label: 'Pedidos',
-                                data: {!! json_encode($totalesMeses) !!},
-                                borderWidth: 1,
-                                backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                                borderColor: 'rgba(75, 192, 192, 1)'
+                                label: 'Pedidos por mes',
+                                data: @json($totalesMeses),
+                                backgroundColor: '#4682B4',
+                                borderColor: '#4682B4',
                             }]
                         },
                         options: {
                             scales: {
-                                y: { beginAtZero: true }
-                            },
-                            plugins: {
-                                legend: {
-                                    display: false
+                                y: {
+                                    beginAtZero: true
                                 }
                             }
                         }
                     });
-                </script><br><br><br>
+                </script>
 
-    </form>
-        </center>
+
+
     </body>
 </html>
-
-Ws%552z
