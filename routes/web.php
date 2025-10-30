@@ -7,6 +7,7 @@ use App\Http\Controllers\DesaOrdersController;
 use App\Http\Controllers\DesaCouponsController;
 use App\Http\Controllers\DesaProductsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,3 +30,4 @@ Route::post('/products/{product}', [DesaProductsController::class, 'save'])->nam
 Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])->name('products.destroy');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

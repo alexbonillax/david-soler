@@ -144,6 +144,14 @@
                 background: #ffffff;
                 border-radius: 10px;
                 }
+                .card {
+                    background: white;
+                    border-radius: 12px;
+                    padding: 20px;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
             </style>
 
     </head>
@@ -151,7 +159,7 @@
     <form>
     <div align="center">
         <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px" height=150px"></div><form>
-            <h1 style="text-align: center">Bienvenido a Desaverse 0.1</h1>
+            <h1 style="text-align: center">Bienvenido a Desaverse v0.1</h1>
             <br>
             <center>
                 <FORM method=GET action="http://www.chatgpt.com">
@@ -172,9 +180,42 @@
 
                 </menu></menu>
 
-    </nav><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </nav><br><br><br>
+                <div class="card">
+                    <h2>Pedidos creados por mes</h2>
+                    <canvas id="graficoOrders"></canvas>
+                </div>
+
+                <script>
+                    const ctx = document.getElementById('graficoOrders').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: {!! json_encode($labelsMeses) !!},
+                            datasets: [{
+                                label: 'Pedidos',
+                                data: {!! json_encode($totalesMeses) !!},
+                                borderWidth: 1,
+                                backgroundColor: 'rgba(75, 192, 192, 0.5)',
+                                borderColor: 'rgba(75, 192, 192, 1)'
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: { beginAtZero: true }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+                </script><br><br><br>
 
     </form>
         </center>
     </body>
 </html>
+
+Ws%552z

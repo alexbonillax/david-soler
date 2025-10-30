@@ -13,7 +13,7 @@
             background-size: auto;
             background-position: center;
             background-repeat: no-repeat;
-            back
+
         }
         h2{
             background: white;
@@ -57,8 +57,9 @@
         }
 
         .error {
-            color: red;
+            color: #ff0000;
             margin-bottom: 10px;
+            font-weight: bold;
         }
         div{
             background-color: white;
