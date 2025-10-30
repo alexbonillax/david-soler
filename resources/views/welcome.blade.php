@@ -176,7 +176,8 @@
                 <h1>Evolución de ventas 2025</h1>
 
                 <canvas id="ordersChart" width="400" height="200"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script src="{{ asset('js/ordersChart.js') }}"></script>
+
                 <script>
                     const ctx = document.getElementById('ordersChart').getContext('2d');
                     const ordersChart = new Chart(ctx, {
@@ -186,8 +187,8 @@
                             datasets: [{
                                 label: 'Pedidos por mes',
                                 data: @json($totalMonth),
-                                backgroundColor: '#4682B4',
-                                borderColor: '#4682B4',
+                                backgroundColor: '#48317a',
+                                borderColor: '#48317a',
                             }]
                         },
                         options: {
@@ -195,7 +196,7 @@
                                 tension: {
                                     duration: 2000,
                                     easing: 'linear',
-                                    from: 1,
+                                    from: 0,
                                     to: 0,
                                     loop: true
                                 }
