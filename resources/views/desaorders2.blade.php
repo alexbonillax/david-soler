@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Pedidos y productos</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
@@ -94,7 +95,9 @@
             <hr>
         </div>
     @endforeach
+    {{ $orders->links('pagination::bootstrap-4') }}
 </ul>
+
 </body>
 </html>
 

@@ -1,0 +1,13 @@
+
+// resources/sass/app.scss
+
+$colorPrimario: #3490dc;
+
+body {
+    background-color: $colorPrimario;
+
+    h1 {
+        color: white;
+        font-size: 2rem;
+    }
+}
