@@ -41,34 +41,35 @@
         }
         strong{
             color: #323F48;
-        }    nav[role="navigation"] {
-                 display: flex;
-                 justify-content: center;
-                 margin-top: 1rem;
-                 gap: 0.5rem;
-             }
-
-        nav[role="navigation"] a,
-        nav[role="navigation"] span {
-            padding: 0.4rem 0.75rem;
-            color: #0d6efd;
-            text-decoration: none;
-            border: 1px solid #dee2e6;
-            border-radius: 6px;
-            background-color: white;
-            transition: background-color 0.2s ease, color 0.2s ease;
-            font-size: 0.9rem;
         }
+        /*nav[role="navigation"] {*/
+        /*         display: flex;*/
+        /*         justify-content: center;*/
+        /*         margin-top: 1rem;*/
+        /*         gap: 0.5rem;*/
+        /*     }*/
 
-        nav[role="navigation"] a:hover {
-            background-color: #0d6efd;
-            color: white;
-        }
+        /*nav[role="navigation"] a,*/
+        /*nav[role="navigation"] span {*/
+        /*    padding: 0.4rem 0.75rem;*/
+        /*    color: #0d6efd;*/
+        /*    text-decoration: none;*/
+        /*    border: 1px solid #dee2e6;*/
+        /*    border-radius: 6px;*/
+        /*    background-color: white;*/
+        /*    transition: background-color 0.2s ease, color 0.2s ease;*/
+        /*    font-size: 0.9rem;*/
+        /*}*/
 
-        nav[role="navigation"] svg {
-            width: 1rem;
-            height: 1rem;
-        }
+        /*nav[role="navigation"] a:hover {*/
+        /*    background-color: #0d6efd;*/
+        /*    color: white;*/
+        /*}*/
+
+        /*nav[role="navigation"] svg {*/
+        /*    width: 1rem;*/
+        /*    height: 1rem;*/
+        /*}*/
     </style>
 </head>
 
@@ -124,7 +125,7 @@
     @endforeach
 
 </ul>
-{{ $orders->links('') }}
+{{ $orders->links() }}
 </body>
 </html>
 
