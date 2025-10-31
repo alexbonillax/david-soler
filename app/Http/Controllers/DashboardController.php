@@ -22,7 +22,7 @@ class DashboardController extends Controller
         $totalMonth = [];
 
         foreach ($ordersByMonth as $month => $total) {
-            $monthName[] = match ((int) $month) {
+            $monthName[] = match ((int)$month) {
                 1 => 'Enero',
                 2 => 'Febrero',
                 3 => 'Marzo',

@@ -13,8 +13,8 @@ class DesaProductsController extends Controller
     {
         $products = Product::query()->with('products:id')
             ->take(150)
-            ->orderBy('id','desc')
-            ->get(['id','code','name','full_name','description','price_unit_id']);
+            ->orderBy('id', 'desc')
+            ->get(['id', 'code', 'name', 'full_name', 'description', 'price_unit_id']);
         return view('products.index', compact('products'));
     }
 

@@ -6,10 +6,12 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-    *{
+
+    * {
         font-family: IBM Plex Sans;
         background: white;
     }
+
     .btn-actualizar {
         background-color: #4085cc;
         color: #ffffff;
@@ -27,7 +29,7 @@
         @csrf
 
         <div>
-            <label for="code">Código:  </label>
+            <label for="code">Código: </label>
             <input type="text" name="code" id="code" value="{{ $coupon->code }}" required>
         </div>
 
@@ -36,7 +38,9 @@
             <input type="text" name="name" id="name" value="{{ $coupon->name }}" required>
         </div>
         <br>
-        <button type="submit" class="btn-actualizar" onclick="return confirm('¿Estás seguro editar este cupón?')">Actualizar</button>
+        <button type="submit" class="btn-actualizar" onclick="return confirm('¿Estás seguro editar este cupón?')">
+            Actualizar
+        </button>
     </form>
 
     <br>

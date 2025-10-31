@@ -13,6 +13,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/downloads', function () {
+    return view('downloads');
+})->name('downloads');
+
+
 Route::get('/empleados', [EmpleadoController::class, 'index']);
 Route::get('/desaOrders', [DesaOrdersController::class, 'index'])->name('desaOrders.index');
 Route::get('/coupons', [DesaCouponsController::class, 'index'])->name('coupons.index');
@@ -31,3 +37,4 @@ Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+

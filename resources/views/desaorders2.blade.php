@@ -5,22 +5,28 @@
     <title>Pedidos y productos</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
         * {
             font-family: ibm plex sans;
         }
+
         body {
             background-color: white;
         }
+
         li {
             font-family: ibm plex sans;
         }
+
         h1 {
             font-family: ibm plex sans;
         }
-        h3,h4{
+
+        h3, h4 {
             font-family: ibm plex sans;
             color: #323F48;
         }
+
         .btn-update {
             background-color: #4085cc;
             color: white;
@@ -29,25 +35,29 @@
             cursor: pointer;
             border-radius: 10px;
         }
+
         .btn-update:hover {
             background-color: #50a8ff;
             border-radius: 10px;
 
         }
-        p{
+
+        p {
             margin-top: 1rem;
 
 
         }
-        strong{
+
+        strong {
             color: #323F48;
         }
+
         nav[role="navigation"] {
-                 display: flex;
-                 justify-content: center;
-                 margin-top: 1rem;
-                 gap: 0.5rem;
-             }
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 0.5rem;
+        }
 
         nav[role="navigation"] a,
         nav[role="navigation"] span {
@@ -100,7 +110,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @php $total = 0; @endphp
+                @php $total = 0; @endphp
 
                 @foreach ($order->orderProducts as $orderProduct)
                     @php

@@ -10,7 +10,8 @@ class Empleado extends Model
     protected $fillable = ['nombre', 'empresa_id'];
 }
 
-public function empresa()
+public
+function empresa()
 {
     return $this->belongsTo(Empresa::class, 'empresa_id');
 }

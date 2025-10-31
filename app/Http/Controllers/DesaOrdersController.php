@@ -13,10 +13,10 @@ class DesaOrdersController extends Controller
     {
         $orderLimit = request()->input('numOrderLimit', 3);
         $orders = Order::query()->with('customer:id,name')
-           //->select(['customer_id','code','created_at','net_amount'])
-           ->take($orderLimit)
-           ->orderBy('id','desc')
-           ->get(['customer_id','code','created_at','net_amount']);
+            //->select(['customer_id','code','created_at','net_amount'])
+            ->take($orderLimit)
+            ->orderBy('id', 'desc')
+            ->get(['customer_id', 'code', 'created_at', 'net_amount']);
 
 //        $orderLimit = request()->input('numOrderLimit', 1000);
 //        $orders = DB::table('orders')
@@ -27,9 +27,9 @@ class DesaOrdersController extends Controller
 //            ->get()
 //          dd($orders);
 
-        $customerLimit= request()->input('customerLimit', 3);
+        $customerLimit = request()->input('customerLimit', 3);
         $customers = Customer::query()->withCount('orders')->take($customerLimit)->simplePaginate(5);
-        return view('desaorders', compact('orders','customers'));
+        return view('desaorders', compact('orders', 'customers'));
     }
 
     public function index2()

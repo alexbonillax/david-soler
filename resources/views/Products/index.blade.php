@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-        *{
+        * {
             background: #white;
             font-family: IBM Plex Sans;
         }
@@ -58,6 +58,7 @@
             background-color: #e74c3c;
             border-radius: 10px;
         }
+
         .btn-edit:hover {
             background-color: #50a8ff;
             border-radius: 10px;
@@ -99,7 +100,8 @@
                     <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este producto?')">
+                        <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('¿Estás seguro de eliminar este producto?')">
                             Eliminar
                         </button>
                         <td>

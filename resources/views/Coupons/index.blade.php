@@ -6,7 +6,8 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-        *{
+
+        * {
             background: white;
             font-family: ibm plex sans;
         }
@@ -59,6 +60,7 @@
             background-color: #e74c3c;
             border-radius: 10px;
         }
+
         .btn-edit:hover {
             background-color: #50a8ff;
             border-radius: 10px;
@@ -94,7 +96,8 @@
                     <form action="{{ route('coupons.destroy', $coupon->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este cupón?')">
+                        <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('¿Estás seguro de eliminar este cupón?')">
                             Eliminar
                         </button>
                         <td>

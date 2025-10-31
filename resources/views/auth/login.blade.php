@@ -4,18 +4,21 @@
     <title>Login Desa</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
         * {
             background: #323F48;
             font-family: ibm plex sans;
         }
-        body{
+
+        body {
             background-image: url("https://forbes.es/wp-content/uploads/2023/05/fotonoticia_20230505145042_9999-1200x675.jpg");
             background-size: auto;
             background-position: center;
             background-repeat: no-repeat;
 
         }
-        h2{
+
+        h2 {
             background: white;
         }
 
@@ -61,7 +64,8 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        div{
+
+        div {
             background-color: white;
         }
     </style>
@@ -71,7 +75,8 @@
 <form method="POST" action="{{ route('login') }}">
     @csrf
     <div align="center">
-        <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px" height=150px>
+        <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+             height=150px>
 
     </div>
     <h2>Login en Desa App</h2>

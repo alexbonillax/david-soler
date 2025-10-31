@@ -25,7 +25,7 @@ class Coupon extends Model
     ];
 
     protected $casts = [
-      'is_assigned_to_customer' => 'boolean',
+        'is_assigned_to_customer' => 'boolean',
     ];
 
 }
