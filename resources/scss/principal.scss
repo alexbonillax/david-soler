@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+$fontMain: 'IBM Plex Sans', sans-serif;
+$fontAlt: 'Instrument Sans', sans-serif;
+$colorWhite: #ffffff;
+$colorBlack: #000000;
+$colorGray: gray;
+$colorNavBg: #323F48;
+
+* {
+    font-family: $fontMain;
+    background: $colorWhite;
+}
+    html, body {
+    padding: 0;
+    margin: 0;
+    background-color: $colorGray;
+    width: 100vw;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: $fontMain;
+}
+
+a {
+    color: $colorBlack;
+    font-size: 20px;
+    font-family: $fontMain;
+    text-decoration: none;
+}
+
+nav {
+    margin-top: 40px;
+    margin-left: 40px;
+
+    > menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0 auto;
+
+        > menuitem {
+            pointer-events: all;
+            opacity: 1;
+
+            > a + menu::after {
+                content: '';
+                position: absolute;
+                border: 10px solid transparent;
+                border-top: 10px solid $colorWhite;
+                left: 12px;
+                top: -40px;
+            }
+
+            menuitem menu {
+                transform: translateX(100%);
+                top: 0;
+                right: 0;
+            }
+
+            > menu > menuitem {
+                transition: transform 0.6s, opacity 0.6s;
+                transform: translateY(150%);
+                opacity: 0;
+
+                &:hover,
+                &.hover {
+                    transform: translateY(0%);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    a {
+        background: $colorNavBg;
+        color: $colorWhite;
+        min-width: 300px;
+        transition: background 1s, color 0.5s, transform 0.5s;
+        margin: 0 6px 6px 0;
+        padding: 20px 70px;
+        box-sizing: border-box;
+        border-radius: 3px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 10, 0.5);
+        position: relative;
+        font-family: $fontMain;
+
+        &:hover::before {
+            content: '';
+            top: 0;
+            left: 0;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+menuitem {
+    position: relative;
+    display: block;
+    opacity: 0;
+    cursor: pointer;
+
+    > menu {
+        position: absolute;
+        pointer-events: none;
+
+        > menuitem {
+            a {
+                white-space: nowrap;
+                display: block;
+            }
+
+            > a + menu::after {
+                content: '';
+                position: absolute;
+                border: 10px solid transparent;
+                border-left: 10px solid $colorWhite;
+                top: 20px;
+                left: -180px;
+                transition: opacity 0.6s, transform 0s;
+            }
+
+            > menu > menuitem {
+                transition: transform 0.6s, opacity 0.6s;
+                transform: translateX(195px) translateY(0%);
+                opacity: 0;
+                font-family: $fontMain;
+
+                &:hover,
+                &.hover {
+                    transform: translateX(0) translateY(0%);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &:hover > menu {
+        pointer-events: initial;
+
+        > menuitem,
+        menu:hover > menuitem {
+            opacity: 1;
+        }
+    }
+}
+
+form {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 50px;
+    background: $colorWhite;
+    border-radius: 10px;
+}
+
+.card {
+    background: $colorWhite;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}

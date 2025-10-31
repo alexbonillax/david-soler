@@ -28,14 +28,14 @@ class DesaOrdersController extends Controller
 //          dd($orders);
 
         $customerLimit= request()->input('customerLimit', 3);
-        $customers = Customer::query()->withCount('orders')->take($customerLimit)->cursorPaginate(5);
+        $customers = Customer::query()->withCount('orders')->take($customerLimit)->simplePaginate(5);
         return view('desaorders', compact('orders','customers'));
     }
 
     public function index2()
     {
         $orderLimit = request()->input('numOrderLimit', 10);
-        $orders = Order::with(['customer', 'orderProducts.product', 'orderProducts.unit'])->take($orderLimit)->cursorPaginate(5);
+        $orders = Order::with(['customer', 'orderProducts.product', 'orderProducts.unit'])->take($orderLimit)->simplePaginate(5);
         return view('desaorders2', compact('orders'));
     }
 
