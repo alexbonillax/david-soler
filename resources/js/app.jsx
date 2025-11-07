@@ -1,20 +1,27 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import Navbar from './components/Navbar';
-import LetterAvatar from './components/LetterAvatar';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import ResponsiveAppBar from './components/ResponsiveAppBar';
+import themeBase from './theme';
 
 const username = document.getElementById('app').dataset.username;
 
 const App = () => {
+    const [darkMode, setDarkMode] = useState(false);
+
+    const theme = {
+        ...themeBase,
+        palette: {
+            ...themeBase.palette,
+            mode: darkMode ? 'dark' : 'light',
+        },
+    };
+
     return (
-        <div>
-            <Navbar />
-            <div style={{ padding: '2rem' }}>
-                <h1>Hola {username} 👋</h1>
-                <LetterAvatar username={username} />
-            </div>
-        </div>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <ResponsiveAppBar username={username} toggleDarkMode={() => setDarkMode(!darkMode)} darkMode={darkMode} />
+        </ThemeProvider>
     );
 };
 

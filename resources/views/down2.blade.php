@@ -6,9 +6,9 @@
     <title>Downloads - GRUPO DESA</title>
 </head>
 <body>
-
-<h1>Descargas</h1>
-<a href="{{ asset('/downloads/download1.pdf') }}" download>Descargar
+aaaa
+{{--<h1>Descargas</h1>--}}
+{{--<a href="{{ asset('/downloads/download1.pdf') }}" download>Descargar</a>--}}
 
 </body>
 </html>
