@@ -1,0 +1,9 @@
+@use '../variables/colors' as *;
+
+.MuiDivider {
+
+  &-root {
+    border-color: $border-color-150 !important;
+  }
+
+}

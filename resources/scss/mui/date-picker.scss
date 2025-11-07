@@ -1,0 +1,109 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+$daySize: $size-10;
+$borderWidth: 2px;
+$dayInnerSize: calc(#{$daySize} - 2 * #{$borderWidth});
+$daysPerWeek: 7;
+$weeksPerMonth: 6;
+
+.MuiPickersLayout-root {
+  overflow-x: auto !important;
+  min-width: unset !important;
+  background-color: $background-color-0 !important;
+
+  .MuiDateCalendar-root {
+    width: unset;
+    height: unset;
+
+    .MuiPickersCalendarHeader-root {
+      margin: 0;
+      padding: $size-4 $size-6;
+      max-height: unset;
+      min-height: unset;
+
+      .MuiPickersCalendarHeader-label {
+        font-size: $font-size-text-lg !important;
+      }
+    }
+
+    .MuiDayCalendar-root {
+      padding: 0 $size-6;
+    }
+  }
+
+  .MuiDateRangeCalendar-root {
+    .MuiDateRangeCalendar-monthContainer {
+      padding: $size-3 $size-6;
+
+      .MuiPickersArrowSwitcher-root {
+        padding: 0;
+
+        .MuiTypography-root {
+          font-size: $font-size-text-lg !important;
+          color: $text-color-800 !important;
+        }
+      }
+    }
+  }
+
+  .MuiDayCalendar-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .MuiDayCalendar-header {
+
+      .MuiDayCalendar-weekDayLabel {
+        width: $dayInnerSize;
+        height: $dayInnerSize;
+        font-size: $font-size-text-md !important;
+        color: $text-color-800;
+      }
+    }
+
+    .MuiDayCalendar-slideTransition {
+      width: $daySize * $daysPerWeek;
+      height: calc($weeksPerMonth * #{$daySize} + $weeksPerMonth * #{$borderWidth});
+      min-height: unset;
+      min-width: unset;
+
+      .MuiDayCalendar-monthContainer {
+
+        .MuiDayCalendar-weekContainer {
+          margin: $borderWidth 0 0;
+
+          .MuiDateRangePickerDay-root {
+
+            &.MuiDateRangePickerDay-rangeIntervalDayHighlight:not(.MuiDateRangePickerDay-outsideCurrentMonth) {
+              background-color: $background-color-accent-200;
+            }
+          }
+
+          .MuiPickersDay-root {
+            width: $dayInnerSize;
+            height: $dayInnerSize;
+            font-size: $font-size-text-md !important;
+            transform: none;
+            color: $text-color-800;
+
+            &.Mui-disabled {
+              color: $text-color-200;
+            }
+
+            &.MuiDateRangePickerDay-dayInsideRangeInterval {
+              color: $text-color-accent-600;
+            }
+
+            &.Mui-selected {
+              background-color: $background-color-accent-600;
+              color: $text-color-white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

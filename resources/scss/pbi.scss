@@ -1,0 +1,10 @@
+@use './variables/colors' as *;
+
+.Pbi-root {
+  height: 100%;
+  width: 100%;
+
+  iframe {
+    border: none;
+  }
+}

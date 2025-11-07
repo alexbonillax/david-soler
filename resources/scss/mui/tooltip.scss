@@ -1,0 +1,20 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiTooltip-popper {
+  z-index: var(--modal-z-index) !important;
+
+  .MuiTooltip-tooltip {
+    background-color: $background-color-0;
+    border: 1px solid $border-color-150;
+    box-shadow: 0 $size-2 $size-8 $color-shadow;
+    border-radius: var(--border-radius-md);
+    font-size: $font-size-text-sm;
+    font-weight: $font-weight-sm;
+    line-height: $size-4;
+    color: $text-color-800;
+    text-align: center;
+    padding: $size-3;
+  }
+}

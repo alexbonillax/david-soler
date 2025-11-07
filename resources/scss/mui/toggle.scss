@@ -1,0 +1,100 @@
+@use '../variables/sizes' as *;
+@use '../variables/colors' as *;
+@use '../variables/typographies' as *;
+
+.MuiToggleButtonGroup-root {
+  border-radius: 0 !important;
+
+  &:has(.MuiToggleButton-secondary) {
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    border-radius: var(--border-radius-md) !important;
+    padding: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: $background-color-150;
+    }
+  }
+
+  .MuiToggleButton-root {
+    border: 0;
+    text-transform: none;
+    color: $text-color-500;
+
+    &.MuiToggleButton {
+
+      &-size {
+        &Small {
+          height: $size-6;
+          padding: 0 $size-1;
+          margin: $size-1;
+          font-size: $font-size-text-sm;
+        }
+
+        &Medium {
+          height: $size-8;
+          padding: 0 $size-1;
+          margin: $size-1;
+          font-size: $font-size-text-md;
+        }
+
+        &Large {
+          height: $size-10;
+          padding: 0 $size-1;
+          font-size: $font-size-text-lg;
+          font-weight: $font-weight-sm;
+        }
+      }
+
+      &-primary {
+        border-radius: 0 !important;
+        border-bottom: 1px solid transparent;
+
+        &.Mui {
+          &-selected {
+            background-color: transparent;
+            border-bottom: 1px solid $border-color-800 !important;
+          }
+        }
+      }
+
+      &-secondary {
+        border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+        border: 1px solid transparent;
+        margin: 0;
+        color: $text-color-500;
+
+        &.Mui {
+          &-selected {
+            border-top-color: $border-color-150 !important;
+            border-left-color: $border-color-150 !important;
+            border-right-color: $border-color-150 !important;
+            background-color: $background-color-0;
+            color: $text-color-accent-600;
+          }
+        }
+      }
+
+    }
+
+    &.Mui {
+      &-selected {
+        color: $text-color-800;
+        font-weight: $font-weight-md;
+      }
+
+      &-disabled {
+        border: 0;
+        opacity: 0.5;
+      }
+    }
+
+  }
+}

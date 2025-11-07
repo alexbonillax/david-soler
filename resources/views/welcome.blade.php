@@ -6,7 +6,11 @@
     <title>Desaverse 0.1 - GRUPO DESA</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
-    {{--        @vite(['resources/scss/principal.scss'])--}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
+    @vite('resources/js/appBar.jsx')
+    {{--    @vite(['resources/scss/principal.scss'])--}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
@@ -174,15 +178,15 @@
             margin: 0 auto;
         }
     </style>
-</head>
-<body>
+</head><div id="app" data-username="{{ Auth::user()->first_name }}"></div>
+<body><div id="appBar" style="text-align: center">
 <form>
     <div align="center">
         <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
              height=150px"></div>
     <form>
         <h1 style="text-align: center">Bienvenido a Desaverse v0.1</h1>
-        <br>
+        <br> <div id="app" style="text-align: center"></div>
         <center>
             <FORM method=GET action="http://www.chatgpt.com">
                 <A HREF="http://www.chatgpt.com">
@@ -218,8 +222,8 @@
                         datasets: [{
                             label: 'Pedidos por mes',
                             data: @json($totalMonth),
-                            backgroundColor: '#48317a',
-                            borderColor: '#48317a',
+                            backgroundColor: 'Purple',
+                            borderColor: 'purple',
                         }]
                     },
                     options: {
@@ -240,7 +244,7 @@
                     }
                 });
             </script>
-            <h3>Total neto del año 2025: €{{ number_format($totalYear, 2, ',', '.') }}</h3>
+            <h3>Facturación provisional en 2025: €{{ number_format($totalYear, 2, ',', '.') }}</h3>
 
 </body>
 </html>

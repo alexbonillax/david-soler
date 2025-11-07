@@ -1,0 +1,201 @@
+@use 'variables/colors' as *;
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  //  font-family: 'Blinker';
+  font-weight: bold;
+  src: url("../fonts/IBMPlexSans-SemiBold.ttf") format("truetype");
+  //  src: url("../fonts/Blinker-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  //  font-family: 'Blinker';
+  font-weight: normal;
+  src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
+  //  src: url("../fonts/Blinker-Regular.woff2") format("woff2");
+}
+
+$document-size: 24px;
+$page-height: $document-size * 50;
+$page-width: calc($page-height * 210 / 297);
+
+$document-white: #FFFFFF;
+$document-primary: #333F48;
+$document-divider: #f5f5f5;
+$document-text: #000000;
+
+.Document-root {
+  background-color: $background-color-200;
+
+  .Page-root {
+    position: relative;
+    height: $page-height;
+    width: $page-width;
+    min-width: $page-width;
+    background-color: $document-white;
+    overflow: hidden;
+
+    .DocumentHeader-root {
+      position: relative;
+      width: 100%;
+      background-color: $document-white;
+      padding: $document-size * 1.5 $document-size * 2;
+
+      &:after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $document-primary;
+      }
+
+      .DocumentHeader-image {
+        height: $document-size * 2;
+
+        img {
+          height: $document-size * 1.5;
+        }
+      }
+
+      .MuiTypography-root {
+        color: $document-text;
+      }
+    }
+
+    .DocumentSubHeader-root {
+      padding: $document-size * 1 $document-size * 2;
+    }
+
+    .DocumentFooter-root {
+      position: absolute;
+      bottom: 0;
+      padding: $document-size * 1.5 $document-size * 2;
+
+      :after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: $document-primary;
+      }
+    }
+
+    .DocumentTable-root {
+      position: relative;
+      padding: 0 $document-size * 2;
+
+      .DocumentTable-head {
+        position: relative;
+
+        :after {
+          content: '';
+          position: absolute;
+          height: 2px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $document-primary;
+        }
+
+        &.hasTopBorder:before {
+          content: '';
+          position: absolute;
+          height: 1px;
+          left: 0;
+          right: 0;
+          top: 0;
+          background-color: $document-primary;
+        }
+      }
+
+      .DocumentTable-body {
+        position: relative;
+
+        .DocumentTable-row {
+          position: relative;
+
+          &:before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $document-divider;
+          }
+        }
+      }
+
+      .DocumentTable-cell {
+
+        .Document-secondary {
+          position: relative;
+        }
+      }
+    }
+
+    .MuiTypography {
+      &-root {
+        font-family: 'IBM Plex Sans', serif !important;
+        color: $document-text;
+
+        * {
+          font-family: 'IBM Plex Sans', serif !important;
+        }
+      }
+
+      &-document {
+        &Title {
+          font-size: $document-size * 0.75;
+          font-weight: bold;
+          line-height: $document-size * 1;
+          min-height: $document-size * 1;
+        }
+
+        &Value {
+          font-size: $document-size * 0.6;
+          line-height: $document-size * 1;
+          min-height: $document-size * 1;
+        }
+
+        &Hint {
+          font-size: $document-size * 0.5;
+          line-height: $document-size * 1;
+          min-height: $document-size * 1;
+        }
+
+        &Table {
+          &Head {
+            font-size: $document-size * 0.55;
+            font-weight: bold;
+            line-height: $document-size * 1.75;
+            min-height: $document-size * 1.75;
+          }
+
+          &Body {
+            font-size: $document-size * 0.55;
+            line-height: $document-size * 1.5;
+            min-height: $document-size * 1.5;
+          }
+
+          &BodyCollapsed {
+            font-size: $document-size * 0.475;
+            line-height: $document-size * 1.5;
+            min-height: $document-size * 1.5;
+          }
+
+          &BodyHint {
+            font-size: $document-size * 0.5;
+            line-height: $document-size * 1;
+            min-height: $document-size * 1;
+          }
+        }
+      }
+    }
+  }
+}

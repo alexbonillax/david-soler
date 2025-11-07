@@ -1,0 +1,43 @@
+@use '../variables/colors' as *;
+
+.MuiPaper-root {
+
+  &.MuiDialog-paper {
+    background-color: $background-color-0;
+
+    &:not(.MuiDialog-paperFullScreen) {
+      border-radius: var(--border-radius-md);
+    }
+
+    .MuiDialogTitle-root {
+      padding: 0;
+
+      &:not(.MuiDialogTitle-noBorder) {
+        border-bottom: 1px solid $border-color-150;
+      }
+    }
+
+    .MuiDialogContent-root {
+      position: relative;
+      padding: 0;
+      overflow-y: scroll;
+    }
+
+    .MuiDialogActions-root {
+      padding: 0;
+      background-color: $background-color-50;
+      border-top: 1px solid $border-color-150;
+    }
+  }
+
+}
+
+.MuiDialog-root {
+  z-index: var(--modal-z-index) !important;
+
+  .MuiBackdrop-root {
+    background-color: $background-color-backdrop;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+}

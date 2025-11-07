@@ -1,0 +1,149 @@
+@use '../mixins/mixins' as *;
+
+$color-shadow: var(--shadow);
+$color-backdrop: var(--backdrop);
+
+// TEXTOS
+$text-color-white: var(--white);
+$text-color-black: var(--black);
+$text-color-0: rgb(var(--primary-0));
+$text-color-150: var(--primary-150);
+$text-color-200: var(--primary-200);
+$text-color-500: rgb(var(--primary-500));
+$text-color-800: rgb(var(--primary-800));
+$text-color-accent-400: var(--accent-400);
+$text-color-accent-600: rgb(var(--accent-600));
+$text-color-red: rgb(var(--red));
+$text-color-orange: rgb(var(--orange));
+$text-color-green: rgb(var(--green));
+$text-color-iron: rgb(var(--iron));
+$text-color-bronze: rgb(var(--bronze));
+$text-color-silver: rgb(var(--silver));
+$text-color-gold: rgb(var(--gold));
+$text-color-platinum: rgb(var(--platinum));
+$text-color-top: rgb(var(--top));
+$text-color-verified: rgb(var(--verified));
+
+@include color(color, "white", $text-color-white, !important);
+@include color(color, "black", $text-color-black, !important);
+@include color(color, "0", $text-color-0, !important);
+@include color(color, "150", $text-color-150, !important);
+@include color(color, "200", $text-color-200, !important);
+@include color(color, "500", $text-color-500, !important);
+@include color(color, "800", $text-color-800, !important);
+@include color(color, "accent-400", $text-color-accent-400, !important);
+@include color(color, "accent-600", $text-color-accent-600, !important);
+@include color(color, "red", $text-color-red, !important);
+@include color(color, "orange", $text-color-orange, !important);
+@include color(color, "green", $text-color-green, !important);
+@include color(color, "iron", $text-color-iron, !important);
+@include color(color, "bronze", $text-color-bronze, !important);
+@include color(color, "silver", $text-color-silver, !important);
+@include color(color, "gold", $text-color-gold, !important);
+@include color(color, "platinum", $text-color-platinum, !important);
+@include color(color, "top", $text-color-top, !important);
+@include color(color, "verified", $text-color-verified, !important);
+
+
+// FONDOS
+$background-color-backdrop: var(--backdrop);
+$background-color-0: rgb(var(--primary-0));
+$background-color-50: rgb(var(--primary-50));
+$background-color-100: rgb(var(--primary-100));
+$background-color-150: var(--primary-150);
+$background-color-200: var(--primary-200);
+$background-color-500: rgb(var(--primary-500));
+$background-color-500-backdrop: rgba(var(--primary-500), 0.1);
+$background-color-800: rgb(var(--primary-800));
+$background-color-accent-100: var(--accent-100);
+$background-color-accent-200: var(--accent-200);
+$background-color-accent-400: var(--accent-400);
+$background-color-accent-600: rgb(var(--accent-600));
+$background-color-red: rgb(var(--red));
+$background-color-red-backdrop: rgba(var(--red), 0.075);
+$background-color-red-100: rgb(var(--red-100));
+$background-color-green: rgb(var(--green));
+$background-color-green-backdrop: rgba(var(--green), 0.075);
+$background-color-orange: rgb(var(--orange));
+$background-color-orange-backdrop: rgba(var(--orange), 0.075);
+$background-color-iron: rgb(var(--iron));
+$background-color-silver: rgb(var(--silver));
+$background-color-gold: rgb(var(--gold));
+$background-color-gold-backdrop: rgba(var(--gold), 0.075);
+$background-color-platinum: rgb(var(--platinum));
+$background-color-verified: rgb(var(--verified));
+$background-color-verified-backdrop: rgba(var(--verified), 0.075);
+
+@include color(background-color, "backdrop", $background-color-backdrop, null);
+@include color(background-color, "0", $background-color-0, !important);
+@include color(background-color, "50", $background-color-50, !important);
+@include color(background-color, "100", $background-color-100, !important);
+@include color(background-color, "150", $background-color-150, !important);
+@include color(background-color, "200", $background-color-200, null);
+@include color(background-color, "500", $background-color-500, null);
+@include color(background-color, "500-backdrop", $background-color-500-backdrop, null);
+@include color(background-color, "800", $background-color-800, null);
+@include color(background-color, "accent-100", $background-color-accent-100, !important);
+@include color(background-color, "accent-200", $background-color-accent-200, !important);
+@include color(background-color, "accent-400", $background-color-accent-400, null);
+@include color(background-color, "accent-600", $background-color-accent-600, !important);
+@include color(background-color, "red", $background-color-red, null);
+@include color(background-color, "red-backdrop", $background-color-red-backdrop, null);
+@include color(background-color, "red-100", $background-color-red-100, null);
+@include color(background-color, "green", $background-color-green, null);
+@include color(background-color, "green-backdrop", $background-color-green-backdrop, !important);
+@include color(background-color, "orange", $background-color-orange, null);
+@include color(background-color, "orange-backdrop", $background-color-orange-backdrop, !important);
+@include color(background-color, "iron", $background-color-iron, !important);
+@include color(background-color, "silver", $background-color-silver, !important);
+@include color(background-color, "gold", $background-color-gold, !important);
+@include color(background-color, "gold-backdrop", $background-color-gold-backdrop, null);
+@include color(background-color, "platinum", $background-color-platinum, !important);
+@include color(background-color, "verified", $background-color-verified, null);
+@include color(background-color, "verified-backdrop", $background-color-verified-backdrop, !important);
+@include color(background-color, "transparent", transparent, !important);
+
+
+// BORDES
+$border-color-0: rgb(var(--primary-0));
+$border-color-150: var(--primary-150);
+$border-color-200: var(--primary-200);
+$border-color-500: rgb(var(--primary-500));
+$border-color-800: rgb(var(--primary-800));
+$border-color-accent-200: var(--accent-200);
+$border-color-accent-400: var(--accent-400);
+$border-color-accent-600: rgb(var(--accent-600));
+$border-color-red: rgb(var(--red));
+$border-color-red-100: rgb(var(--red-100));
+$border-color-green: rgb(var(--green));
+$border-color-orange: rgb(var(--orange));
+$border-color-verified: rgb(var(--verified));
+$border-color-silver: rgb(var(--silver));
+$border-color-gold: rgb(var(--gold));
+$border-color-platinum: rgb(var(--platinum));
+
+@include color(border-color, "transparent", transparent, !important);
+@include color(border-color, "0", $border-color-0, null);
+@include color(border-color, "150", $border-color-150, null);
+@include color(border-color, "150-important", $border-color-150, !important);
+@include color(border-color, "200", $border-color-200, null);
+@include color(border-color, "500", $border-color-500, null);
+@include color(border-color, "800", $border-color-800, null);
+@include color(border-color, "accent-200", $border-color-accent-200, !important);
+@include color(border-color, "accent-400", $border-color-accent-400, null);
+@include color(border-color, "accent-600", $border-color-accent-600, !important);
+@include color(border-color, "red", $border-color-red, !important);
+@include color(border-color, "red-100", $border-color-red-100, null);
+@include color(border-color, "green", $border-color-green, !important);
+@include color(border-color, "orange", $border-color-orange, !important);
+@include color(border-color, "verified", $border-color-verified, !important);
+@include color(border-color, "silver", $border-color-silver, !important);
+@include color(border-color, "gold", $border-color-gold, !important);
+@include color(border-color, "platinum", $border-color-platinum, !important);
+
+.background {
+  &-stripes {
+    background: repeating-linear-gradient(45deg, $background-color-50, $background-color-50 10px, $background-color-100 10px, $background-color-100 20px
+    );
+  }
+}

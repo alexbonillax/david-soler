@@ -1,0 +1,192 @@
+@use '../variables/colors' as *;
+@use '../variables/typographies' as *;
+
+
+.MuiTypography {
+
+  &-root {
+
+    mark {
+      background-color: $background-color-200;
+    }
+
+  }
+
+  &-bigTitle {
+    font-size: $font-size-title-xl;
+    font-weight: $font-weight-lg;
+    line-height: calc($font-size-title-xl * 1.35);
+    color: $text-color-800;
+  }
+
+  &-title {
+    font-size: $font-size-title-sm;
+    font-weight: $font-weight-md;
+    line-height: calc($font-size-title-sm * 1.35);
+    color: $text-color-800;
+  }
+
+  &-smallTitle {
+    font-size: $font-size-text-xl !important;
+    font-weight: $font-weight-md;
+    line-height: calc($font-size-text-xl * 1.15) !important;
+    color: $text-color-800;
+  }
+
+  &-tinyTitle {
+    font-size: $font-size-text-md;
+    font-weight: $font-weight-md;
+    line-height: calc($font-size-text-md * 1.25);
+    color: $text-color-800;
+  }
+
+  &-caption {
+    font-size: $font-size-text-md !important;
+    font-weight: $font-weight-sm !important;
+    line-height: calc($font-size-text-md * 1.25) !important;
+    color: $text-color-800;
+  }
+
+  &-subtitle {
+    font-size: $font-size-title-xs;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-title-xs * 1.25);
+    color: $text-color-500;
+  }
+
+  &-text {
+    font-size: $font-size-text-sm;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-sm * 1.5);
+    color: $text-color-800;
+  }
+
+  &-prose {
+    font-size: $font-size-text-xl;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-xl * 1.65);
+    color: $text-color-500;
+  }
+
+  &-chat {
+    font-size: $font-size-text-xl;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-xl * 1.5);
+    color: $text-color-800;
+  }
+
+  &-hint {
+    font-size: $font-size-text-sm !important;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-sm * 1.25) !important;
+    color: $text-color-500;
+  }
+
+  &-smallHint {
+    font-size: $font-size-text-xs !important;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-xs * 1.25) !important;
+    color: $text-color-500;
+  }
+
+  &-featured {
+    font-size: $font-size-text-xs;
+    font-weight: $font-weight-md;
+    line-height: calc($font-size-text-xs * 1.35);
+    color: $text-color-800;
+  }
+
+  &-value {
+    font-size: $font-size-text-xs;
+    font-weight: $font-weight-sm;
+    line-height: calc($font-size-text-xs * 1.15);
+    color: $text-color-500;
+  }
+
+  &-table {
+
+    &Head {
+      &Title {
+        font-size: $font-size-text-sm;
+        font-weight: $font-weight-md;
+        color: $text-color-800;
+      }
+    }
+
+    &Body {
+      &Title {
+        font-size: $font-size-text-md;
+        font-weight: $font-weight-md;
+        color: $text-color-800;
+      }
+
+      &Subtitle {
+        font-size: $font-size-text-sm;
+        font-weight: $font-weight-sm;
+        color: $text-color-500;
+      }
+
+      &Value {
+        font-size: $font-size-text-sm;
+        font-weight: $font-weight-md;
+        color: $text-color-800;
+      }
+    }
+  }
+
+  &-card {
+    &Title {
+      font-size: $font-size-text-lg;
+      font-weight: $font-weight-md;
+      color: $text-color-800;
+    }
+
+    &Subtitle {
+      font-size: $font-size-text-md;
+      font-weight: $font-weight-sm;
+      color: $text-color-500;
+    }
+
+    &Hint {
+      font-size: $font-size-text-sm;
+      font-weight: $font-weight-sm;
+      color: $text-color-500;
+    }
+
+  }
+
+  &-indicator {
+    &Value {
+      font-size: $font-size-title-lg;
+      font-weight: $font-weight-md;
+      line-height: calc($font-size-title-lg * 1.35);
+      color: $text-color-800;
+    }
+
+    &Annotation {
+      font-size: $font-size-text-sm;
+      font-weight: $font-weight-md;
+      line-height: calc($font-size-text-sm * 1.35);
+      color: $text-color-800;
+    }
+
+    &Trend {
+      font-size: $font-size-text-sm;
+      font-weight: $font-weight-md;
+      line-height: calc($font-size-text-sm * 1.35);
+    }
+  }
+
+  &-regular {
+    font-weight: $font-weight-sm !important;
+  }
+
+  &-medium {
+    font-weight: $font-weight-md !important;
+  }
+
+  &-bold {
+    font-weight: $font-weight-lg !important;
+  }
+
+}

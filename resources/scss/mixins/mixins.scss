@@ -1,0 +1,26 @@
+@use "sass:list";
+
+@mixin generate($prefix, $property) {
+	// List of sizes to generate for each
+	$sizes: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+
+// Spacing to multiply the sizes by
+$spacing: 0.25rem;
+
+// Loop through all of the sizes(we use @for rather than @each, as we want access to the index)
+@for $i from 1 through list.length($sizes) {
+	// Get the size for the current index
+	$size: list.nth($sizes, $i);
+
+	// Create the rule
+	.#{$prefix}-#{$i - 1} {
+		#{$property}: $spacing * $size !important;
+	}
+}
+}
+
+@mixin color($property, $color, $value, $important) {
+	.#{$property}-#{$color} {
+		#{$property}: $value $important;
+	}
+}

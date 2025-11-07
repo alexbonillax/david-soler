@@ -1,0 +1,37 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiCheckbox, .MuiRadio {
+
+  &-root {
+
+    &.MuiCheckbox-size {
+      &Small {
+        height: $size-8;
+        width: $size-8;
+      }
+
+      &Medium {
+        height: $size-10;
+        width: $size-10;
+      }
+    }
+
+    &.MuiCheckbox-color, &.MuiRadio-color {
+      &Primary {
+        color: $text-color-500;
+
+        &.Mui {
+          &-checked {
+            color: $text-color-accent-600;
+          }
+
+          &-disabled {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
         * {
-            background: #white;
+            background: white;
             font-family: IBM Plex Sans;
         }
 
@@ -93,7 +93,7 @@
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->code }}</td>
                 <td>{{ $product->name }}</td>
-                <td>{{ $product->fullname }}</td>
+                <td>{{ $product->full_name }}</td>
                 <td>{{ $product->description }}</td>
                 <td>{{ $product->price_unit_id }}</td>
                 <td>

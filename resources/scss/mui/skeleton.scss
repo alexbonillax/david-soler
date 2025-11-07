@@ -1,0 +1,15 @@
+@use '../variables/colors' as *;
+@use '../globals/borders' as *;
+
+.MuiSkeleton {
+
+  &-root {
+
+    &.MuiSkeleton-text {
+      background-color: $background-color-100;
+      transform: none;
+      border-radius: $border-radius-md;
+    }
+  }
+
+}

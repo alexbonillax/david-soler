@@ -1,0 +1,35 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+
+.MuiPaper-root {
+
+  &.MuiCard-root {
+    display: inline-block;
+    background-color: $background-color-0;
+    overflow: unset;
+    padding: 0;
+    border-radius: var(--border-radius-md);
+    box-shadow: none;
+
+    &:not(.h-100) {
+      height: unset !important;
+    }
+
+    &:not(.Mui-hasBorder) {
+      border: 1px solid $border-color-150;
+      box-shadow: 0 1px 2px #0000000d;
+    }
+
+    .MuiCardContent-root {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      line-height: 0;
+    }
+
+    .MuiCardActions-root {
+      border-bottom-left-radius: var(--border-radius-md);
+      border-bottom-right-radius: var(--border-radius-md);
+    }
+  }
+}

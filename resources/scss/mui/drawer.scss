@@ -1,0 +1,173 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiDrawer {
+  &-root {
+    .MuiPaper-root {
+      background-color: $background-color-0;
+    }
+
+    &.MuiDrawer-preventScroll {
+      > .MuiPaper-root {
+        overflow-y: hidden;
+      }
+    }
+
+    .MuiBackdrop-root {
+      background-color: $background-color-backdrop;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+    }
+  }
+}
+
+.ResponsiveDrawer {
+
+  &-root {
+    height: 100vh;
+    left: inherit;
+
+    .MuiPaper-root {
+      bottom: 0;
+      height: unset;
+      justify-content: space-between;
+      border-right: 0;
+    }
+
+    > .MuiPaper-root {
+      position: relative;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .MuiList-root {
+
+      .MuiListSubheader-root {
+        position: unset;
+        padding: 0 $size-1;
+        font-size: $font-size-text-xs;
+        line-height: $size-8;
+        min-height: $size-3;
+        letter-spacing: $size-1 * 0.2;
+        background-color: transparent;
+        text-transform: uppercase;
+        color: $text-color-500;
+      }
+
+      .MuiListItem-root {
+        padding: 0;
+        height: $size-10;
+
+        .MuiListItemIcon-root {
+          position: relative;
+          font-size: $font-size-icon-xl;
+        }
+      }
+    }
+
+    &.MuiDrawer {
+
+      &-primary {
+        .MuiList-root {
+          .MuiListSubheader-root {
+            color: $text-color-white;
+          }
+        }
+      }
+    }
+  }
+
+  &-mobile {
+    @media (min-width: $mobile-breakpoint) {
+      display: none;
+    }
+
+    > .MuiPaper-root {
+      min-width: min(100vw, $drawer-mobile-width);
+      max-width: 80%;
+      background-color: $background-color-0;
+    }
+  }
+
+  &-desktop {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: $drawer-expanded-desktop-width;
+
+    > .MuiPaper-root {
+      background-color: transparent;
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none;
+    }
+
+    @media (min-width: $container-max-width) {
+      top: $size-4;
+      height: calc(100vh - #{$size-4});
+
+      > .MuiPaper-root {
+        height: calc(100vh - #{$size-4});
+      }
+    }
+  }
+
+  &-collapsed {
+    width: $drawer-collapsed-desktop-width;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .MuiList-root {
+
+      .MuiListSubheader-root.MuiListSubheader-line {
+        position: relative;
+        font-size: 0;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: $size-4;
+          right: $size-4;
+          height: 1px;
+          background-color: $border-color-150;
+        }
+      }
+    }
+
+    &.MuiDrawer-primary {
+      .MuiListSubheader-root.MuiListSubheader-line:before {
+        background-color: $background-color-500;
+      }
+    }
+  }
+
+}
+
+.TopDrawer {
+  &-root {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: var(--h-menu);
+
+    .MuiList-root {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+
+      .MuiListItem-root {
+        display: inline-flex;
+        width: auto;
+        padding: 0;
+      }
+    }
+  }
+}

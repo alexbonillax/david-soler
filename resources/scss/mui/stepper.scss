@@ -1,0 +1,79 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiStepper-root {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  background-color: $background-color-0;
+  border-bottom: 1px solid $background-color-150;
+
+  .MuiStep-root {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $size-14;
+    padding: 0 $size-3;
+
+    &.Mui-active {
+      &::before {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: $size-1;
+        background-color: $background-color-800;
+      }
+
+      .MuiStepLabel-root {
+        .MuiStepLabel-iconContainer {
+          background-color: $background-color-800;
+        }
+      }
+    }
+
+    &.Mui-completed {
+
+      .MuiStepLabel-root {
+        .MuiStepLabel-iconContainer {
+          background-color: $background-color-green;
+        }
+      }
+
+    }
+
+    .MuiStepLabel-root {
+
+      .MuiStepLabel-iconContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $size-6;
+        width: $size-6;
+        border-radius: 50%;
+        margin-right: $size-2;
+        padding: 0;
+        background-color: $background-color-500;
+
+        .MuiStepIcon-root {
+          font-size: $font-size-text-xs;
+          color: $text-color-0;
+        }
+      }
+
+      .MuiStepLabel-labelContainer {
+
+        .MuiStepLabel-label {
+          font-weight: $font-weight-md;
+          color: $text-color-800;
+        }
+      }
+    }
+
+  }
+
+}

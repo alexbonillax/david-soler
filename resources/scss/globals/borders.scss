@@ -1,0 +1,144 @@
+@use '../mixins/mixins' as *;
+@use '../variables/colors' as *;
+
+/* BORDER RADIUS */
+@include generate(rounded, border-radius);
+@include generate(rounded-top-left, border-top-left-radius);
+@include generate(rounded-top-right, border-top-right-radius);
+@include generate(rounded-bottom-left, border-bottom-left-radius);
+@include generate(rounded-bottom-right, border-bottom-right-radius);
+
+$border-radius-md: var(--border-radius-md);
+$border-radius-lg: var(--border-radius-lg);
+
+.no-border {
+  border: none !important;
+}
+
+.rounded {
+  &-50 {
+    border-radius: 50% !important;
+  }
+
+  &-md {
+    border-radius: $border-radius-md !important;
+  }
+
+  &-lg {
+    border-radius: $border-radius-lg !important;
+  }
+
+  &-top-left {
+    &-md {
+      border-top-left-radius: var(--border-radius-md) !important;
+    }
+
+    &-lg {
+      border-top-left-radius: var(--border-radius-lg) !important;
+    }
+  }
+
+  &-top-right {
+    &-md {
+      border-top-right-radius: var(--border-radius-md) !important;
+    }
+
+    &-lg {
+      border-top-right-radius: var(--border-radius-lg) !important;
+    }
+  }
+
+  &-bottom-left {
+    &-md {
+      border-bottom-left-radius: var(--border-radius-md) !important;
+    }
+
+    &-lg {
+      border-bottom-left-radius: var(--border-radius-lg) !important;
+    }
+  }
+
+  &-bottom-right {
+    &-md {
+      border-bottom-right-radius: var(--border-radius-md) !important;
+    }
+
+    &-lg {
+      border-bottom-right-radius: var(--border-radius-lg) !important;
+    }
+  }
+}
+
+/* BORDER
++ EXAMPLE: border border-2 border-color-150
+*/
+
+.border {
+  border: 1px solid transparent;
+
+  &-bottom {
+    border-bottom: 1px solid transparent;
+
+    &-transparent {
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  &-top {
+    border-top: 1px solid transparent;
+
+    &-transparent {
+      border-top-color: transparent !important;
+    }
+  }
+
+  &-left {
+    border-left: 1px solid transparent;
+
+    &-transparent {
+      border-left-color: transparent !important;
+    }
+  }
+
+  &-right {
+    border-right: 1px solid transparent;
+
+    &-transparent {
+      border-right-color: transparent !important;
+    }
+  }
+
+  &-1 {
+    border-width: 1px !important;
+  }
+
+  &-2 {
+    border-width: 2px !important;
+  }
+
+  &-3 {
+    border-width: 3px !important;
+  }
+
+  &-4 {
+    border-width: 4px !important;
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+
+}
+
+.outline {
+  outline: 1px transparent solid;
+
+  &-4 {
+    outline-width: 4px;
+  }
+
+  &-red {
+    outline-color: $border-color-red-100 !important;
+  }
+
+}

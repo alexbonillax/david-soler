@@ -1,0 +1,102 @@
+@use './globals/layout';
+@use './globals/sizing';
+@use './globals/spacing';
+@use './globals/borders';
+@use './globals/animations';
+
+@use 'variables/colors' as *;
+@use 'variables/sizes' as *;
+@use 'variables/typographies' as *;
+
+html {
+  font-size: 16px;
+  overflow-y: scroll;
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: 15px;
+  }
+}
+
+body {
+  background-color: $background-color-50;
+  margin: 0;
+}
+
+* {
+  font-family: var(--font-family), serif !important;
+  letter-spacing: var(--font-letter-spacing) !important;
+  box-sizing: border-box;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: $size-8;
+}
+
+b {
+  font-weight: $font-weight-md;
+}
+
+.cursor {
+
+  &-pointer {
+    cursor: pointer !important;
+  }
+
+  &-move {
+    cursor: move !important;
+  }
+
+  &-grab {
+    cursor: grab !important;
+  }
+
+  &-unset {
+    cursor: unset !important;
+  }
+
+  &-default {
+    cursor: default !important;
+  }
+
+}
+
+.overflow {
+
+  &-hidden {
+    overflow: hidden;
+
+    &-x {
+      overflow-x: hidden;
+    }
+  }
+
+  &-scroll {
+    &-x {
+      overflow-x: scroll;
+    }
+
+    &-y {
+      overflow-y: scroll;
+    }
+
+    &-hide-scrollbar {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &-auto {
+    &-x {
+      overflow-x: auto;
+    }
+  }
+}
+
+.box-shadow {
+  &-1 {
+    box-shadow: 0 2px 4px $color-shadow;
+  }
+}

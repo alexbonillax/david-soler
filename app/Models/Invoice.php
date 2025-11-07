@@ -5,9 +5,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Invoice extends Model
 {
-    protected $table = 'orders';
+    protected $table = 'invoices';
     protected $fillable = [
         'code',
         'created_at',

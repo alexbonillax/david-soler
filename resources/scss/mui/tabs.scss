@@ -1,0 +1,106 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+$border-bottom-width: 1px;
+$indicator-height: 2px;
+
+.MuiTabsContainer-root {
+  border-bottom: $border-bottom-width solid $border-color-150;
+  background-color: $background-color-0;
+
+  .MuiTabs {
+
+    &-root {
+      position: relative;
+      align-items: center;
+      min-height: 0 !important;
+      padding: 0;
+      margin: 0 $size-2;
+
+      &:not(.MuiTabs-hasIndicator) {
+        .MuiTabs-indicator {
+          display: none;
+        }
+      }
+
+      .MuiTab-root {
+        flex-direction: row;
+        align-items: center;
+        min-height: unset;
+        min-width: unset;
+        max-width: unset;
+        height: var(--h-menu);
+        line-height: $size-8;
+        color: $text-color-500;
+        font-size: $font-size-text-lg;
+        font-weight: $font-weight-sm;
+        padding: 0 $size-2;
+        margin: 0 $size-1;
+        text-transform: none;
+        border: 1px solid transparent;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: $size-2;
+          bottom: $size-2;
+          left: 0;
+          right: 0;
+          border-radius: var(--border-radius-md);
+          transition: background-color 300ms ease-in-out;
+          z-index: -1;
+        }
+
+        &:hover, &:active {
+          &:before {
+            background-color: $background-color-100 !important;
+          }
+        }
+
+        &.Mui {
+          &-disabled {
+            display: none;
+          }
+
+          &-selected {
+            color: $text-color-800;
+            font-weight: $font-weight-md;
+
+            &:before {
+              background-color: $background-color-50;
+            }
+          }
+
+          &-hasIcon {
+            font-size: 0;
+
+            .MuiTab-iconWrapper {
+              margin-right: 0;
+            }
+          }
+
+        }
+
+        .MuiTab-iconWrapper {
+          margin-bottom: 0;
+          margin-right: $size-2;
+          font-size: $font-size-text-xl;
+        }
+      }
+    }
+
+    &-scrollButtonContainer {
+      height: calc(100% - #{$border-bottom-width} - #{$indicator-height});
+      width: $size-14;
+    }
+
+    &-indicator {
+      height: $indicator-height;
+      bottom: 0;
+      background-color: $background-color-800;
+    }
+
+  }
+
+}

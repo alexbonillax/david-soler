@@ -1,0 +1,92 @@
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+@use '../variables/colors' as *;
+
+.MuiAvatar {
+
+  &-root {
+    box-sizing: border-box !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+
+    &.MuiAvatar-size, &.MuiAvatarGroup-size {
+
+      &Small {
+        width: $size-6;
+        height: $size-6;
+        font-size: $font-size-text-xs;
+      }
+
+      &Medium {
+        width: $size-9;
+        min-width: $size-9;
+        height: $size-9;
+        font-size: $font-size-text-md;
+        font-weight: $font-weight-md;
+      }
+
+      &Large {
+        width: $size-12;
+        height: $size-12;
+        font-size: $font-size-text-lg;
+        font-weight: $font-weight-md;
+
+        &.MuiAvatar-rounded:not(.MuiAvatar-rounded-50) {
+          border-radius: $size-4 !important;
+        }
+      }
+
+      &ExtraLarge {
+        width: $size-16;
+        height: $size-16;
+        font-size: $font-size-title-lg;
+        font-weight: $font-weight-md;
+
+        &.MuiAvatar-rounded:not(.MuiAvatar-rounded-50) {
+          border-radius: $size-5 !important;
+        }
+      }
+
+      &Cover {
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+    &.MuiAvatar-rounded {
+      border-radius: $size-3 !important;
+    }
+
+    &.MuiAvatar-rounded-50 {
+      border-radius: 50% !important;
+    }
+
+    &.MuiAvatar-image {
+      &Contain {
+        img {
+          object-fit: contain;
+        }
+      }
+
+      &Cover {
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+
+  }
+
+}
+
+.MuiAvatarGroup-root {
+
+  .MuiAvatar-root {
+    border-radius: $size-3;
+  }
+
+  .MuiAvatarGroup-avatar {
+    background-color: $background-color-800;
+  }
+
+}

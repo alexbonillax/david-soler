@@ -1,0 +1,32 @@
+@use '../variables/colors' as *;
+@use '../variables/typographies' as *;
+
+.MuiList-root {
+
+  &.MuiList-noWrap {
+    flex-wrap: nowrap !important;
+  }
+
+  .MuiListItem-root {
+
+    &.MuiListItem-divider {
+      border-bottom: 1px solid $border-color-150;
+    }
+
+    .MuiListItemText {
+      &-primary {
+        font-size: $font-size-text-lg;
+        font-weight: $font-weight-md;
+        color: $text-color-800;
+        white-space: normal;
+      }
+
+      &-secondary {
+        font-size: $font-size-text-sm;
+        font-weight: $font-weight-sm;
+        color: $text-color-500;
+        line-height: calc($font-size-text-sm * 1.1) !important;
+      }
+    }
+  }
+}

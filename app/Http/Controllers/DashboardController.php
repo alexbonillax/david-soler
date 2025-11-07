@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Invoice;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,8 @@ class DashboardController extends Controller
             $totalMonth[] = $total;
         }
 
-        $totalYear = Order::whereYear('created_at', 2025)
-            ->sum('net_amount');
+        $totalYear = Invoice::whereYear('created_at', 2025)
+            ->sum('amount');
 
         return view('welcome', [
             'labelsMonth' => $monthName,

@@ -1,0 +1,9 @@
+@use '../variables/sizes' as *;
+
+.MuiContainer {
+
+  &-root {
+    padding: 0 !important;
+  }
+
+}

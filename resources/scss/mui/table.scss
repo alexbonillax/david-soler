@@ -1,0 +1,176 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiTableWrapper-root {
+  width: 100%;
+
+  &.MuiTableWrapper-hasBorders {
+    border-left: 1px solid $border-color-150;
+    border-right: 1px solid $border-color-150;
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+  }
+
+  &.MuiTableWrapper-topBorder {
+    border-top: 1px solid $border-color-150;
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+  }
+
+  &.MuiTableWrapper-bottomBorder {
+    border-bottom: 1px solid $border-color-150;
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+  }
+
+  &:not(.MuiTableWrapper-topBorder) {
+    border-top: 0 solid;
+  }
+
+  &:not(.MuiTableWrapper-bottomBorder) {
+    border-bottom: 0 solid;
+  }
+
+
+  .MuiTableContainer-root {
+    position: relative;
+    border-bottom: 0;
+  }
+
+  .MuiTablePaginationContainer-root {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    height: $size-12;
+    display: flex;
+    align-items: center;
+    padding: 0 $size-1;
+    z-index: 20;
+    background-color: $background-color-0;
+    border-top: 1px solid $border-color-150;
+    border-bottom-left-radius: var(--border-radius-md);
+    border-bottom-right-radius: var(--border-radius-md);
+
+    &.Mui-hasBorders {
+      border-bottom: 1px solid $border-color-150;
+    }
+
+    .MuiTablePagination-root {
+      padding: 0 $size-1 !important;
+      color: $text-color-800;
+
+      .MuiToolbar-root {
+        min-height: unset;
+        padding: 0;
+
+        .MuiTablePagination-input {
+          margin: 0 $size-2;
+          font-size: $font-size-text-md;
+          border-radius: var(--border-radius-md);
+        }
+
+        .MuiTablePagination-displayedRows {
+          margin: 0 $size-1;
+        }
+
+        .MuiTablePagination-actions {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .MuiTable-root {
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    .MuiTableHead-root, .MuiTableFooter-root {
+      .MuiTableRow-root {
+
+        .MuiTableCell-root {
+          padding: $size-1 $size-2 * 0.75;
+          font-size: $font-size-text-md;
+          font-weight: $font-weight-md;
+          line-height: $size-4;
+          height: $size-10;
+          color: $text-color-800;
+
+          .MuiTableSortLabel-icon {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .MuiTableHead-root {
+
+      .MuiTableRow-root {
+        background-color: $background-color-0;
+        border-bottom: 1px solid $border-color-150;
+      }
+    }
+
+    .MuiTableFooter-root {
+
+      .MuiTableRow-root {
+        background-color: $background-color-100;
+        border-top: 1px solid $border-color-150;
+      }
+    }
+
+    .MuiTableBody-root {
+      position: relative;
+
+      .MuiTableRow-root {
+        transition: background-color 150ms ease-in-out;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $border-color-150;
+        }
+
+        &.Mui {
+          &-selected {
+            background-color: $background-color-100;
+          }
+
+          &-disabled {
+            opacity: 0.5;
+          }
+        }
+
+        &.MuiTableRow-hover {
+          cursor: pointer;
+
+          &:hover {
+            background-color: $background-color-50 !important;
+          }
+        }
+
+        .MuiTableCell-root {
+          padding: $size-2 * 0.75;
+          font-size: $font-size-text-xl;
+          font-weight: $font-weight-md;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .MuiTableCell-root {
+      box-sizing: border-box;
+      border: 0 !important;
+
+      .MuiSkeleton-root {
+        margin: $size-3 0;
+      }
+    }
+
+    &.MuiTableSelectionConfirm-root {
+      position: -webkit-sticky;
+      position: sticky;
+      z-index: 10;
+      bottom: $size-12;
+    }
+  }
+}

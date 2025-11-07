@@ -1,0 +1,48 @@
+@use '../variables/sizes' as *;
+
+.MuiAccordion {
+
+  &-root {
+    &:before {
+      display: none;
+    }
+
+    &.MuiPaper-root {
+      margin: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    .MuiAccordionSummary-root {
+      min-height: 0 !important;
+      padding: 0;
+
+      &.Mui-minHeight {
+        min-height: $size-12 !important;
+      }
+
+      &.Mui-focusVisible {
+        background-color: transparent;
+      }
+
+      .MuiAccordionSummary-content {
+        margin: 0;
+      }
+
+      &:not(.MuiAccordionSummary-noIcon) {
+        .MuiAccordionSummary-content {
+          max-width: calc(100% - $size-8);
+        }
+      }
+
+    }
+
+    .MuiAccordionDetails-root {
+      position: relative;
+      padding: 0;
+    }
+
+  }
+
+}

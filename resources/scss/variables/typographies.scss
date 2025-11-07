@@ -1,0 +1,70 @@
+@use 'colors' as *;
+
+// FONT SIZE
+$font-size-text-xs: var(--font-size-text-xs);
+$font-size-text-sm: var(--font-size-text-sm);
+$font-size-text-md: var(--font-size-text-md);
+$font-size-text-lg: var(--font-size-text-lg);
+$font-size-text-xl: var(--font-size-text-xl);
+
+$font-size-title-xs: var(--font-size-title-xs);
+$font-size-title-sm: var(--font-size-title-sm);
+$font-size-title-lg: var(--font-size-title-lg);
+$font-size-title-xl: var(--font-size-title-xl);
+
+$font-size-icon-xs: 0.75rem;
+$font-size-icon-sm: 0.813rem;
+$font-size-icon-md: 0.875rem;
+$font-size-icon-lg: 0.938rem;
+$font-size-icon-xl: 1rem;
+
+// FONT WEIGHT
+$font-weight-sm: var(--font-weight-sm);
+$font-weight-md: var(--font-weight-md);
+$font-weight-lg: var(--font-weight-lg);
+
+.text {
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-line-through {
+    text-decoration: line-through;
+  }
+
+  &-shadow {
+    &-black {
+      text-shadow: 1px 1px $text-color-black;
+    }
+  }
+
+  &-truncate {
+
+    &-wrapper {
+      max-width: 100%;
+
+      .text-truncate {
+        white-space: nowrap;
+        overflow: hidden;
+
+        .MuiTypography-root {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    &-childs {
+      * {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

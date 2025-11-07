@@ -4,25 +4,15 @@ $fontMain: 'IBM Plex Sans', sans-serif;
 $fontAlt: 'Instrument Sans', sans-serif;
 $colorWhite: #ffffff;
 $colorBlack: #000000;
-$colorGray: gray;
-$colorNavBg: #323F48;
+$colorGrayLight: gray;
+$colorGrayDesa: #323F48;
+$colorPurple: #48317a;
 
 * {
     font-family: $fontMain;
     background: $colorWhite;
 }
 
-html, body {
-    padding: 0;
-    margin: 0;
-    background-color: $colorGray;
-    width: 100vw;
-}
-
-body * {
-    margin: 0;
-    padding: 0;
-}
 
 h1 {
     font-family: $fontMain;
@@ -33,6 +23,18 @@ a {
     font-size: 20px;
     font-family: $fontMain;
     text-decoration: none;
+}
+
+html, body {
+    padding: 0px;
+    margin: 0px;
+    background-color: $colorGrayLight;
+    width: 100vw;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
 }
 
 nav {
@@ -79,8 +81,8 @@ nav {
         }
     }
 
-    a {
-        background: $colorNavBg;
+    nav a {
+        background: $colorGrayDesa;
         color: $colorWhite;
         min-width: 300px;
         transition: background 1s, color 0.5s, transform 0.5s;
@@ -92,7 +94,7 @@ nav {
         position: relative;
         font-family: $fontMain;
 
-        &:hover::before {
+        nav a:hover:before {
             content: '';
             top: 0;
             left: 0;
@@ -136,8 +138,8 @@ menuitem {
                 opacity: 0;
                 font-family: $fontMain;
 
-                &:hover,
-                &.hover {
+                menuitem > menu > menuitem:hover > menu > menuitem,
+                menuitem > menu > menuitem.hover > menu > menuitem {
                     transform: translateX(0) translateY(0%);
                     opacity: 1;
                 }
@@ -145,10 +147,10 @@ menuitem {
         }
     }
 
-    &:hover > menu {
+    menuitem:hover > menu {
         pointer-events: initial;
 
-        > menuitem,
+        menuitem:hover > menu > menuitem,
         menu:hover > menuitem {
             opacity: 1;
         }

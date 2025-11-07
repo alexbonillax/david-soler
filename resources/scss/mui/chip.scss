@@ -1,0 +1,132 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+@use '../globals/borders' as *;
+
+.MuiChip {
+
+  &-root {
+
+    &:active {
+      box-shadow: none !important;
+    }
+
+    &.MuiChip-amount {
+      height: $size-5;
+      background-color: $background-color-500;
+      border-radius: $size-1;
+      color: $text-color-800;
+
+      .MuiChip-label {
+        padding: 0 $size-1;
+
+        .MuiTypography-root {
+          font-size: $font-size-text-xs;
+          font-weight: $font-weight-md;
+          line-height: 100%;
+        }
+      }
+    }
+
+    &.MuiChip {
+      &-success, &-colorSuccess {
+        background-color: $background-color-green;
+      }
+
+      &-warning, &-colorWarning {
+        background-color: $background-color-orange;
+      }
+
+      &-danger, &-colorDanger {
+        background-color: $background-color-red;
+      }
+    }
+
+    &.MuiChip-entityStatus, &.MuiChip-brand, &.MuiChip-text {
+      padding: 0;
+      font-size: $font-size-text-xs;
+      font-weight: $font-weight-md;
+      line-height: $size-6;
+      height: $size-5;
+      color: $text-color-800;
+      background-color: transparent;
+
+      &.Mui-hasBorder {
+        padding: 0 $size-1;
+        border: 1px solid $border-color-150;
+        border-radius: $border-radius-md;
+        background-color: $background-color-0;
+      }
+
+      .MuiChip-label {
+        position: relative;
+        display: inline-block;
+        padding-left: 0;
+        padding-right: 0;
+
+        > span:not(.MuiTypography-root) {
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          min-width: $size-4;
+          width: $size-4;
+          height: $size-4;
+          box-sizing: border-box;
+          border: 3px solid $border-color-0;
+          border-radius: 50%;
+        }
+      }
+
+      &.Mui-hasColorIndicator {
+        .MuiChip-label {
+          padding-left: $size-5 * 0.9;
+        }
+      }
+    }
+
+    &.MuiChip-text {
+
+      .MuiChip-label {
+        display: inline-block;
+        padding: 0;
+      }
+    }
+
+    &.MuiChip-stars {
+      height: $size-5;
+      color: $text-color-800;
+      background-color: transparent;
+
+      .MuiChip-label {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+    }
+
+    &.MuiChip-items {
+      height: $size-5;
+      padding: 0 $size-2;
+
+      &.MuiChip-color {
+        &Primary {
+          background-color: $background-color-200;
+          color: $text-color-800;
+        }
+
+        &Secondary {
+          background-color: $background-color-100;
+          color: $text-color-800;
+        }
+      }
+
+      .MuiChip-label {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+    }
+  }
+}

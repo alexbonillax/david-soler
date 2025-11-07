@@ -1,0 +1,94 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiPaper-root {
+
+  &.MuiMenu-paper {
+    background-color: $background-color-0;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 $size-2 $size-8 $color-backdrop;
+
+    .MuiMenu-list {
+      padding: 0;
+
+      .MuiMenuItem-root {
+        padding: $size-3 $size-4;
+        color: $text-color-800;
+        border-bottom-color: $border-color-150;
+
+        &:last-child {
+          border-bottom: 0 !important;
+        }
+
+        &.Mui {
+          &-selected {
+            background-color: $background-color-100;
+
+            .MuiListItemText-root {
+              .MuiListItemText {
+                &-primary {
+                  font-weight: $font-weight-md;
+                  color: $text-color-accent-600;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .MuiDivider-root {
+      margin: 0;
+    }
+  }
+}
+
+.MuiMenuItem-root {
+  border-bottom-color: $border-color-150 !important;
+
+  .MuiListItemText-root {
+    margin: 0;
+    color: inherit;
+
+    .MuiListItemText {
+      &-primary {
+        font-size: $font-size-text-md;
+        font-weight: $font-weight-sm;
+        color: $text-color-800;
+        white-space: normal;
+      }
+
+      &-secondary {
+        font-size: $font-size-text-sm;
+        font-weight: $font-weight-sm;
+        color: $text-color-500;
+      }
+    }
+  }
+
+  .MuiListItemIcon-root {
+    display: flex;
+    justify-content: center;
+    min-width: unset !important;
+    width: $size-6;
+    margin-right: $size-4;
+  }
+
+  .MuiListItemAvatar-root {
+    min-width: unset;
+  }
+
+  &.Mui {
+    &-focusable {
+      border: 2px solid transparent !important;
+      border-radius: var(--border-radius-md);
+
+      &.Mui-focusVisible {
+        border-color: $border-color-150 !important;
+        background-color: $background-color-100;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,39 @@
+@use 'variables/colors' as *;
+@use 'variables/sizes' as *;
+
+$intercom-z-index: 1000000;
+
+#intercom-container {
+  #intercom-container-body {
+    left: $size-5 !important;
+    bottom: $size-5 !important;
+  }
+}
+
+.IntercomButton-root {
+  max-width: 300px;
+
+  .IntercomButton-button {
+    transition: all 100ms ease-in-out;
+
+    &:hover {
+      transform: scale(105%);
+    }
+
+    &:active {
+      transform: scale(90%);
+    }
+  }
+}
+
+body.intercom-opened {
+  #intercom-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $background-color-backdrop;
+    z-index: $intercom-z-index;
+  }
+}

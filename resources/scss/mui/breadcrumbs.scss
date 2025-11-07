@@ -1,0 +1,27 @@
+@use '../variables/sizes' as *;
+@use '../variables/colors' as *;
+@use '../variables/typographies' as *;
+
+.MuiBreadcrumbs-root {
+
+  .MuiBreadcrumbs-li {
+    display: flex;
+    align-items: center;
+  }
+
+  .MuiButton-root {
+    min-width: unset;
+    font-size: $font-size-text-sm;
+    font-weight: $font-weight-sm;
+    line-height: $size-4;
+    padding: $size-1;
+
+    &.Mui-selected {
+      font-weight: $font-weight-md;
+    }
+  }
+
+  .MuiBreadcrumbs-separator {
+    margin: 0 $size-2;
+  }
+}

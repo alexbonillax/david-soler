@@ -1,0 +1,103 @@
+@use '../variables/sizes' as *;
+@use '../variables/colors' as *;
+
+$top-margin: $size-4;
+
+.App-root {
+  display: flex;
+  align-items: flex-start;
+  background-color: $background-color-0;
+
+  .Content-root {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $background-color-0;
+  }
+
+  @media (min-width: $container-max-width) {
+    box-shadow: 0 1px 2px #0003;
+  }
+
+  &.App-leftDrawer {
+    max-width: calc(#{$container-max-width} - var(--scrollbar-width)) !important;
+
+    @media (min-width: $container-max-width) {
+      margin-top: $top-margin;
+      border-top-left-radius: var(--border-radius-md);
+      border-top-right-radius: var(--border-radius-md);
+
+      .Content-root {
+        min-height: calc(100vh - #{$top-margin});
+      }
+    }
+
+    .Content-root {
+      min-height: 100vh;
+
+      @media (min-width: $mobile-breakpoint) {
+        border-left: 1px solid $border-color-150;
+
+        &.Content {
+          &-collapsedDrawer {
+            max-width: calc(100vw - #{$drawer-collapsed-desktop-width} - var(--scrollbar-width));
+          }
+
+          &-expandedDrawer {
+            max-width: calc(100vw - #{$drawer-expanded-desktop-width} - var(--scrollbar-width));
+          }
+        }
+      }
+
+      @media (min-width: $container-max-width) {
+        border-top-right-radius: var(--border-radius-md);
+
+        &.Content {
+          &-collapsedDrawer {
+            max-width: calc(#{$container-max-width} - #{$drawer-collapsed-desktop-width} - var(--scrollbar-width));
+          }
+
+          &-expandedDrawer {
+            max-width: calc(#{$container-max-width} - #{$drawer-expanded-desktop-width} - var(--scrollbar-width));
+          }
+        }
+      }
+    }
+  }
+
+  &.App-topDrawer {
+    max-width: calc(100vw - var(--scrollbar-width)) !important;
+
+    .Content-root {
+      min-height: calc(100vh - var(--h-menu));
+    }
+  }
+
+}
+
+.Board-root {
+  position: relative;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: $size-4 $size-2;
+  width: 100%;
+
+  .BoardColumn-root {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: top;
+    padding: 0 $size-2;
+    width: 90%;
+
+    @media (min-width: $mobile-breakpoint) {
+      width: 50%;
+    }
+
+    @media (min-width: $container-max-width) {
+      width: 33.33%;
+    }
+
+  }
+}

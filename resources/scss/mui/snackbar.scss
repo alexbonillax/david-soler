@@ -1,0 +1,20 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiSnackbar {
+
+  &-root {
+
+    > .MuiPaper-root {
+      border-radius: var(--border-radius-md);
+      padding: $size-4 $size-6;
+    }
+
+    .MuiSnackbarContent-message {
+      padding: 0;
+    }
+
+  }
+
+}

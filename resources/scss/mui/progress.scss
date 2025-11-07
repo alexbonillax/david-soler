@@ -1,0 +1,69 @@
+@use '../variables/colors' as *;
+@use '../variables/sizes' as *;
+@use '../variables/typographies' as *;
+
+.MuiCircularProgress-root {
+
+  &.MuiCircularProgress {
+
+    &-color {
+      &Primary {
+        color: $text-color-800;
+      }
+    }
+
+    &-size {
+      &Small {
+        height: $size-6 !important;
+        width: $size-6 !important;
+      }
+
+      &ExtraSmall {
+        width: $size-4 !important;
+        height: $size-4 !important;
+      }
+    }
+
+  }
+
+}
+
+.MuiLinearProgress-root {
+  height: $size-2 !important;
+
+  &.MuiLinearProgress {
+
+    &-color {
+      &Primary {
+        background-color: $background-color-100;
+
+        .MuiLinearProgress-bar {
+          background-color: $background-color-800;
+        }
+      }
+    }
+
+    &-rounded {
+      border-radius: var(--border-radius-md);
+
+      .MuiLinearProgress-bar {
+        border-radius: var(--border-radius-md);
+      }
+
+    }
+
+    &-size {
+      &Small {
+        height: $size-1 * 1.5 !important;
+      }
+    }
+
+    &-h {
+      &-1 {
+        height: $size-1 !important;
+      }
+    }
+
+  }
+
+}

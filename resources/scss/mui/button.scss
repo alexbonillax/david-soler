@@ -1,0 +1,383 @@
+@use '../variables/sizes' as *;
+@use '../variables/colors' as *;
+@use '../variables/typographies' as *;
+@forward './ai-button';
+
+.MuiButtonBase {
+
+  &-root {
+    pointer-events: auto;
+
+    &.MuiButton {
+
+      &-root {
+        text-transform: none;
+        min-width: $size-12;
+      }
+
+      &-outlined, &-text, &-contained {
+        border-radius: var(--border-radius-md);
+
+        &Size {
+          &Small {
+            font-size: $font-size-text-sm;
+            line-height: calc($font-size-text-sm * 1.25);
+            height: $size-8;
+            padding: 0 $size-2;
+          }
+
+          &Medium {
+            font-size: $font-size-text-xl;
+            line-height: calc($font-size-text-xl * 1.25);
+            height: $size-10;
+            padding: 0 $size-3;
+          }
+
+          &Large {
+            font-size: $font-size-title-xs;
+            line-height: calc($font-size-title-xs * 1.25);
+            height: $size-14;
+            padding: 0 $size-4;
+          }
+        }
+      }
+
+      &-outlined {
+        font-weight: $font-weight-md;
+        border-width: 1px !important;
+
+        &Primary {
+          border-color: $border-color-800;
+          color: $border-color-800;
+
+          &:hover {
+            border-color: $border-color-500;
+          }
+        }
+
+        &Secondary {
+          border-color: $border-color-accent-600;
+          color: $text-color-accent-600;
+
+          &:hover {
+            border-color: $border-color-accent-400;
+          }
+        }
+
+        &.Mui-saved {
+          border-color: $border-color-green !important;
+        }
+      }
+
+      &-text {
+        font-weight: $font-weight-md;
+        color: $text-color-800;
+        border: 1px solid transparent;
+
+        &:hover {
+          background-color: $background-color-50;
+        }
+
+        &Secondary {
+          color: $text-color-500;
+        }
+
+        &Error {
+          color: $text-color-red;
+        }
+
+        &.Mui-focused {
+          border-color: $border-color-500 !important;
+        }
+      }
+
+      &-contained {
+        box-shadow: none;
+
+        &:hover {
+          box-shadow: none;
+        }
+
+        &Primary {
+          background-color: $background-color-800 !important;
+          color: $text-color-0 !important;
+
+          &.Mui-disabled {
+            background-color: $background-color-200 !important;
+          }
+        }
+
+        &Secondary {
+          background-color: $background-color-accent-600 !important;
+          color: $text-color-0 !important;
+
+          &.Mui-disabled {
+            background-color: $background-color-accent-400 !important;
+          }
+        }
+
+        &.Mui-saved {
+          background-color: $background-color-green !important;
+        }
+      }
+
+      &-stack {
+        background-color: transparent !important;
+      }
+
+      &-color {
+        &Inherit {
+          transition: opacity 0.3s ease-in-out;
+
+          &.Mui-disabled {
+            opacity: 0.5 !important;
+          }
+        }
+      }
+
+    }
+
+    &.MuiIconButton {
+
+      &-root {
+        opacity: 1 !important;
+        color: $text-color-800;
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: $color-shadow;
+          }
+        }
+
+        &.Mui-focused {
+          background-color: $color-shadow;
+        }
+
+        &.Mui-disabled {
+          color: $text-color-500;
+          opacity: 0.5 !important;
+        }
+
+        &.Mui-white {
+          * {
+            color: $text-color-0;
+          }
+        }
+      }
+
+      &-outlined {
+        border-width: 2px;
+        border-style: solid;
+        background-color: $background-color-0;
+
+        &:not(.Mui-primary) {
+          border-color: $border-color-150;
+
+          * {
+            color: $text-color-500;
+          }
+        }
+
+        &.Mui-primary {
+          border-color: $border-color-800;
+
+          * {
+            color: $text-color-800;
+          }
+        }
+
+        &.Mui-red {
+          border-color: $border-color-red;
+
+          * {
+            color: $text-color-red;
+          }
+        }
+      }
+
+      &-sizeTiny {
+        width: $size-5;
+        height: $size-5;
+        font-size: $font-size-icon-xs;
+      }
+
+      &-sizeSmall {
+        width: $size-8;
+        height: $size-8;
+        font-size: $font-size-icon-md;
+      }
+
+      &-sizeMedium {
+        width: $size-10;
+        height: $size-10;
+        font-size: $font-size-icon-xl;
+      }
+
+      &-carouselNav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $background-color-0;
+        z-index: 1;
+
+        &:hover, &:active {
+          background-color: $background-color-100;
+        }
+      }
+
+    }
+
+    &.MuiFab {
+
+      &-root {
+        min-height: unset;
+      }
+
+      &-size {
+        &Small {
+          width: $size-7;
+          height: $size-7;
+        }
+      }
+
+      &-primary {
+        background-color: $background-color-800;
+
+        &:hover, &:active {
+          background-color: $background-color-500;
+        }
+      }
+
+      &-toggleDrawer {
+        position: fixed;
+        left: $size-4;
+        bottom: $size-4;
+      }
+
+      &-collapseDrawer {
+        position: fixed;
+        top: 50vh;
+        transform: translateX(-50%);
+        box-shadow: none;
+        border: 1px solid $border-color-150;
+        background-color: $background-color-0;
+        z-index: 3;
+      }
+
+    }
+
+    &.MuiListItemButton-root {
+      height: $size-10;
+      border-radius: var(--border-radius-md);
+      padding: 0;
+      color: $text-color-800;
+
+      &:hover {
+        background-color: $color-shadow !important;
+      }
+
+      &.Mui-selected {
+        background-color: $background-color-100;
+
+        .MuiListItemText-root {
+          .MuiListItemText-primary {
+            font-weight: $font-weight-md !important;
+          }
+        }
+      }
+
+      &.MuiListItemButton {
+
+        &-primary {
+          color: $text-color-white;
+
+          &.Mui-selected {
+            border-color: transparent;
+            background-color: $background-color-backdrop;
+          }
+
+          &:hover {
+            border-color: transparent;
+          }
+
+          .MuiListItemIcon-root {
+            color: $text-color-white;
+          }
+
+          &Light {
+            background-color: $background-color-0;
+            color: $text-color-800;
+
+            &:hover {
+              border-color: transparent;
+              background-color: $background-color-100 !important;
+            }
+          }
+        }
+      }
+
+      .MuiListItemIcon-root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $size-12;
+        min-width: unset;
+        color: $text-color-500;
+      }
+
+      .MuiListItemText-root {
+        margin: 0;
+
+        .MuiTypography-root {
+
+          &.MuiTypography-body1 {
+            font-size: $font-size-text-md;
+            font-weight: inherit;
+          }
+
+          &.MuiTypography-body2 {
+            font-size: $font-size-text-sm;
+            font-weight: inherit;
+          }
+        }
+      }
+
+      .MuiListItemSecondaryAction-root {
+        right: $size-1;
+      }
+    }
+
+    &.MuiSwitch-switchBase {
+
+      &.Mui-checked {
+        &.MuiSwitch-color {
+          &Success {
+            color: $text-color-green;
+
+            + .MuiSwitch-track {
+              background-color: $background-color-green;
+            }
+          }
+
+          &Warning {
+            color: $text-color-red;
+
+            + .MuiSwitch-track {
+              background-color: $background-color-red;
+            }
+          }
+
+          &Primary {
+            color: $text-color-800;
+
+            + .MuiSwitch-track {
+              background-color: $background-color-800;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}
