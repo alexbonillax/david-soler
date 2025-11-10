@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <title>Listado de Productos en Desaverse</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desaverse 0.1 - LISTADO DE PRODUCTOS</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
+    @vite('resources/js/ResponsiveAppBar.jsx')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
         * {
-            background: white;
+            background:white;
             font-family: IBM Plex Sans;
         }
 
@@ -33,6 +39,10 @@
         a {
             display: inline-block;
             margin-bottom: 10px;
+            color: black;
+            font-size: 20px;
+            font-family: ibm plex sans;
+            text-decoration: none;
         }
 
         .btn-danger {
@@ -63,9 +73,15 @@
             background-color: #50a8ff;
             border-radius: 10px;
         }
+
     </style>
 </head>
 <body>
+<div id="ResponsiveAppBar" style="text-align: center">
+    <form>
+        <div align="center">
+            <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+                 height=150px"><a href="edit.blade.php"></a><div id="app" data-username="{{ Auth::user()->first_name }}"></div></div>
 <div class="container">
 
     <h2>Listado de Productos en Desaverse</h2>

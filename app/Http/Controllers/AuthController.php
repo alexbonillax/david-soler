@@ -21,7 +21,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciales incorrectas.&#x2318',
+            'email' => 'Credenciales incorrectas',
         ]);
     }
 }

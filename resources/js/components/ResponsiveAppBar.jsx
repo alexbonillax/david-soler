@@ -23,15 +23,17 @@ import DownloadIcon from '@mui/icons-material/Download';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import ApartmentIcon from '@mui/icons-material/Apartment';
+import HomeFilledIcon from '@mui/icons-material/HomeFilled';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const menuItems = [
-    { text: 'Inicio', icon: <ApartmentIcon />, link: '/' },
+    { text: 'Inicio', icon: <HomeFilledIcon />, link: '/' },
     { text: 'Pedidos', icon: <ShoppingCartIcon />, link: '/desaOrders' },
     { text: 'Productos', icon: <InventoryIcon />, link: '/products' },
     { text: 'Cupones', icon: <LocalOfferIcon />, link: '/coupons' },
     { text: 'Descargas', icon: <DownloadIcon />, link: '/downloads' },
     { text: 'Perfil', icon: <AccountCircle />,link: '/perfil' },
+    { text: 'Salir', icon: <LogoutIcon />,link: '/perfil' },
 ];
 
 const colors = ['#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#d32f2f', '#0288d1'];
@@ -88,7 +90,7 @@ function ResponsiveAppBar({ username, toggleDarkMode, darkMode }) {
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
                 <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
                     <Typography variant="h6" sx={{ p: 2 }}>
-                        Menú Principal
+                        Menú Desaverse
                     </Typography>
                     <Divider />
                     <List>
