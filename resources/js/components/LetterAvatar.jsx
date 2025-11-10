@@ -2,7 +2,7 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import {deepOrange, deepPurple, yellow} from '@mui/material/colors';
+import {yellow} from '@mui/material/colors';
 
 const LetterAvatar = ({ username }) => {
     const initial = username ? username.charAt(0).toUpperCase(5) : '?';

@@ -28,6 +28,7 @@ const menuItems = [
     { text: 'Productos', icon: <InventoryIcon />, link: '/products' },
     { text: 'Cupones', icon: <LocalOfferIcon />, link: '/coupons' },
     { text: 'Descargas', icon: <DownloadIcon />, link: '/downloads' },
+    { text: 'Perfil', icon: <Person />, link: '/perfil' },
 ];
 
 const colors = ['#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#d32f2f', '#0288d1'];

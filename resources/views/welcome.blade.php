@@ -66,7 +66,7 @@
 <form>
     <div align="center">
         <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
-             height=150px"><div id="app" data-username="{{ Auth::user()->first_name }}"></div></div>
+             height=150px"><a href="edit.blade.php"></a><div id="app" data-username="{{ Auth::user()->first_name }}"></div></div>
     <form><br>
         <h1 style="text-align: center">Bienvenido a Desaverse v0.1</h1>
         <br> <div id="app" style="text-align: center"></div>

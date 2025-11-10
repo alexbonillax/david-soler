@@ -41,4 +41,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/products/{product}', [DesaProductsController::class, 'save'])->name('products.update');
     Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])->name('products.destroy');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/perfil', [\App\Http\Controllers\UserController::class, 'edit'])->name('perfil.edit');
+    Route::put('/perfil', [\App\Http\Controllers\UserController::class, 'update'])->name('perfil.update');
 });
