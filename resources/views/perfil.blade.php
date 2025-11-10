@@ -1,81 +1,95 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-    * {
-        background: #FFFFFF;
-        font-family: ibm plex sans;
-    }
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
+    @vite('resources/js/ResponsiveAppBar.jsx')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-    body {
+        * {
+            font-family: ibm plex sans;
+            background: #white;
+        }
 
-        background-size: auto;
-        background-position: center;
-        background-repeat: no-repeat;
+        h1 {
+            font-family: ibm plex sans;
+        }
 
-    }
+        a {
+            color: black;
+            font-size: 20px;
+            font-family: ibm plex sans;
+            text-decoration: none;
+        }
 
-    h2 {
-        background: white;
-    }
+        html, body {
+            padding: 0px;
+            margin: 0px;
+            background-color: gray;
+            width: 100vw;
+        }
 
-    form {
-        max-width: 400px;
-        margin: 70px auto;
-        padding: 50px;
-        background: #323F48;
-        border-radius: 10px;
-    }
+        body * {
+            margin: 0;
+            padding: 0;
+        }
 
-    label {
-        display: block;
-        margin-top: 10px;
-        background: white;
-    }
+        form {
+            max-width: 600px;
+            margin: -50px auto;
+            padding: 50px;
+            background: #ffffff;
+            border-radius: 10px;
+        }
 
-    input {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        background: white;
-    }
-
-    button {
-        margin-top: 15px;
-        padding: 10px;
-        width: 100%;
-        background-color: #FFFFFF;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: gray;
-        color: white;
-    }
-
-    .error {
-        color: #ff0000;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-
-    div {
-        background-color: white;
-    }
-</style>
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .btn-actualizar {
+            background-color: #4085cc;
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="ResponsiveAppBar" style="text-align: center">
+    <form>
+        <div align="center">
+            <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+                 height=150px"><a href="edit.blade.php"></a><div id="app" data-username="{{ Auth::user()->first_name }}"></div></div>
+<br><br><form>
 <h2>Editar Perfil Desaverse</h2>
 <form action="{{ route('perfil.update') }}" method="POSTe:</label>
     <input type="text" name="name" value="{{ $usuario->first_name }}">
 
-
 <label>Nombre:</label>
 <input type="text" name="first_name" value="{{ $usuario->first_name }}">
+<br><br><label>Apellido:</label>
+<input type="text" name="last_name" value="{{ $usuario->last_name }}">
 <br><br><label>Email:</label>
 <input type="email" name="email" value="{{ $usuario->email }}">
 <br><br><label>Teléfono:</label>
 <input type="text" name="phone" value="{{ $usuario->phone }}">
 
-<br><br><br><button type="submit">Guardar cambios</button>
+<br><br><br>
+<button type="submit" class="btn-actualizar" onclick="return confirm('¿Estás seguro de guardar cambios?')">
+     Actualizar
+</button>
+
 </form>
+</body>
+</html>

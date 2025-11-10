@@ -18,7 +18,7 @@ class UserController extends Controller
 public function update(Request $request)
 {
     $usuario = Auth::user();
-    $usuario->update($request->only(['name', 'email']));
+    $usuario->update($request->only(['name', 'email', 'phone', 'last_name']));
     return redirect()->route('perfil')->with('success', 'Perfil actualizado correctamente');
 }
 }
