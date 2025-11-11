@@ -20,15 +20,17 @@
         body {
             background-color: white;
         }
-
+        form{
+            margin: 10px;
+        }
         li {
-            ffont-family: ibm plex sans;
+            font-family: ibm plex sans;
         }
 
         h1 {
             font-family: ibm plex sans;
+            margin: 20px;
         }
-
         .btn-update {
             background-color: #4085cc;
             color: white;
@@ -52,10 +54,10 @@
 
 <h1>Pedidos por cliente</h1>
 
-<form method
-<label for="customerLimit">Clientes a mostrar: </label>
-<input type="number" name="customerLimit" id="customerLimit" value="{{ request('customerLimit', 1000)}}">
-<button type="submit" class="btn btn-update">Actualizar</button>
+<form>
+    <label for="customerLimit">Clientes a mostrar: </label>
+        <input type="number" name="customerLimit" id="customerLimit" value="{{ request('customerLimit', 1000)}}">
+        <button type="submit" class="btn btn-update">Actualizar</button>
 </form>
 
 <ul>
@@ -71,10 +73,10 @@
 
 <h1>Últimos Pedidos en Desaverse</h1>
 
-<form method
-<label for="numOrderLimit">Pedidos a mostrar: </label>
-<input type="number" name="numOrderLimit" id="numOrderLimit" value="{{ request('numOrderLimit', 1000)}}">
-<button type="submit" class="btn btn-update">Actualizar</button>
+<form>
+    <label for="numOrderLimit">Pedidos a mostrar: </label>
+        <input type="number" name="numOrderLimit" id="numOrderLimit" value="{{ request('numOrderLimit', 1000)}}">
+        <button type="submit" class="btn btn-update">Actualizar</button>
 </form>
 
 <ul>

@@ -25,6 +25,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const menuItems = [
     { text: 'Inicio', icon: <HomeFilledIcon />, link: '/' },
@@ -33,7 +34,8 @@ const menuItems = [
     { text: 'Cupones', icon: <LocalOfferIcon />, link: '/coupons' },
     { text: 'Descargas', icon: <DownloadIcon />, link: '/downloads' },
     { text: 'Perfil', icon: <AccountCircle />,link: '/perfil' },
-    { text: 'Salir', icon: <LogoutIcon />,link: '/perfil' },
+    { text: 'Factorial', icon: <AccessTimeIcon />, link: 'https://app.factorialhr.com/' },
+    { text: 'Salir', icon: <LogoutIcon color="error" />, link: '/login' },
 ];
 
 const colors = ['#1976d2', '#388e3c', '#f57c00', '#7b1fa2', '#d32f2f', '#0288d1'];

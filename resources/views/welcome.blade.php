@@ -17,7 +17,6 @@
 
         * {
             font-family: ibm plex sans;
-            background: #white;
         }
 
         h1 {
@@ -90,26 +89,39 @@
                     type: 'line',
                     data: {
                         labels: @json($labelsMonth),
-                        datasets: [{
-                            label: 'Pedidos por mes',
-                            data: @json($totalMonth),
-                            backgroundColor: 'Purple',
-                            borderColor: 'purple',
-                        }]
+                        datasets: [
+                            {
+                                label: 'Pedidos por mes',
+                                data: @json($totalMonth),
+                                borderColor: 'purple',
+                                backgroundColor: 'purple',
+                                tension: 0.5
+                            },
+                            {
+                                label: 'Facturas por mes',
+                                data: @json($invoiceCountMonth),
+                                borderColor: 'blue',
+                                backgroundColor: 'blue',
+                                tension: 0.4
+                            },
+                            {
+                                label: 'Facturación mensual (€)',
+                                data: @json($facturacionMonth),
+                                borderColor: 'orange',
+                                backgroundColor: 'orange',
+                                tension: 0.4,
+                                yAxisID: 'y1'
+                            }
+                        ]
                     },
                     options: {
-                        animations: {
-                            tension: {
-                                duration: 2000,
-                                easing: 'linear',
-                                from: 0.5,
-                                to: 0,
-                                loop: true
-                            }
-                        },
                         scales: {
                             y: {
                                 beginAtZero: true
+                            },
+                            y1: {
+                                beginAtZero: true,
+                                position: 'right'
                             }
                         }
                     }

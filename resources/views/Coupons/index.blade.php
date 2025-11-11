@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <title>Listado de cupones en Desaverse</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desaverse 0.1 - cupones</title>
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
+    @vite('resources/js/ResponsiveAppBar.jsx')
+    @vite('resources/js/LetterAvatar.jsx')
+    {{--    @vite(['resources/scss/principal.scss'])--}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
         * {
-            background: white;
             font-family: ibm plex sans;
         }
 
+        }
         table {
             border-collapse: collapse;
             width: 100%;
             font-family: ibm plex sans;
-            background-color: #323F48;
+            background-color: white;
+            align-content: center;
         }
 
         th, td {
@@ -68,6 +77,11 @@
     </style>
 </head>
 <body>
+<div id="ResponsiveAppBar" style="text-align: center">
+    <form>
+        <div align="center">
+            <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+                 height=150px"><a href="edit.blade.php"></a><div id="app" data-username="{{ Auth::user()->first_name }}"></div></div>
 <div class="container">
 
     <h2>Listado de cupones en Desaverse</h2>

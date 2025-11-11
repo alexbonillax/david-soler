@@ -43,4 +43,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/perfil', [\App\Http\Controllers\UserController::class, 'edit'])->name('perfil.edit');
     Route::put('/perfil', [\App\Http\Controllers\UserController::class, 'update'])->name('perfil.update');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

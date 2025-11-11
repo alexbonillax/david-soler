@@ -19,8 +19,18 @@ class DashboardController extends Controller
             ->toArray();
 
 
+        $invoicesByMonth = Invoice::selectRaw('MONTH(created_at) as month, COUNT(*) as total, SUM(amount) as facturacion')
+            ->whereYear('created_at', 2025)
+            ->groupBy('month')
+            ->orderBy('month')
+            ->get()
+            ->keyBy('month');
+
+
         $monthName = [];
         $totalMonth = [];
+        $invoiceCountMonth = [];
+        $facturacionMonth = [];
 
         foreach ($ordersByMonth as $month => $total) {
             $monthName[] = match ((int)$month) {
@@ -37,17 +47,20 @@ class DashboardController extends Controller
                 11 => 'Noviembre',
                 12 => 'Diciembre',
             };
+
             $totalMonth[] = $total;
+            $invoiceCountMonth[] = $invoicesByMonth[$month]->total ?? 0;
+            $facturacionMonth[] = $invoicesByMonth[$month]->facturacion ?? 0;
         }
 
-        $totalYear = Invoice::whereYear('created_at', 2025)
-            ->sum('amount');
+        $totalYear = Invoice::whereYear('created_at', 2025)->sum('amount');
 
         return view('welcome', [
             'labelsMonth' => $monthName,
             'totalMonth' => $totalMonth,
+            'invoiceCountMonth' => $invoiceCountMonth,
+            'facturacionMonth' => $facturacionMonth,
             'totalYear' => $totalYear
         ]);
-
     }
 }

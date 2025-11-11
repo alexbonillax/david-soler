@@ -14,7 +14,6 @@
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
         * {
-            background:white;
             font-family: IBM Plex Sans;
         }
 
@@ -25,7 +24,7 @@
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #ffffff;
             padding: 8px;
             text-align: left;
         }
@@ -33,13 +32,13 @@
         th {
             background-color: font-family: ibm plex sans;
             background-color: #323F48;
-            color: white;
+            color: #ffffff;
         }
 
         a {
             display: inline-block;
             margin-bottom: 10px;
-            color: black;
+            color: #000000;
             font-size: 20px;
             font-family: ibm plex sans;
             text-decoration: none;
