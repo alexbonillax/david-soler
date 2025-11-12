@@ -15,15 +15,4 @@ class Invoice extends Model
         'customer_id',
     ];
 
-    public function customer()
-    {
-        return $this->belongsTo(Customer::class, 'customer_id');
-    }
-
-    public function orderProducts()
-    {
-        return $this->hasMany(OrderProduct::class, 'order_id');
-    }
-
-
 }

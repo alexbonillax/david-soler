@@ -4,33 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Invoice;
 use App\Models\Order;
-use Illuminate\Http\Request;
+
 
 class DashboardController extends Controller
 {
     public function index()
     {
 
-        $ordersByMonth = Order::selectRaw('MONTH(created_at) as month, COUNT(*) as total')
-            ->whereYear('created_at', 2025)
-            ->groupBy('month')
-            ->orderBy('month')
-            ->pluck('total', 'month')
-            ->toArray();
-
-
-        $invoicesByMonth = Invoice::selectRaw('MONTH(created_at) as month, COUNT(*) as total, SUM(amount) as facturacion')
-            ->whereYear('created_at', 2025)
-            ->groupBy('month')
-            ->orderBy('month')
+        $ordersByMonth = Order::whereYear('created_at', 2025)
             ->get()
-            ->keyBy('month');
+            ->groupBy(function ($order) {
+                return $order->created_at->month;
+            })
+            ->map(fn($orders) => $orders->count());
+
+
+        $invoicesByMonth = Invoice::whereYear('created_at', 2025)
+            ->get()
+            ->groupBy(fn($invoice) => $invoice->created_at->month)
+            ->map(fn($invoices) => [
+                'total' => $invoices->count(),
+                'billing' => $invoices->sum('amount')
+            ]);
 
 
         $monthName = [];
         $totalMonth = [];
         $invoiceCountMonth = [];
-        $facturacionMonth = [];
+        $billingMonth = [];
 
         foreach ($ordersByMonth as $month => $total) {
             $monthName[] = match ((int)$month) {
@@ -49,8 +50,8 @@ class DashboardController extends Controller
             };
 
             $totalMonth[] = $total;
-            $invoiceCountMonth[] = $invoicesByMonth[$month]->total ?? 0;
-            $facturacionMonth[] = $invoicesByMonth[$month]->facturacion ?? 0;
+            $invoiceCountMonth[] = $invoicesByMonth[$month]['total'] ?? 0;
+            $billingMonth[] = $invoicesByMonth[$month]['billing'] ?? 0;
         }
 
         $totalYear = Invoice::whereYear('created_at', 2025)->sum('amount');
@@ -59,7 +60,7 @@ class DashboardController extends Controller
             'labelsMonth' => $monthName,
             'totalMonth' => $totalMonth,
             'invoiceCountMonth' => $invoiceCountMonth,
-            'facturacionMonth' => $facturacionMonth,
+            'billingMonth' => $billingMonth,
             'totalYear' => $totalYear
         ]);
     }

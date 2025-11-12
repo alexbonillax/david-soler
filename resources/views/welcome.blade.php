@@ -11,7 +11,7 @@
     @vite('resources/js/app.jsx')
     @vite('resources/js/ResponsiveAppBar.jsx')
     @vite('resources/js/LetterAvatar.jsx')
-    {{--    @vite(['resources/scss/principal.scss'])--}}
+    @vite(['resources/scss/principal.scss'])
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
@@ -50,14 +50,6 @@
             border-radius: 10px;
         }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
     </style>
 </head>
 
@@ -106,7 +98,7 @@
                             },
                             {
                                 label: 'Facturación mensual (€)',
-                                data: @json($facturacionMonth),
+                                data: @json($billingMonth),
                                 borderColor: 'orange',
                                 backgroundColor: 'orange',
                                 tension: 0.4,

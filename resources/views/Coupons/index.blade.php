@@ -18,8 +18,6 @@
         * {
             font-family: ibm plex sans;
         }
-
-        }
         table {
             border-collapse: collapse;
             width: 100%;
@@ -32,7 +30,6 @@
             border: 1px solid #dbdbd7;
             padding: 8px;
             text-align: left;
-
         }
 
         th {
@@ -43,7 +40,7 @@
 
         a {
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
         }
 
         .btn-danger {

@@ -7,12 +7,9 @@ $colorBlack: #000000;
 $colorGrayLight: gray;
 $colorGrayDesa: #323F48;
 $colorPurple: #48317a;
-
 * {
     font-family: $fontMain;
-    background: $colorWhite;
 }
-
 
 h1 {
     font-family: $fontMain;
@@ -28,7 +25,7 @@ a {
 html, body {
     padding: 0px;
     margin: 0px;
-    background-color: $colorGrayLight;
+    background-color: $colorGrayDesa;
     width: 100vw;
 }
 
@@ -37,125 +34,15 @@ body * {
     padding: 0;
 }
 
-nav {
-    margin-top: 40px;
-    margin-left: 40px;
-
-    > menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        margin: 0 auto;
-
-        > menuitem {
-            pointer-events: all;
-            opacity: 1;
-
-            > a + menu::after {
-                content: '';
-                position: absolute;
-                border: 10px solid transparent;
-                border-top: 10px solid $colorWhite;
-                left: 12px;
-                top: -40px;
-            }
-
-            menuitem menu {
-                transform: translateX(100%);
-                top: 0;
-                right: 0;
-            }
-
-            > menu > menuitem {
-                transition: transform 0.6s, opacity 0.6s;
-                transform: translateY(150%);
-                opacity: 0;
-
-                &:hover,
-                &.hover {
-                    transform: translateY(0%);
-                    opacity: 1;
-                }
-            }
-        }
-    }
-
-    nav a {
-        background: $colorGrayDesa;
-        color: $colorWhite;
-        min-width: 300px;
-        transition: background 1s, color 0.5s, transform 0.5s;
-        margin: 0 6px 6px 0;
-        padding: 20px 70px;
-        box-sizing: border-box;
-        border-radius: 3px;
-        box-shadow: 10px 10px 20px rgba(0, 0, 10, 0.5);
-        position: relative;
-        font-family: $fontMain;
-
-        nav a:hover:before {
-            content: '';
-            top: 0;
-            left: 0;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.2);
-            width: 100%;
-            height: 100%;
-        }
-    }
+form {
+    max-width: 600px;
+    margin: -50px auto;
+    padding: 50px;
+    background: $colorWhite;
+    border-radius: 10px;
 }
 
-menuitem {
-    position: relative;
-    display: block;
-    opacity: 0;
-    cursor: pointer;
 
-    > menu {
-        position: absolute;
-        pointer-events: none;
-
-        > menuitem {
-            a {
-                white-space: nowrap;
-                display: block;
-            }
-
-            > a + menu::after {
-                content: '';
-                position: absolute;
-                border: 10px solid transparent;
-                border-left: 10px solid $colorWhite;
-                top: 20px;
-                left: -180px;
-                transition: opacity 0.6s, transform 0s;
-            }
-
-            > menu > menuitem {
-                transition: transform 0.6s, opacity 0.6s;
-                transform: translateX(195px) translateY(0%);
-                opacity: 0;
-                font-family: $fontMain;
-
-                menuitem > menu > menuitem:hover > menu > menuitem,
-                menuitem > menu > menuitem.hover > menu > menuitem {
-                    transform: translateX(0) translateY(0%);
-                    opacity: 1;
-                }
-            }
-        }
-    }
-
-    menuitem:hover > menu {
-        pointer-events: initial;
-
-        menuitem:hover > menu > menuitem,
-        menu:hover > menuitem {
-            opacity: 1;
-        }
-    }
-}
 
 form {
     max-width: 600px;
