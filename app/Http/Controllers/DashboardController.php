@@ -13,9 +13,7 @@ class DashboardController extends Controller
 
         $ordersByMonth = Order::whereYear('created_at', 2025)
             ->get()
-            ->groupBy(function ($order) {
-                return $order->created_at->month;
-            })
+            ->groupBy(fn($order) => $order->created_at->month)
             ->map(fn($orders) => $orders->count());
 
 
