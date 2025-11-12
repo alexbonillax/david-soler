@@ -12,45 +12,45 @@
     @vite('resources/js/ResponsiveAppBar.jsx')
     @vite('resources/js/LetterAvatar.jsx')
     @vite(['resources/scss/principal.scss'])
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+{{--    <style>--}}
+{{--        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');--}}
 
-        * {
-            font-family: ibm plex sans;
-        }
+{{--        * {--}}
+{{--            font-family: ibm plex sans;--}}
+{{--        }--}}
 
-        h1 {
-            font-family: ibm plex sans;
-        }
+{{--        h1 {--}}
+{{--            font-family: ibm plex sans;--}}
+{{--        }--}}
 
-        a {
-            color: black;
-            font-size: 20px;
-            font-family: ibm plex sans;
-            text-decoration: none;
-        }
+{{--        a {--}}
+{{--            color: black;--}}
+{{--            font-size: 20px;--}}
+{{--            font-family: ibm plex sans;--}}
+{{--            text-decoration: none;--}}
+{{--        }--}}
 
-        html, body {
-            padding: 0px;
-            margin: 0px;
-            background-color: gray;
-            width: 100vw;
-        }
+{{--        html, body {--}}
+{{--            padding: 0px;--}}
+{{--            margin: 0px;--}}
+{{--            background-color: gray;--}}
+{{--            width: 100vw;--}}
+{{--        }--}}
 
-        body * {
-            margin: 0;
-            padding: 0;
-        }
+{{--        body * {--}}
+{{--            margin: 0;--}}
+{{--            padding: 0;--}}
+{{--        }--}}
 
-        form {
-            max-width: 600px;
-            margin: -50px auto;
-            padding: 50px;
-            background: #ffffff;
-            border-radius: 10px;
-        }
+{{--        form {--}}
+{{--            max-width: 600px;--}}
+{{--            margin: -50px auto;--}}
+{{--            padding: 50px;--}}
+{{--            background: #ffffff;--}}
+{{--            border-radius: 10px;--}}
+{{--        }--}}
 
-    </style>
+{{--    </style>--}}
 </head>
 
 <body>
