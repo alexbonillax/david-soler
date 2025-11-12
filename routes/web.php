@@ -8,7 +8,7 @@ use App\Http\Controllers\DesaCouponsController;
 use App\Http\Controllers\DesaProductsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use APP\Http\controllers\UserController;
+use App\Http\Controllers\UserController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -42,6 +42,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])->name('products.destroy');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/perfil', [UserController::class, 'edit'])->name('perfil.edit');
-    Route::put('/perfil', [UserController::class, 'update'])->name('perfil.update');
+    Route::put('/perfil/{id}', [UserController::class, 'update'])->name('perfil.update');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
