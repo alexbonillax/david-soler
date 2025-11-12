@@ -8,15 +8,15 @@ use App\Http\Controllers\DesaCouponsController;
 use App\Http\Controllers\DesaProductsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-//
+use APP\Http\controllers\UserController;
+
 //Route::get('/', function () {
 //    return view('welcome');
 //});
 
-
-Route::get('/down2', function () {
-    return view('down2');
-})->name('down2');
+//Route::get('/down2', function () {
+//    return view('down2');
+//})->name('down2');
 
 
 
@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/products/{product}', [DesaProductsController::class, 'save'])->name('products.update');
     Route::delete('/products/{product}', [DesaProductsController::class, 'destroy'])->name('products.destroy');
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/perfil', [\App\Http\Controllers\UserController::class, 'edit'])->name('perfil.edit');
-    Route::put('/perfil', [\App\Http\Controllers\UserController::class, 'update'])->name('perfil.update');
+    Route::get('/perfil', [UserController::class, 'edit'])->name('perfil.edit');
+    Route::put('/perfil', [UserController::class, 'update'])->name('perfil.update');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
 $fontMain: 'IBM Plex Sans', sans-serif;
 $fontAlt: 'Instrument Sans', sans-serif;
-$colorWhite: #ffffff;
+
+$colorWhite: #FFFFFF;
 $colorBlack: #000000;
-$colorGrayLight: gray;
+$colorGrayLight: #808080FF;
 $colorGrayDesa: #323F48;
-$colorPurple: #48317a;
+$colorPurple: #48317A;
+
 * {
     font-family: $fontMain;
 }
