@@ -207,6 +207,38 @@ class Sandbox2 extends Command
 
     public function handle()
     {
+
+        $pedidos = [
+            ['id' => 101, 'cliente' => 'Empresa A', 'estado' => 'enviado'],
+            ['id' => 102, 'cliente' => 'Empresa B', 'estado' => 'pendiente'],
+            ['id' => 103, 'cliente' => 'Empresa C', 'estado' => 'pendiente'],
+            ['id' => 104, 'cliente' => 'Empresa D', 'estado' => 'cancelado'],
+            ['id' => 105, 'cliente' => 'Empresa E', 'estado' => 'pendiente']
+        ];
+
+        $contadorPendientes = 0;
+
+        foreach ($pedidos as $pedido) {
+            if ($pedido['estado'] == 'pendiente') {
+                print_r("Pedido ID:" . $pedido['id'] . PHP_EOL . "Cliente: " . $pedido['cliente'] . "\n");
+                $contadorPendientes++;
+            }
+        }
+        print_r("Total pedidos pendientes: " . $contadorPendientes . "\n");
+
+//        $prices = [10.90, 95, 12.99, 13.99, 25, 55, 290.99];
+//        $iva = 1.21;
+//        print_r("CALCULADORA DE IVA" .PHP_EOL);
+//        foreach ($prices as $price) {
+//            $finalPrice = $price * $iva;
+//            if (
+//                $price > 50)
+//                print_r("Producto Caro:" . $finalPrice . PHP_EOL);
+//            else {
+//                print_r("Producto Barato:" . $finalPrice . PHP_EOL);
+//            }
+//        }
+
         //$empleados = DB::table('empleados')->where('ID', 1)->first();
         //$empleados = DB::table('empleados')->get();
         //print_r($empleados);
@@ -220,15 +252,15 @@ class Sandbox2 extends Command
 //        print_r($empleados);
 //        print_r(PHP_EOL);
 
-        $orders = DB::table('orders')
-            ->join('customers', 'orders.customer_id', '=', 'customers.id')
-            ->select('orders.code as orderCode', 'customers.name as customerName','orders.created_at as orderDate','orders.net_amount as orderAmount')
-            ->limit(1000)
-            //->limit(1000)
-            ->orderBy('orders.id', 'desc')
-            ->get();
-        print_r($orders);
-        print_r(PHP_EOL);
+//        $orders = DB::table('orders')
+//            ->join('customers', 'orders.customer_id', '=', 'customers.id')
+//            ->select('orders.code as orderCode', 'customers.name as customerName','orders.created_at as orderDate','orders.net_amount as orderAmount')
+//            ->limit(1000)
+//            //->limit(1000)
+//            ->orderBy('orders.id', 'desc')
+//            ->get();
+//        print_r($orders);
+//        print_r(PHP_EOL);
 
 //        $clientes = DB::table('customers')
 //            ->leftJoin('orders', 'customers.CustomerID', '=', 'orders.CustomerID')

@@ -26,10 +26,12 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import PrintIcon from '@mui/icons-material/Print';
 
 const menuItems = [
     { text: 'Inicio', icon: <HomeFilledIcon />, link: '/' },
     { text: 'Pedidos', icon: <ShoppingCartIcon />, link: '/desaOrders' },
+    { text: 'Pedidos PDF', icon: <PrintIcon />, link: '/pdforders' },
     { text: 'Productos', icon: <InventoryIcon />, link: '/products' },
     { text: 'Cupones', icon: <LocalOfferIcon />, link: '/coupons' },
     { text: 'Descargas', icon: <DownloadIcon />, link: '/down2' },

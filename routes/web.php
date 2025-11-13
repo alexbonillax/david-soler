@@ -9,6 +9,7 @@ use App\Http\Controllers\DesaProductsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PdfController;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -44,4 +45,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/perfil', [UserController::class, 'edit'])->name('perfil.edit');
     Route::put('/perfil/{id}', [UserController::class, 'update'])->name('perfil.update');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/pdforders', [PdfController::class,'GeneratePdf'])->name('GeneratePdf');
 });
