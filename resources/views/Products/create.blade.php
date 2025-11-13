@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <title>Crear Producto</title>
 </head>
+@viteReactRefresh
+@vite('resources/js/app.jsx')
+@vite('resources/js/ResponsiveAppBar.jsx')
+@vite(['resources/scss/principal.scss'])
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-    * {
-        font-family: IBM Plex Sans;
-        background: white;
-    }
 </style>
 <body>
+<div class="container">
+    <div id="ResponsiveAppBar" style="text-align: center">
+        <div align="center">
+            <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+                 height="150px">
+            <div id="app" data-username="{{ Auth::user()->first_name }}"></div>
+        </div>
+        <br>
 <div class="container">
     <h2>Crear Producto</h2>
 
@@ -25,12 +33,12 @@
         </div>
         <br>
         <div>
-            <label for="name">Nombre:</label>
+            <label for="name">Nombre corto:</label>
             <input type="text" name="name" id="name" required>
         </div>
         <br>
         <div>
-            <label for="full_name">Nombre:</label>
+            <label for="full_name">Nombre completo:</label>
             <input type="text" name="full_name" id="full_name" required>
         </div>
         <br>

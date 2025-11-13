@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <title>Editar cupón</title>
 </head>
+@viteReactRefresh
+@vite('resources/js/app.jsx')
+@vite('resources/js/ResponsiveAppBar.jsx')
+@vite(['resources/scss/principal.scss'])
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
     * {
         font-family: IBM Plex Sans;
-        background: white;
+
     }
 
     }
@@ -24,6 +28,13 @@
 </style>
 <body>
 <div class="container">
+    <div id="ResponsiveAppBar" style="text-align: center">
+        <div align="center">
+            <img src="https://media.timtul.com/media/users/Logo_Tagline_Desa2_20240530105352.jpg" style="width: 300px"
+                 height="150px">
+            <div id="app" data-username="{{ Auth::user()->first_name }}"></div>
+        </div>
+        <br>
     <h2>Editar Producto</h2>
 
     <div>

@@ -32,7 +32,7 @@ const menuItems = [
     { text: 'Pedidos', icon: <ShoppingCartIcon />, link: '/desaOrders' },
     { text: 'Productos', icon: <InventoryIcon />, link: '/products' },
     { text: 'Cupones', icon: <LocalOfferIcon />, link: '/coupons' },
-    { text: 'Descargas', icon: <DownloadIcon />, link: '/downloads' },
+    { text: 'Descargas', icon: <DownloadIcon />, link: '/down2' },
     { text: 'Perfil', icon: <AccountCircle />,link: '/perfil' },
     { text: 'Factorial', icon: <AccessTimeIcon />, link: 'https://app.factorialhr.com/' },
     { text: 'Salir', icon: <LogoutIcon color="error" />, link: '/login' },

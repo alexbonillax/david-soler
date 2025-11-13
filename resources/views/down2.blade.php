@@ -7,8 +7,8 @@
 </head>
 <body>
 aaaa
-{{--<h1>Descargas</h1>--}}
-{{--<a href="{{ asset('/downloads/download1.pdf') }}" download>Descargar</a>--}}
+<h1>Descargas</h1>
+<a href="{{ asset('/downloads/download1.pdf') }}" download>Descargar</a>
 
 </body>
 </html>
