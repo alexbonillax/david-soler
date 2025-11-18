@@ -207,6 +207,17 @@ class Sandbox2 extends Command
 
     public function handle()
     {
+        $numeros = collect(range(1,10))->map(fn()=>rand(1,100));
+        print_r($numeros);
+        print_r('Total Suma:' . $numeros->sum() . PHP_EOL);
+        print_r('Número Max:' . $numeros->max() . PHP_EOL);
+        print_r('Número Min:' . $numeros->min() . PHP_EOL);
+
+        die;
+
+        $tempCelsius = 50;
+        $tempFarenheit = $tempCelsius * 1.8 + 32;
+        print_r("La temperatura $tempCelsius  Cª son $tempFarenheit Farenheit");
 
         $pedidos = [
             ['id' => 101, 'cliente' => 'Empresa A', 'estado' => 'enviado'],
@@ -226,18 +237,19 @@ class Sandbox2 extends Command
         }
         print_r("Total pedidos pendientes: " . $contadorPendientes . "\n");
 
-//        $prices = [10.90, 95, 12.99, 13.99, 25, 55, 290.99];
-//        $iva = 1.21;
-//        print_r("CALCULADORA DE IVA" .PHP_EOL);
-//        foreach ($prices as $price) {
-//            $finalPrice = $price * $iva;
-//            if (
-//                $price > 50)
-//                print_r("Producto Caro:" . $finalPrice . PHP_EOL);
-//            else {
-//                print_r("Producto Barato:" . $finalPrice . PHP_EOL);
-//            }
-//        }
+        $prices = [10.90, 95, 12.99, 13.99, 25, 55, 290.99];
+        $iva = 1.21;
+        print_r("CALCULADORA DE IVA" .PHP_EOL);
+        foreach ($prices as $price) {
+            $finalPrice = $price * $iva;
+            if (
+                $price > 50)
+                print_r("Producto Caro:" . $finalPrice . PHP_EOL);
+            else {
+                print_r("Producto Barato:" . $finalPrice . PHP_EOL);
+            }
+        }
+
 
         //$empleados = DB::table('empleados')->where('ID', 1)->first();
         //$empleados = DB::table('empleados')->get();
