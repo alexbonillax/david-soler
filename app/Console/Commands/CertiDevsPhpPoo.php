@@ -65,3 +65,68 @@ class Product
 
 $product = new Product("Teclado mecánico", 79.99, 10);
 $product->imprimirInformacion();
+
+
+
+/////////////////////////////
+//ACT4: RETO ENCAPSUILACION BÁSICA
+
+class Producto
+{
+    private string $nombre;
+    private float $precio;
+    private int $stock;
+
+    public function __construct(string $nombre, float $precio, int $stock)
+    {
+        $this->nombre = $nombre;
+        $this->precio = ($precio > 0) ? $precio : 0;
+        $this->stock = ($stock >= 0) ? $stock : 0;
+    }
+
+    public function getNombre(): string
+    {
+        return $this->nombre;
+    }
+
+    public function getPrecio(): float
+    {
+        return $this->precio;
+    }
+
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    public function setNombre(string $nombre): void
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function setPrecio(float $precio): void
+    {
+        if ($precio > 0) {
+            $this->precio = $precio;
+        }
+    }
+
+    public function setStock(int $stock): void
+    {
+        if ($stock >= 0) {
+            $this->stock = $stock;
+        }
+    }
+
+    public function mostrarInformacion(): string
+    {
+        return "Producto: {$this->nombre}, Precio: {$this->precio}€, Stock: {$this->stock} unidades";
+    }
+}
+
+$producto = new Producto("Teclado", 25.99, 10);
+print_r($producto->mostrarInformacion() . PHP_EOL);
+
+$producto->setPrecio(30.50);
+$producto->setStock(15);
+print_r($producto->mostrarInformacion() . PHP_EOL);
