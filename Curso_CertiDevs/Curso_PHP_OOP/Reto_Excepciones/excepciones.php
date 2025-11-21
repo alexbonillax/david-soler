@@ -4,14 +4,13 @@ class ArchivoInexistenteException extends Exception {}
 
 function abrirArchivo(string $nombreArchivo) {
     if (!file_exists($nombreArchivo)) {
-        throw new ArchivoInexistenteException("El archivo '{$nombreArchivo}' no existe.");
+        throw new ArchivoInexistenteException("El archivo '$nombreArchivo' no existe.");
     }
 
     return fopen($nombreArchivo, 'r');
 }
 
 $archivo = null;
-
 
 try {
     $archivo = abrirArchivo('ruta_incorrecta.txt');

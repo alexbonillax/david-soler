@@ -4,7 +4,8 @@ class GestorTemporal {
     private string $rutaArchivo;
     private $manejador;
 
-    public function __construct(string $nombreArchivo) {
+    public function __construct(string $nombreArchivo)
+    {
         $this->rutaArchivo = $nombreArchivo;
         $this->manejador = fopen($this->rutaArchivo, 'w');
         if ($this->manejador) {
@@ -36,4 +37,5 @@ class GestorTemporal {
 
 $gestor = new GestorTemporal("temporal.txt");
 $gestor->escribirLinea("Línea de prueba");
+
 print_r("Fin del script." . PHP_EOL);
