@@ -207,48 +207,69 @@ class Sandbox2 extends Command
 
     public function handle()
     {
-        $numeros = collect(range(1,10))->map(fn()=>rand(1,100));
-        print_r($numeros);
-        print_r('Total Suma:' . $numeros->sum() . PHP_EOL);
-        print_r('Número Max:' . $numeros->max() . PHP_EOL);
-        print_r('Número Min:' . $numeros->min() . PHP_EOL);
 
-        die;
+        $n = 10;
 
-        $tempCelsius = 50;
-        $tempFarenheit = $tempCelsius * 1.8 + 32;
-        print_r("La temperatura $tempCelsius  Cª son $tempFarenheit Farenheit");
-
-        $pedidos = [
-            ['id' => 101, 'cliente' => 'Empresa A', 'estado' => 'enviado'],
-            ['id' => 102, 'cliente' => 'Empresa B', 'estado' => 'pendiente'],
-            ['id' => 103, 'cliente' => 'Empresa C', 'estado' => 'pendiente'],
-            ['id' => 104, 'cliente' => 'Empresa D', 'estado' => 'cancelado'],
-            ['id' => 105, 'cliente' => 'Empresa E', 'estado' => 'pendiente']
-        ];
-
-        $contadorPendientes = 0;
-
-        foreach ($pedidos as $pedido) {
-            if ($pedido['estado'] == 'pendiente') {
-                print_r("Pedido ID:" . $pedido['id'] . PHP_EOL . "Cliente: " . $pedido['cliente'] . "\n");
-                $contadorPendientes++;
+        if ($n > 0) {
+            $a = 0;
+            $b = 1;
+            print_r("Serie Fibonacci:" . PHP_EOL);
+            for ($i = 0; $i < $n; $i++) {
+                print_r($a . PHP_EOL);
+                $temp = $a + $b;
+                $a = $b;
+                $b = $temp;
             }
+        } else {
+            print_r("El número de términos debe ser mayor que cero." . PHP_EOL);
         }
-        print_r("Total pedidos pendientes: " . $contadorPendientes . "\n");
 
-        $prices = [10.90, 95, 12.99, 13.99, 25, 55, 290.99];
-        $iva = 1.21;
-        print_r("CALCULADORA DE IVA" .PHP_EOL);
-        foreach ($prices as $price) {
-            $finalPrice = $price * $iva;
-            if (
-                $price > 50)
-                print_r("Producto Caro:" . $finalPrice . PHP_EOL);
-            else {
-                print_r("Producto Barato:" . $finalPrice . PHP_EOL);
-            }
-        }
+
+
+
+
+//        $numeros = collect(range(1,10))->map(fn()=>rand(1,100));
+//        print_r($numeros);
+//        print_r('Total Suma:' . $numeros->sum() . PHP_EOL);
+//        print_r('Número Max:' . $numeros->max() . PHP_EOL);
+//        print_r('Número Min:' . $numeros->min() . PHP_EOL);
+//
+//        die;
+//
+//        $tempCelsius = 50;
+//        $tempFarenheit = $tempCelsius * 1.8 + 32;
+//        print_r("La temperatura $tempCelsius  Cª son $tempFarenheit Farenheit");
+//
+//        $pedidos = [
+//            ['id' => 101, 'cliente' => 'Empresa A', 'estado' => 'enviado'],
+//            ['id' => 102, 'cliente' => 'Empresa B', 'estado' => 'pendiente'],
+//            ['id' => 103, 'cliente' => 'Empresa C', 'estado' => 'pendiente'],
+//            ['id' => 104, 'cliente' => 'Empresa D', 'estado' => 'cancelado'],
+//            ['id' => 105, 'cliente' => 'Empresa E', 'estado' => 'pendiente']
+//        ];
+//
+//        $contadorPendientes = 0;
+//
+//        foreach ($pedidos as $pedido) {
+//            if ($pedido['estado'] == 'pendiente') {
+//                print_r("Pedido ID:" . $pedido['id'] . PHP_EOL . "Cliente: " . $pedido['cliente'] . "\n");
+//                $contadorPendientes++;
+//            }
+//        }
+//        print_r("Total pedidos pendientes: " . $contadorPendientes . "\n");
+//
+//        $prices = [10.90, 95, 12.99, 13.99, 25, 55, 290.99];
+//        $iva = 1.21;
+//        print_r("CALCULADORA DE IVA" .PHP_EOL);
+//        foreach ($prices as $price) {
+//            $finalPrice = $price * $iva;
+//            if (
+//                $price > 50)
+//                print_r("Producto Caro:" . $finalPrice . PHP_EOL);
+//            else {
+//                print_r("Producto Barato:" . $finalPrice . PHP_EOL);
+//            }
+//        }
 
 
         //$empleados = DB::table('empleados')->where('ID', 1)->first();
